@@ -5,6 +5,6 @@ export class Ticket{
     id:number=0
     probabilidad:number=0
     equipoGanador:string=""
-    user:Array<User>=new Array<User>()
-    match:Array<Match>=new Array<Match>()
+    user:User = new User
+    match:Match=new Match
 }

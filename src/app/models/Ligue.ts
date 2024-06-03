@@ -3,5 +3,5 @@ import { Season } from "./Season";
 export class Ligue {
     id: number = 0
     nameligue: string = ""
-    seasons: Array<Season> = new Array<Season>();
+    season:Season=new Season
 }
