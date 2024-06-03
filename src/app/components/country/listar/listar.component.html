@@ -1,1 +1,18 @@
-<p>listar works!</p>
+<div class="container">
+    <div class="title-container"><h1 class="title">Lista de Countries</h1></div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef>ID</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="namecountry">
+        <th mat-header-cell *matHeaderCellDef>Pais</th>
+        <td mat-cell *matCellDef="let element">{{ element.namecountry }}</td>
+      </ng-container>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  
+    <mat-paginator [pageSizeOptions]="[4, 7, 10]" showFirstLastButtons></mat-paginator>
+  </div>
