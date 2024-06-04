@@ -1,6 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import {
+  FormBuilder,
+  FormGroup,
+  ReactiveFormsModule,
+  Validators,
+} from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
@@ -19,7 +24,7 @@ import { Country } from '../../../models/Country';
     MatInputModule,
   ],
   templateUrl: './insertarcountry.component.html',
-  styleUrl: './insertarcountry.component.css'
+  styleUrl: './insertarcountry.component.css',
 })
 export class InsertarcountryComponent implements OnInit {
   form: FormGroup = new FormGroup({});
@@ -29,16 +34,11 @@ export class InsertarcountryComponent implements OnInit {
     private formBuilder: FormBuilder,
     private cS: CountryService,
     private router: Router
-  ) { }
+  ) {}
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({
-      pais: [
-        '',
-        [
-          Validators.required, Validators.pattern('[a-zA-Z]*'),
-        ]
-      ],
+      pais: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
     });
   }
 
@@ -53,8 +53,7 @@ export class InsertarcountryComponent implements OnInit {
       });
       this.router.navigate(['listarcountry/insertarcountry']).then(() => {
         window.location.reload();
-      })
+      });
     }
   }
-
 }
