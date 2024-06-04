@@ -8,11 +8,9 @@ import { MatTableModule } from '@angular/material/table';
   standalone: true,
   imports: [RouterOutlet, ListarComponent, MatTableModule],
   templateUrl: './user.component.html',
-  styleUrl: './user.component.css'
+  styleUrl: './user.component.css',
 })
-export class UserComponent implements OnInit{
-  constructor(public route: ActivatedRoute){}
-  ngOnInit(): void {
-
-  }
+export class UserComponent implements OnInit {
+  constructor(public route: ActivatedRoute) {}
+  ngOnInit(): void {}
 }
