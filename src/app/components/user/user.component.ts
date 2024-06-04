@@ -11,6 +11,6 @@ import { MatTableModule } from '@angular/material/table';
   styleUrl: './user.component.css',
 })
 export class UserComponent implements OnInit {
-  constructor(public route: ActivatedRoute) {}
-  ngOnInit(): void {}
+  constructor(public route: ActivatedRoute) { }
+  ngOnInit(): void { }
 }

@@ -4,15 +4,15 @@ import { environment } from '../../environments/environements';
 import { Country } from '../models/Country';
 import { Subject } from 'rxjs';
 
-const base_url=environment.base;
+const base_url = environment.base;
 @Injectable({
   providedIn: 'root'
 })
 export class CountryService {
-  private url=`${base_url}/countries`
+  private url = `${base_url}/countries`
   private listacambio = new Subject<Country[]>();
   constructor(private http: HttpClient) { }
-  list(){
+  list() {
     return this.http.get<Country[]>(this.url);
   }
   insert(co: Country) {

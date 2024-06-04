@@ -34,7 +34,7 @@ export class InsertarcountryComponent implements OnInit {
     private formBuilder: FormBuilder,
     private cS: CountryService,
     private router: Router
-  ) {}
+  ) { }
 
   ngOnInit(): void {
     this.form = this.formBuilder.group({

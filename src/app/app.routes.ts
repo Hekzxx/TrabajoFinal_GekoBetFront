@@ -8,26 +8,26 @@ import { InsertaruserComponent } from './components/user/insertaruser/insertarus
 
 export const routes: Routes = [
     {
-        path:'listarcountry', component:CountryComponent,
-        children:[
+        path: 'listarcountry', component: CountryComponent,
+        children: [
             {
-                path:'insertarcountry', component:InsertarcountryComponent,
+                path: 'insertarcountry', component: InsertarcountryComponent,
             }
         ]
     },
     {
-        path:'listarmatch', component:MatchComponent,
-        children:[
+        path: 'listarmatch', component: MatchComponent,
+        children: [
             {
-                path:'insertarmatch', component:InsertarmatchComponent,
+                path: 'insertarmatch', component: InsertarmatchComponent,
             }
         ]
     },
     {
-        path:'listaruser',component:UserComponent,
-        children:[
+        path: 'listaruser', component: UserComponent,
+        children: [
             {
-                path:'insertaruser', component:InsertaruserComponent,
+                path: 'insertaruser', component: InsertaruserComponent,
             }
         ]
     }

@@ -36,7 +36,7 @@ export class InsertarmatchComponent implements OnInit {
     private formBuilder: FormBuilder,
     private mS: MatchService,
     private router: Router
-  ) {}
+  ) { }
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       versus: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],

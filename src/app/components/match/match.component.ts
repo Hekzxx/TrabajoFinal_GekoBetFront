@@ -11,6 +11,6 @@ import { MatTableModule } from '@angular/material/table';
   styleUrl: './match.component.css',
 })
 export class MatchComponent implements OnInit {
-  constructor(public route: ActivatedRoute) {}
-  ngOnInit(): void {}
+  constructor(public route: ActivatedRoute) { }
+  ngOnInit(): void { }
 }

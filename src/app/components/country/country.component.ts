@@ -11,8 +11,8 @@ import { MatTableModule } from '@angular/material/table';
   styleUrl: './country.component.css'
 })
 export class CountryComponent implements OnInit {
-  constructor(public route: ActivatedRoute){}
+  constructor(public route: ActivatedRoute) { }
   ngOnInit(): void {
-    
+
   }
 }

@@ -7,7 +7,7 @@ import { UserService } from '../../../services/user.service';
 @Component({
   selector: 'app-listar',
   standalone: true,
-  imports: [    MatTableModule,
+  imports: [MatTableModule,
     MatPaginatorModule],
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'
@@ -21,7 +21,7 @@ export class ListarComponent implements OnInit {
   ngOnInit(): void {
     this.uS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator=this.paginator;
+      this.dataSource.paginator = this.paginator;
     })
   }
 

@@ -3,15 +3,15 @@ import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environements';
 import { Match } from '../models/Match';
 import { Subject } from 'rxjs';
-const base_url=environment.base;
+const base_url = environment.base;
 @Injectable({
   providedIn: 'root'
 })
 export class MatchService {
-  private url=`${base_url}/Matches`
+  private url = `${base_url}/Matches`
   private listacambio = new Subject<Match[]>();
   constructor(private http: HttpClient) { }
-  list(){
+  list() {
     return this.http.get<Match[]>(this.url);
   }
   insert(ma: Match) {

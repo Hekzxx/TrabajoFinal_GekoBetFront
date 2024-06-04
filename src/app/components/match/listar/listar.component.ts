@@ -12,7 +12,7 @@ import { MatchService } from '../../../services/match.service';
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'
 })
-export class ListarComponent implements OnInit{
+export class ListarComponent implements OnInit {
   displayedColumns: string[] = ['id', 'dateMatch', 'versus'];
   dataSource: MatTableDataSource<Match> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
@@ -20,7 +20,7 @@ export class ListarComponent implements OnInit{
   ngOnInit(): void {
     this.mS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator=this.paginator;
+      this.dataSource.paginator = this.paginator;
     })
   }
 }

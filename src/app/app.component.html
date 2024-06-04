@@ -1,20 +1,27 @@
 <mat-toolbar color="primary">
-  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-  <button mat-button [matMenuTriggerFor]="Country"> Country</button>  
-  <button mat-button [matMenuTriggerFor]="Match"> Match</button>  
-  <button mat-button [matMenuTriggerFor]="User"> User</button>  
-  
- </mat-toolbar>  
- <mat-menu #Country="matMenu"> 
+  <mat-icon
+    aria-hidden="false"
+    aria-label="Example home icon"
+    fontIcon="home"
+  ></mat-icon>
+  <button mat-button [matMenuTriggerFor]="Country">Country</button>
+  <button mat-button [matMenuTriggerFor]="Match">Match</button>
+  <button mat-button [matMenuTriggerFor]="User">User</button>
+</mat-toolbar>
+<mat-menu #Country="matMenu">
   <button mat-menu-item routerLink="/listarcountry">Listar</button>
-  <button mat-menu-item routerLink="/listarcountry/insertarcountry">Registrar</button> 
- </mat-menu>
- <mat-menu #Match="matMenu">  
+  <button mat-menu-item routerLink="/listarcountry/insertarcountry">
+    Registrar
+  </button>
+</mat-menu>
+<mat-menu #Match="matMenu">
   <button mat-menu-item routerLink="/listarmatch">Listar</button>
-  <button mat-menu-item routerLink="/listarmatch/insertarmatch">Registrar</button> 
- </mat-menu>
- <mat-menu #User="matMenu"> 
+  <button mat-menu-item routerLink="/listarmatch/insertarmatch">
+    Registrar
+  </button>
+</mat-menu>
+<mat-menu #User="matMenu">
   <button mat-menu-item routerLink="/listaruser">Listar</button>
-  <button mat-menu-item routerLink="/listaruser/insertaruser">Registrar</button> 
- </mat-menu>
- <router-outlet></router-outlet>
+  <button mat-menu-item routerLink="/listaruser/insertaruser">Registrar</button>
+</mat-menu>
+<router-outlet></router-outlet>

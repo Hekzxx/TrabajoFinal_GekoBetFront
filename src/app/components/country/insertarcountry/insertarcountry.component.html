@@ -1,17 +1,20 @@
 <div class="title-container">
-    <div class="title-container"><h1>Registro</h1></div>
-    <form [formGroup]="form" (submit)="registrar()">
-      <mat-form-field>
-        <input matInput placeholder="Ingrese el nombre del pais" formControlName="pais" />
-        <mat-error *ngIf="form.get('pais')?.hasError('required')">
-          Ingresar el nombre del pais es obligatorio</mat-error
-        >
-        <mat-error *ngIf="form.get('pais')?.hasError('pattern')">
-          Solo se permiten letras</mat-error
-        >
-        
-      </mat-form-field>
-      <br />
-      <button mat-raised-button color="primary">Registrar</button>
-    </form>
-  </div>
+  <div class="title-container"><h1>Registro</h1></div>
+  <form [formGroup]="form" (submit)="registrar()">
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ingrese el nombre del pais"
+        formControlName="pais"
+      />
+      <mat-error *ngIf="form.get('pais')?.hasError('required')">
+        Ingresar el nombre del pais es obligatorio</mat-error
+      >
+      <mat-error *ngIf="form.get('pais')?.hasError('pattern')">
+        Solo se permiten letras</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <button mat-raised-button color="primary">Registrar</button>
+  </form>
+</div>
