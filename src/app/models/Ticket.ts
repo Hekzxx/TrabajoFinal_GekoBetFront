@@ -6,5 +6,5 @@ export class Ticket {
     probabilidad: number = 0
     equipoGanador: string = ""
     user: User = new User
-    match: Match = new Match
+    match: Match = new Match();
 }
