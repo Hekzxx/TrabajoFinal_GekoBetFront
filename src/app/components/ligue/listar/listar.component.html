@@ -1,1 +1,61 @@
-<p>listar works!</p>
+<div class="container">
+    <div class="title-container"><h1 class="title">Lista de Ligues</h1></div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+
+    <!--LLamado de la tabla independiente country (NameCountry)-->
+    <ng-container matColumnDef="paiscountry">
+        <th mat-header-cell *matHeaderCellDef>Pais</th>
+        <td mat-cell *matCellDef="let element"> {{ element.season.country.namecountry }}</td>
+      </ng-container>
+
+      <!--LLamado de la tabla independiente Season (year)-->
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef>Año</th>
+        <td mat-cell *matCellDef="let element"> {{ element.season.year }}</td>
+      </ng-container>
+  
+      <!--Atributo ligue (nameligue)-->
+      <ng-container matColumnDef="nameligue">
+        <th mat-header-cell *matHeaderCellDef>Liga</th>
+        <td mat-cell *matCellDef="let element">{{ element.nameligue }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="accion01">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-raised-button
+              color="warn"
+              [routerLink]="['ediciones', element.id]"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+    
+        <ng-container matColumnDef="accion02">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="eliminar(element.id)"
+            >
+              <mat-icon>delete_sweep</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  
+  <br />
+  
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    showFirstLastButtons
+  ></mat-paginator>
+  
