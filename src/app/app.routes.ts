@@ -10,10 +10,9 @@ export const routes: Routes = [
     {
         path: 'listarcountry', component: CountryComponent,
         children: [
-            {
-                path: 'insertarcountry', component: InsertarcountryComponent,
-            }
-        ]
+            { path: 'insertarcountry', component: InsertarcountryComponent},
+            { path: 'ediciones/:id', component: InsertarcountryComponent},
+        ],
     },
     {
         path: 'listarmatch', component: MatchComponent,

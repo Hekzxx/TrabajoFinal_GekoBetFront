@@ -11,17 +11,28 @@ const base_url = environment.base;
 export class CountryService {
   private url = `${base_url}/countries`
   private listacambio = new Subject<Country[]>();
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
   list() {
-    return this.http.get<Country[]>(this.url);
+    return this.httpClient.get<Country[]>(this.url);
   }
   insert(co: Country) {
-    return this.http.post(this.url, co);
+    return this.httpClient.post(this.url, co);
   }
   setList(listaNueva: Country[]) {
     this.listacambio.next(listaNueva);
   }
   getList() {
-    return this.listacambio.asObservable()
+    return this.listacambio.asObservable();
+  }
+  listId(id:number) {
+    return this.httpClient.get<Country>(`${this.url}/${id}`);
+  }
+
+  update(co:Country) {
+    return this.httpClient.put(this.url, co);
+  }
+
+  eliminar(id: number) {
+    return this.httpClient.delete(`${this.url}/${id}`);
   }
 }
