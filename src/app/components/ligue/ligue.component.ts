@@ -1,12 +1,15 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute, RouterOutlet } from '@angular/router';
+import { ListarComponent } from './listar/listar.component';
 
 @Component({
   selector: 'app-ligue',
   standalone: true,
-  imports: [],
+  imports: [RouterOutlet, ListarComponent],
   templateUrl: './ligue.component.html',
   styleUrl: './ligue.component.css'
 })
-export class LigueComponent {
-
+export class LigueComponent implements OnInit {
+  constructor(public route: ActivatedRoute) {}
+  ngOnInit(): void {}
 }
