@@ -53,11 +53,13 @@ export class InsertarroleComponent implements OnInit {
       this.edicion = data['id'] != null;
       this.init();
     });
+    
     this.form = this.formBuilder.group({
       codigo: [''],
       user: ['', Validators.required],
       tipo: ['', Validators.required],
     });
+
     this.uS.list().subscribe((data) => {
       this.listaUsers = data;
     });

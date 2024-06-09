@@ -1,1 +1,73 @@
-<p>insertarticket works!</p>
+<div class="title-container"><h1>Registro de Tickets</h1></div>
+<div class="container" style="text-align: center">
+  <form [formGroup]="form" (submit)="registrar()">
+
+    <mat-form-field class="example-full-width" *ngIf="edicion">
+      <mat-label>ID de ticket</mat-label>
+      <input matInput placeholder="Codigo" formControlName="codigo" />
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Nombre del Usuario</mat-label>
+      <mat-select formControlName="user">
+        <mat-option *ngFor="let u of listaUsers" [value]="u.username">
+          {{ u.username }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('user')?.hasError('required')"
+        >El codigo del usuario es obligatorio.</mat-error
+      >
+    </mat-form-field>
+    <br />
+
+    <mat-form-field class="example-full-width">
+      <mat-label>Versus</mat-label>
+      <mat-select formControlName="match">
+        <mat-option *ngFor="let u of listaMatches" [value]="u.versus">
+          {{ u.versus }}
+        </mat-option>
+      </mat-select>
+      <mat-error *ngIf="form.get('match')?.hasError('required')"
+        >El codigo del partido obligatorio.</mat-error
+      >
+    </mat-form-field>
+
+    <br />
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ingrese la probabilidad "
+        formControlName="probabilidad"
+      />
+      <mat-error *ngIf="form.get('probabilidad')?.hasError('required')">
+        Ingresar la probabilidad es obligatorio</mat-error
+      >
+      <mat-error *ngIf="form.get('probabilidad')?.hasError('pattern')">
+        Solo se permiten numeros</mat-error
+      >
+    </mat-form-field>
+    <br />
+
+    <mat-form-field>
+      <input
+        matInput
+        placeholder="Ingrese el equipo ganador "
+        formControlName="equipoGanador"
+      />
+      <mat-error *ngIf="form.get('equipoGanador')?.hasError('required')">
+        Ingresar el equipo ganador es obligatorio</mat-error
+      >
+      <mat-error *ngIf="form.get('equipoGanador')?.hasError('pattern')">
+        Solo se permiten letras</mat-error
+      >
+    </mat-form-field>
+    <br />
+    <button mat-raised-button color="primary">Registrar</button>
+    <button mat-raised-button color="warn" routerLink="/listarticket">
+      Cancelar
+    </button>
+  </form>
+</div>
