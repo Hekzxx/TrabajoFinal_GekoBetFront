@@ -1,52 +1,49 @@
 <div class="container">
-  <div class="title-container"><h1 class="title">Lista de Users</h1></div>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-    <ng-container matColumnDef="id">
-      <th mat-header-cell *matHeaderCellDef>ID</th>
-      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-    </ng-container>
+  <div class="title-container">
+    <h1 class="title">Lista de Users</h1>
+  </div>
 
-    <ng-container matColumnDef="username">
-      <th mat-header-cell *matHeaderCellDef>Nombre Usuario</th>
-      <td mat-cell *matCellDef="let element">{{ element.username }}</td>
-    </ng-container>
+  <div class="card-grid">
+    <div *ngFor="let user of dataSource.data" class="card-item">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Usuario: {{ user.id  }}</mat-card-title>
 
-    <ng-container matColumnDef="password">
-      <th mat-header-cell *matHeaderCellDef>Contraseña</th>
-      <td mat-cell *matCellDef="let element">{{ element.password }}</td>
-    </ng-container>
+        </mat-card-header>
 
-    <ng-container matColumnDef="mail">
-      <th mat-header-cell *matHeaderCellDef>Correo</th>
-      <td mat-cell *matCellDef="let element">{{ element.mail }}</td>
-    </ng-container>
+        <mat-card-content>
+          <img mat-card-image class="small-image" src="https://static.vecteezy.com/system/resources/thumbnails/002/318/271/small_2x/user-profile-icon-free-vector.jpg" alt="user icono" >
+          <p>Nombre de usuario: {{ user.username  }}</p>
+          <br />
+          <p>Correo: {{ user.mail  }}</p>
+          <br />
+          <p>Dirección: {{ user.address  }}</p>
+          <br />
+          <p>Celular: {{ user.phone  }}</p>
+          <br />
+          <p>DNI: {{ user.dni }}</p>
+        </mat-card-content>
 
-    <ng-container matColumnDef="estado">
-      <th mat-header-cell *matHeaderCellDef>Estado</th>
-      <td mat-cell *matCellDef="let element">{{ element.estado }}</td>
-    </ng-container>
+        <mat-card-actions>
+          <button mat-raised-button color="warn" [routerLink]="['ediciones', user.id]">
+            <mat-icon>edit</mat-icon>
+          </button>
 
-    <ng-container matColumnDef="address">
-      <th mat-header-cell *matHeaderCellDef>Dirección</th>
-      <td mat-cell *matCellDef="let element">{{ element.address }}</td>
-    </ng-container>
+          <button mat-raised-button color="warn" (click)="eliminar(user.id)" >
+            <mat-icon>delete_sweep</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
 
-    <ng-container matColumnDef="phone">
-      <th mat-header-cell *matHeaderCellDef>N° CELULAR</th>
-      <td mat-cell *matCellDef="let element">{{ element.phone }}</td>
-    </ng-container>
-
-    <ng-container matColumnDef="dni">
-      <th mat-header-cell *matHeaderCellDef>DNI</th>
-      <td mat-cell *matCellDef="let element">{{ element.dni }}</td>
-    </ng-container>
-
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
   <br />
-  <mat-paginator
-    [pageSizeOptions]="[4, 7, 10]"
-    showFirstLastButtons
-  ></mat-paginator>
+
 </div>
+
+<div class="paginator-container">
+  <mat-paginator [pageSizeOptions]="[4, 7, 10]" showFirstLastButtons></mat-paginator>
+
+</div>
+

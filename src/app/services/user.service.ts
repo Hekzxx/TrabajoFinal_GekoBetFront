@@ -24,4 +24,17 @@ export class UserService {
     return this.listacambio.asObservable()
   }
 
+
+  listId(id:number) {
+    return this.http.get<User>(`${this.url}/${id}`);
+  }
+
+  update(us:User) {
+    return this.http.put(this.url, us);
+  }
+
+  eliminar(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
+
 }

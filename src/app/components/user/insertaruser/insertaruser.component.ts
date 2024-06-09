@@ -1,19 +1,19 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
 import { User } from '../../../models/User';
 import { UserService } from '../../../services/user.service';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-insertaruser',
   standalone: true,
   imports: [MatFormFieldModule, ReactiveFormsModule, CommonModule
-    , MatSelectModule, MatButtonModule, MatInputModule
+    , MatSelectModule, MatButtonModule, MatInputModule, RouterLink
   ],
   templateUrl: './insertaruser.component.html',
   styleUrl: './insertaruser.component.css'
@@ -21,7 +21,8 @@ import { MatInputModule } from '@angular/material/input';
 export class InsertaruserComponent implements OnInit {
   form: FormGroup = new FormGroup({})
   user: User = new User()
-
+  edicion: boolean = false;
+  id: number = 0;
   listaestados: { value: boolean; viewValue: string }[] = [
     { value: true, viewValue: 'Verdadero' },
     { value: false, viewValue: 'Falso' }
@@ -31,10 +32,18 @@ export class InsertaruserComponent implements OnInit {
     private formBuilder: FormBuilder,
     private uS: UserService,
 
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.route.params.subscribe((data: Params) => {
+      this.id = data['id'];
+      this.edicion = data['id'] != null;
+      this.init();
+    });
+
+
     this.form = this.formBuilder.group({
       username: ['', Validators.required],
       password: ['', Validators.required],
@@ -83,7 +92,24 @@ export class InsertaruserComponent implements OnInit {
 
     }
   }
+  init(){
+    if (this.edicion) {
+      this.uS.listId(this.id).subscribe((data)=>{
+        this.form = new FormGroup({
+          codigo: new FormControl(data.id),
+          username: new FormControl(data.username),
+          password: new FormControl(data.password),
+          mail: new FormControl(data.mail),
+          estado: new FormControl (data.estado),
+          address: new FormControl (data.address),
+          phone: new FormControl (data.phone),
+          dni: new FormControl (data.dni),
+          enabled: new FormControl (data.enabled)
 
+        });
+      });
+    }
+  }
 
 
 

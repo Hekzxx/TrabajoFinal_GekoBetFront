@@ -1,6 +1,16 @@
 <div class="title-container">
   <div class="title-container"><h1>Registro</h1></div>
   <form [formGroup]="form" (submit)="registrar()">
+
+    <mat-form-field class="example-full-width"  *ngIf="edicion" >
+      <mat-label>Codigo</mat-label>
+      <input matInput placeholder="Codigo" formControlName="codigo" />
+    </mat-form-field>
+
+    <br/>
+
+
+
     <mat-form-field>
       <input
         matInput
@@ -105,5 +115,8 @@
     <br />
 
     <button mat-raised-button color="primary">Registrar</button>
+    <button mat-raised-button color="warn" routerLink="/listaruser">
+      Cancelar
+    </button>
   </form>
 </div>
