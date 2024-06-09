@@ -1,7 +1,8 @@
-import { CommonModule } from '@angular/common';
+import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import {
   FormBuilder,
+  FormControl,
   FormGroup,
   ReactiveFormsModule,
   Validators,
@@ -12,8 +13,9 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { Match } from '../../../models/Match';
-import { Router } from '@angular/router';
+import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { MatchService } from '../../../services/match.service';
+import { MatSelectModule } from '@angular/material/select';
 @Component({
   selector: 'app-insertarmatch',
   standalone: true,
@@ -25,6 +27,9 @@ import { MatchService } from '../../../services/match.service';
     MatDatepickerModule,
     MatNativeDateModule,
     MatButtonModule,
+    RouterLink,
+    NgIf,
+    MatSelectModule,
   ],
   templateUrl: './insertarmatch.component.html',
   styleUrl: './insertarmatch.component.css',
@@ -32,19 +37,33 @@ import { MatchService } from '../../../services/match.service';
 export class InsertarmatchComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   match: Match = new Match();
+  id: number = 0;
+  edicion: boolean = false;
+
   constructor(
     private formBuilder: FormBuilder,
     private mS: MatchService,
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
+
   ngOnInit(): void {
+    this.route.params.subscribe((data: Params) => {
+      this.id = data['id'];
+      this.edicion = data['id'] != null;
+      this.init();
+    });
+
     this.form = this.formBuilder.group({
+      codigo: [''],
       versus: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
       fecha: ['', Validators.required],
     });
   }
+
   registrar(): void {
     if (this.form.valid) {
+      this.match.id = this.form.value.codigo
       this.match.versus = this.form.value.versus;
       this.match.dateMatch = this.form.value.fecha;
 
@@ -53,8 +72,19 @@ export class InsertarmatchComponent implements OnInit {
           this.mS.setList(data);
         });
       });
-      this.router.navigate(['listarmatch/insertarmatch']).then(() => {
+      this.router.navigate(['listarmatch']).then(() => {
         window.location.reload();
+      });
+    }
+  }
+  init(){
+    if (this.edicion) {
+      this.mS.listId(this.id).subscribe((data)=>{
+        this.form = new FormGroup({
+          codigo: new FormControl(data.id),
+          fecha: new FormControl(data.dateMatch),
+          versus: new FormControl(data.versus),
+        });
       });
     }
   }

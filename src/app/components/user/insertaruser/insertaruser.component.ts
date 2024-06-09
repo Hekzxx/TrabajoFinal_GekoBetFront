@@ -12,8 +12,15 @@ import { MatInputModule } from '@angular/material/input';
 @Component({
   selector: 'app-insertaruser',
   standalone: true,
-  imports: [MatFormFieldModule, ReactiveFormsModule, CommonModule
-    , MatSelectModule, MatButtonModule, MatInputModule, RouterLink, NgIf
+  imports: [
+    MatFormFieldModule,
+     ReactiveFormsModule, 
+     CommonModule, 
+     MatSelectModule, 
+     MatButtonModule, 
+     MatInputModule, 
+     RouterLink, 
+     NgIf
   ],
   templateUrl: './insertaruser.component.html',
   styleUrl: './insertaruser.component.css'

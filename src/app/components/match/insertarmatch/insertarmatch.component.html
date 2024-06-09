@@ -1,6 +1,11 @@
 <div class="title-container">
   <div class="title-container"><h1>Registro</h1></div>
   <form [formGroup]="form" (submit)="registrar()">
+    <mat-form-field class="example-full-width"  *ngIf="edicion" >
+      <mat-label>Codigo</mat-label>
+      <input matInput placeholder="Codigo" formControlName="codigo" />
+    </mat-form-field>
+    <br>
     <mat-form-field appearance="fill" class="example-full-width">
       <input
         matInput
@@ -31,5 +36,8 @@
     </mat-form-field>
     <br />
     <button mat-raised-button color="primary">Aceptar</button>
+    <button mat-raised-button color="warn" routerLink="/listarmatch">
+      Cancelar
+    </button>
   </form>
 </div>

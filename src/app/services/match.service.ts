@@ -24,4 +24,15 @@ export class MatchService {
     return this.listacambio.asObservable()
   }
 
+  listId(id:number) {
+    return this.http.get<Match>(`${this.url}/${id}`);
+  }
+
+  update(ro:Match) {
+    return this.http.put(this.url, ro);
+  }
+
+  eliminar(id: number) {
+    return this.http.delete(`${this.url}/${id}`);
+  }
 }
