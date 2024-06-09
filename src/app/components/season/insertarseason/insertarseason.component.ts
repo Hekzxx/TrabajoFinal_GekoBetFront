@@ -38,6 +38,7 @@ export class InsertarseasonComponent implements OnInit {
 
   edicion: boolean = false;
   id: number = 0;
+
   constructor(
     private formBuilder: FormBuilder,
     private sS: SeasonService,
@@ -74,6 +75,7 @@ export class InsertarseasonComponent implements OnInit {
       this.router.navigate(['listarseason']);
     }
   }
+  
   init(){
     if (this.edicion) {
       this.sS.listId(this.id).subscribe((data)=>{

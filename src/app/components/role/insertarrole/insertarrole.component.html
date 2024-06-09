@@ -1,1 +1,40 @@
-<p>insertarrole works!</p>
+<div class="title-container"><h1>Registro de Temporadas</h1></div>
+<div class="container" style="text-align: center">
+  <form [formGroup]="form" (submit)="registrar()">
+
+    <mat-form-field class="example-full-width"  *ngIf="edicion" >
+      <mat-label>Codigo</mat-label>
+      <input matInput placeholder="Codigo" formControlName="codigo" />
+    </mat-form-field>
+
+    <br/>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Codigo del Usuario</mat-label>
+        <mat-select formControlName="user">
+          <mat-option *ngFor="let u of listaUsers" [value]="u.id">
+            {{ u.id }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('id')?.hasError('required')"
+          >El codigo es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+      <input matInput placeholder="Ingrese el tipo de rol" formControlName="tipo" />
+      <mat-error *ngIf="form.get('tipo')?.hasError('required')">
+        Ingresar el tipo de rol es obligatorio</mat-error
+      >
+
+    </mat-form-field>
+    <br />
+    <button mat-raised-button color="primary">Registrar</button>
+    <button mat-raised-button color="warn" routerLink="/listarrole">
+      Cancelar
+    </button>
+  </form>
+</div>
+
