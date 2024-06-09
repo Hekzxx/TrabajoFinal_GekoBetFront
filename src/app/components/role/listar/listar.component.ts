@@ -25,7 +25,7 @@ import { Role } from '../../../models/Role';
 export class ListarComponent implements OnInit {
 
   dataSource: MatTableDataSource<Role> = new MatTableDataSource();
-  displayedColumns: string[] = ['userid', 'tipo', 'accion01', 'accion02'];
+  displayedColumns: string[] = [ 'username','tipo', 'accion01', 'accion02'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private rS: RoleService) { }

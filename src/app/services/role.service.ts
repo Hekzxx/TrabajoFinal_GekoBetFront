@@ -8,7 +8,7 @@ const base_url = environment.base;
   providedIn: 'root'
 })
 export class RoleService {
-  private url = `${base_url}/users`
+  private url = `${base_url}/roles`;
   private listacambio = new Subject<Role[]>();
 
   constructor(private http: HttpClient) { }
