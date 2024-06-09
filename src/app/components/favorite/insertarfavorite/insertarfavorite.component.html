@@ -1,1 +1,38 @@
-<p>insertarfavorite works!</p>
+<div class="title-container"><h1>Registro de Favoritos</h1></div>
+<div class="container" style="text-align: center">
+  <form [formGroup]="form" (submit)="registrar()">
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Usuario</mat-label>
+        <mat-select formControlName="UsurioUser">
+          <mat-option *ngFor="let c of listaUsers" [value]="c.id">
+            {{ c.username }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('UsurioUser')?.hasError('required')"
+          >El Usurio es obligatorio.</mat-error
+        >
+      </mat-form-field>
+    
+    <br/>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Equipo</mat-label>
+        <mat-select formControlName="Equiposteam">
+          <mat-option *ngFor="let c of listaTeams" [value]="c.id">
+            {{ c.nameteam }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('Equiposteam')?.hasError('required')"
+          >El Equipos obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+    <br />
+
+    <button mat-raised-button color="primary">Registrar</button>
+    <button mat-raised-button color="warn" routerLink="/listarcountry">
+      Cancelar
+    </button>
+  </form>
+</div>
