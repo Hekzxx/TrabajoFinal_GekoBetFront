@@ -13,7 +13,7 @@ import { MatInputModule } from '@angular/material/input';
   selector: 'app-insertaruser',
   standalone: true,
   imports: [MatFormFieldModule, ReactiveFormsModule, CommonModule
-    , MatSelectModule, MatButtonModule, MatInputModule, RouterLink
+    , MatSelectModule, MatButtonModule, MatInputModule, RouterLink, NgIf
   ],
   templateUrl: './insertaruser.component.html',
   styleUrl: './insertaruser.component.css'
@@ -45,6 +45,7 @@ export class InsertaruserComponent implements OnInit {
 
 
     this.form = this.formBuilder.group({
+      codigo: [''],
       username: ['', Validators.required],
       password: ['', Validators.required],
       mail: ['', Validators.required],
@@ -70,6 +71,7 @@ export class InsertaruserComponent implements OnInit {
 
   registrar(): void {
     if (this.form.valid) {
+    this.user.id = this.form.value.codigo
       this.user.username = this.form.value.username
       this.user.password = this.form.value.password
       this.user.mail = this.form.value.mail
@@ -85,7 +87,7 @@ export class InsertaruserComponent implements OnInit {
           this.uS.setList(data)
         })
       });
-      this.router.navigate(['listaruser/insertaruser']).then(() => {
+      this.router.navigate(['listaruser']).then(() => {
         window.location.reload();
       });
 
