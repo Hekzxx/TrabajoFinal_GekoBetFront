@@ -1,1 +1,40 @@
-<p>insertarteam works!</p>
+<div class="title-container"><h1>Registro de Equipos</h1></div>
+<div class="container" style="text-align: center">
+  <form [formGroup]="form" (submit)="registrar()">
+
+    <mat-form-field class="example-full-width"  *ngIf="edicion" >
+      <mat-label>Codigo</mat-label>
+      <input matInput placeholder="Codigo" formControlName="codigo" />      
+    </mat-form-field>
+    
+    <br/>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Liga</mat-label>
+        <mat-select formControlName="LigaLigue">
+          <mat-option *ngFor="let c of listaLigue" [value]="c.id">
+            {{ c.nameligue }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('LigaLigue')?.hasError('required')"
+          >La Liga es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+    <br>
+
+    <mat-form-field>
+      <input matInput placeholder="Ingrese el Equipo" formControlName="nameTeam" />
+      <mat-error *ngIf="form.get('nameTeam')?.hasError('required')">
+        Ingresar el nombre del Equipo es obligatoria</mat-error
+      >
+    </mat-form-field>
+
+    <br />
+    
+    <button mat-raised-button color="primary">Registrar</button>
+    <button mat-raised-button color="warn" routerLink="/listarcountry">
+      Cancelar
+    </button>
+  </form>
+</div>
