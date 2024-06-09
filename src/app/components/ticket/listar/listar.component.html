@@ -1,1 +1,66 @@
-<p>listar works!</p>
+<div class="container">
+    <div class="title-container"><h1 class="title">Lista de Tickets</h1></div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+        <ng-container matColumnDef="idTicket">
+            <th mat-header-cell *matHeaderCellDef>ID TICKET</th>
+            <td mat-cell *matCellDef="let element"> {{ element.id }}</td>
+          </ng-container>  
+        
+      <ng-container matColumnDef="probabilidad">
+        <th mat-header-cell *matHeaderCellDef>Probabilidad</th>
+        <td mat-cell *matCellDef="let element"> {{ element.probabilidad }}</td>
+      </ng-container>
+      
+      <ng-container matColumnDef="EquipoGanador">
+        <th mat-header-cell *matHeaderCellDef>Equipo Ganador</th>
+        <td mat-cell *matCellDef="let element">{{ element.equipoGanador }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="USERid">
+        <th mat-header-cell *matHeaderCellDef>ID USUARIO</th>
+        <td mat-cell *matCellDef="let element">{{ element.user.id }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="Matchid">
+        <th mat-header-cell *matHeaderCellDef>ID MATCH</th>
+        <td mat-cell *matCellDef="let element">{{ element.match.id }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="accion01">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-raised-button
+              color="warn"
+              [routerLink]="['ediciones', element.id]"
+            >
+              <mat-icon>edit</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+        <ng-container matColumnDef="accion02">
+          <th mat-header-cell *matHeaderCellDef>Acciones</th>
+          <td mat-cell *matCellDef="let element">
+            <button
+              mat-raised-button
+              color="warn"
+              (click)="eliminar(element.id)"
+            >
+              <mat-icon>delete_sweep</mat-icon>
+            </button>
+          </td>
+        </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
+  
+  <br />
+  
+  <mat-paginator
+    [pageSizeOptions]="[5, 10, 25, 100]"
+    showFirstLastButtons
+  ></mat-paginator>
+  

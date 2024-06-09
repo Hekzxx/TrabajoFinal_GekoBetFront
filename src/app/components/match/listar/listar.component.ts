@@ -26,6 +26,10 @@ export class ListarComponent implements OnInit {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     })
+    this.mS.getList().subscribe((data) => {
+      this.dataSource = new MatTableDataSource(data);
+      this.dataSource.paginator = this.paginator;
+    });
   }
   eliminar(id: number) {
     this.mS.eliminar(id).subscribe((data) => {
