@@ -5,14 +5,17 @@ import { Match } from '../../../models/Match';
 import { MatchService } from '../../../services/match.service';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
   selector: 'app-listar',
   standalone: true,
-  imports: [MatTableModule,
+  imports: [
+    MatTableModule,
     MatPaginatorModule,
     RouterLink,
-  MatIconModule],
+    MatIconModule,
+    MatButtonModule],
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'
 })
