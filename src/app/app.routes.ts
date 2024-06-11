@@ -21,8 +21,28 @@ import { FavoriteComponent } from './components/favorite/favorite.component';
 import { InsertarfavoriteComponent } from './components/favorite/insertarfavorite/insertarfavorite.component';
 import { TicketComponent } from './components/ticket/ticket.component';
 import { InsertarticketComponent } from './components/ticket/insertarticket/insertarticket.component';
+import { LoginComponent } from './components/login/login.component';
+import { HomeComponent } from './components/home/home.component';
+
+import { segGuard } from './guard/seguridad.guard';
 
 export const routes: Routes = [
+    //Logins
+    {
+        path: '',
+        redirectTo: 'login',
+        pathMatch: 'full',
+    },
+    {
+        path: 'login',
+        component: LoginComponent,
+    },
+    //home
+    {
+        path: 'homes',
+        component: HomeComponent,
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+      },
     //Country
     {
         path: 'listarcountry', component: CountryComponent,
@@ -30,6 +50,7 @@ export const routes: Routes = [
             { path: 'insertarcountry', component: InsertarcountryComponent},
             { path: 'ediciones/:id', component: InsertarcountryComponent},
         ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     //Season
     {
@@ -38,6 +59,7 @@ export const routes: Routes = [
             { path: 'insertarseason', component: InsertarseasonComponent},
             { path: 'ediciones/:id', component: InsertarseasonComponent},
         ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     //Ligue
     {
@@ -46,6 +68,7 @@ export const routes: Routes = [
             { path: 'insertarligue', component: InsertarligueComponent},
             { path: 'ediciones/:id', component: InsertarligueComponent},
         ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     //team
     {
@@ -54,6 +77,7 @@ export const routes: Routes = [
             { path: 'insertarteam', component: InsertarteamComponent},
             { path: 'ediciones/:id', component: InsertarteamComponent},
         ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     //record
     {
@@ -62,6 +86,7 @@ export const routes: Routes = [
             { path: 'insertarrecord', component: InsertarrecordComponent},
             { path: 'ediciones/:id', component: InsertarrecordComponent},
         ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     //match
     {
@@ -70,6 +95,7 @@ export const routes: Routes = [
             { path: 'insertarmatch', component: InsertarmatchComponent },
             { path: 'ediciones/:id', component: InsertarmatchComponent },
         ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     //teamsxmatches
     {
@@ -78,6 +104,7 @@ export const routes: Routes = [
             { path: 'insertarteamsxmatches', component: InsertarteamXmatchComponent },
             { path: 'ediciones/:id', component: InsertarteamXmatchComponent },
         ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     //usuario
     {
@@ -86,6 +113,7 @@ export const routes: Routes = [
             { path: 'insertaruser', component: InsertaruserComponent },
             { path: 'ediciones/:id', component: InsertaruserComponent },
         ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     //role
     {
@@ -94,6 +122,7 @@ export const routes: Routes = [
             { path: 'insertarrole', component: InsertarroleComponent },
             { path: 'ediciones/:id', component: InsertarroleComponent },
         ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     //favorite
     {
@@ -102,6 +131,7 @@ export const routes: Routes = [
             { path: 'insertarfavorite', component: InsertarfavoriteComponent },
             { path: 'ediciones/:id', component: InsertarfavoriteComponent },
         ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
     //ticket
     {
@@ -110,5 +140,6 @@ export const routes: Routes = [
             { path: 'insertarticket', component: InsertarticketComponent },
             { path: 'ediciones/:id', component: InsertarticketComponent },
         ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
 ];

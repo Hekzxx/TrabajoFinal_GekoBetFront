@@ -40,6 +40,7 @@ export class InsertarticketComponent implements OnInit{
   ticket: Ticket = new Ticket();
   listaMatches: Match[] = [];
   listaUsers: User[] = [];
+  
 
   edicion: boolean = false;
   id: number = 0;
@@ -97,7 +98,10 @@ export class InsertarticketComponent implements OnInit{
       this.tS.listId(this.id).subscribe((data)=>{
         this.form = new FormGroup({
           codigo: new FormControl(data.id),
-          user: new FormControl(data.user.id),
+          user: new FormControl(data.user.username),
+          match: new FormControl(data.match.versus),
+          probabilidad: new FormControl(data.probabilidad),
+          equipoGanador: new FormControl(data.equipoGanador)
           
         });
       });
@@ -105,3 +109,4 @@ export class InsertarticketComponent implements OnInit{
   }
 
 }
+    

@@ -1,25 +1,39 @@
-<mat-toolbar color="primary">
+<mat-toolbar color="primary" *ngIf="verificar()">
   <mat-icon
     aria-hidden="false"
     aria-label="Example home icon"
     fontIcon="home"
   ></mat-icon>
 
+  <button mat-button [routerLink]="['/homes']">
+    <mat-icon>home</mat-icon>Home
+  </button>
+  <button mat-button [matMenuTriggerFor]="menuSalir">Usuario</button>
   <!--Boton de tabla para activar la lista de opciones-->
-  <button mat-button [matMenuTriggerFor]="Country">Country</button>
-  <button mat-button [matMenuTriggerFor]="Season">Season</button>
-  <button mat-button [matMenuTriggerFor]="Ligue">Ligue</button>
-  <button mat-button [matMenuTriggerFor]="Team">Team</button>
-  <button mat-button [matMenuTriggerFor]="Record">Record</button>
-  <button mat-button [matMenuTriggerFor]="Match">Match</button>
-  <button mat-button [matMenuTriggerFor]="TeamxMatches">TeamxMatches</button>
-  <button mat-button [matMenuTriggerFor]="User">User</button>
-  <button mat-button [matMenuTriggerFor]="Role">Role</button>
-  <button mat-button [matMenuTriggerFor]="Favorite">Favorite</button>
-  <button mat-button [matMenuTriggerFor]="Ticket">Ticket</button>
+  <button mat-button [matMenuTriggerFor]="Country" *ngIf="isADMIN()">Country</button>
+  <button mat-button [matMenuTriggerFor]="Season" *ngIf="isADMIN()">Season</button>
+  <button mat-button [matMenuTriggerFor]="Ligue" *ngIf="isADMIN()">Ligue</button>
+  <button mat-button [matMenuTriggerFor]="Team" *ngIf="isADMIN()">Team</button>
+  <button mat-button [matMenuTriggerFor]="Record" *ngIf="isADMIN()">Record</button>
+  <button mat-button [matMenuTriggerFor]="Match" *ngIf="isADMIN()">Match</button>
+  <button mat-button [matMenuTriggerFor]="TeamxMatches" *ngIf="isADMIN()">TeamxMatches</button>
+  <button mat-button [matMenuTriggerFor]="User"*ngIf="isADMIN()">User</button>
+  <button mat-button [matMenuTriggerFor]="Role" *ngIf="isADMIN()">Role</button>
+  <button mat-button [matMenuTriggerFor]="Favorite" *ngIf="isUSER()">Favorite</button>
+  <button mat-button [matMenuTriggerFor]="Ticket" *ngIf="isUSER()">Ticket</button>
 </mat-toolbar>
 
 <!--Opciones de cada una de las tablas-->
+<!--USUARIO CERRAR SESION-->
+<mat-menu #menuSalir="matMenu">
+  <button mat-menu-item routerLink="/login" (click)="cerrar()">
+    <mat-icon>logout</mat-icon>
+    <span>Cerrar sesión</span>
+  </button>
+  <button mat-menu-item>
+    Rol: <span>{{ tipo }}</span>
+  </button>
+</mat-menu>
 <!--country-->
 <mat-menu #Country="matMenu">
   <button mat-menu-item routerLink="/listarcountry">Listar</button>
@@ -75,7 +89,7 @@
   <button mat-menu-item routerLink="/listarrole/insertarrole">Registrar</button>
 </mat-menu>
 
-<!--role-->
+<!--favorite-->
 <mat-menu #Favorite="matMenu">
   <button mat-menu-item routerLink="/listarfavorite">Listar</button>
   <button mat-menu-item routerLink="/listarfavorite/insertarfavorite">Registrar</button>
