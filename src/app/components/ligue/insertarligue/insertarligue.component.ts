@@ -59,8 +59,7 @@ export class InsertarligueComponent implements OnInit{
     });
     this.form = this.formBuilder.group({
       codigo: [''],
-      paiscountry: ['', Validators.required],
-      year: ['', Validators.required],
+      year: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
       nameligue: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
     });
     this.sS.list().subscribe((data) => {
@@ -70,7 +69,6 @@ export class InsertarligueComponent implements OnInit{
   registrar(): void {
     if (this.form.valid) {
       this.ligue.id= this.form.value.codigo;
-      this.ligue.season.country.id = this.form.value.paiscountry;
       this.ligue.season.id = this.form.value.year;
       this.ligue.nameligue = this.form.value.nameligue;
       this.lS.insert(this.ligue).subscribe((data) => {
@@ -86,7 +84,6 @@ export class InsertarligueComponent implements OnInit{
       this.lS.listId(this.id).subscribe((data)=>{
         this.form = new FormGroup({
           codigo: new FormControl(data.id),
-          paiscountry: new FormControl(data.season.country.id),
           year: new FormControl(data.season.id),
           nameligue: new FormControl(data.nameligue),
         });
