@@ -1,20 +1,18 @@
 <mat-toolbar color="primary" *ngIf="verificar()">
-  <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="home"></mat-icon>
-
   <!--Boton de tabla para activar la lista de opciones-->
   <button mat-button [routerLink]="['/homes']"><mat-icon>home</mat-icon>Home</button>
-  <button mat-button [matMenuTriggerFor]="menuSalir">Sesión</button>
-  <button mat-button [matMenuTriggerFor]="Country" *ngIf="isADMIN()">Country</button>
-  <button mat-button [matMenuTriggerFor]="Season" *ngIf="isADMIN()">Season</button>
-  <button mat-button [matMenuTriggerFor]="Ligue" *ngIf="isADMIN()">Ligue</button>
-  <button mat-button [matMenuTriggerFor]="Team" *ngIf="isADMIN()">Team</button>
-  <button mat-button [matMenuTriggerFor]="Record">Record</button>
-  <button mat-button [matMenuTriggerFor]="Match">Match</button>
-  <button mat-button [matMenuTriggerFor]="TeamxMatches" *ngIf="isADMIN()">TeamxMatches</button>
-  <button mat-button [matMenuTriggerFor]="User" >User</button>
-  <button mat-button [matMenuTriggerFor]="Role" *ngIf="isADMIN()">Role</button>
-  <button mat-button [matMenuTriggerFor]="Favorite" *ngIf="isUSER()">Favorite</button>
-  <button mat-button [matMenuTriggerFor]="Ticket">Ticket</button>
+  <button mat-button [matMenuTriggerFor]="menuSalir"><mat-icon>account_circle</mat-icon>Sesión</button>
+  <button mat-button [matMenuTriggerFor]="Country"  *ngIf="isADMIN()" ><mat-icon>public</mat-icon>Country</button>
+  <button mat-button [matMenuTriggerFor]="Season" *ngIf="isADMIN()" ><mat-icon>today</mat-icon>Season</button>
+  <button mat-button [matMenuTriggerFor]="Ligue" *ngIf="isADMIN()"><mat-icon>sports_soccer</mat-icon>Ligue</button>
+  <button mat-button [matMenuTriggerFor]="Team" *ngIf="isADMIN()"><mat-icon>group</mat-icon>Team</button>
+  <button mat-button [matMenuTriggerFor]="Record"><mat-icon>leaderboard</mat-icon>Record</button>
+  <button mat-button [matMenuTriggerFor]="Match"><mat-icon>compare_arrows</mat-icon>Match</button>
+  <button mat-button [matMenuTriggerFor]="TeamxMatches" *ngIf="isADMIN()"><mat-icon>sports_handball</mat-icon>TeamxMatches</button>
+  <button mat-button [matMenuTriggerFor]="User" ><mat-icon>person</mat-icon>User</button>
+  <button mat-button [matMenuTriggerFor]="Role" *ngIf="isADMIN()"><mat-icon>security</mat-icon>Role</button>
+  <button mat-button [matMenuTriggerFor]="Favorite" *ngIf="isUSER()"><mat-icon>star</mat-icon>Favorite</button>
+  <button mat-button [matMenuTriggerFor]="Ticket"><mat-icon>confirmation_number</mat-icon>Ticket</button>
 </mat-toolbar>
 
 <!--Opciones de cada una de las tablas-->
@@ -31,68 +29,68 @@
 </mat-menu>
 <!--country-->
 <mat-menu #Country="matMenu">
-  <button mat-menu-item routerLink="/listarcountry">Listar</button>
-  <button mat-menu-item routerLink="/listarcountry/insertarcountry">Registrar</button>
+  <button mat-menu-item routerLink="/listarcountry"><mat-icon>view_list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/listarcountry/insertarcountry"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <!--season-->
 <mat-menu #Season="matMenu">
-  <button mat-menu-item routerLink="/listarseason">Listar</button>
-  <button mat-menu-item routerLink="/listarseason/insertarseason">Registrar</button>
+  <button mat-menu-item routerLink="/listarseason"><mat-icon>view_list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/listarseason/insertarseason"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <!--ligue-->
 <mat-menu #Ligue="matMenu">
-  <button mat-menu-item routerLink="/listarligue">Listar</button>
-  <button mat-menu-item routerLink="/listarligue/insertarligue">Registrar</button>
+  <button mat-menu-item routerLink="/listarligue"><mat-icon>view_list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/listarligue/insertarligue"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <!--team-->
 <mat-menu #Team="matMenu">
-  <button mat-menu-item routerLink="/listarteam">Listar</button>
-  <button mat-menu-item routerLink="/listarteam/insertarteam">Registrar</button>
+  <button mat-menu-item routerLink="/listarteam"><mat-icon>view_list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/listarteam/insertarteam"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <!--record-->
 <mat-menu #Record="matMenu">
-  <button mat-menu-item routerLink="/listarrecord">Listar</button>
-  <button mat-menu-item routerLink="/listarrecord/insertarrecord">Registrar</button>
+  <button mat-menu-item routerLink="/listarrecord"><mat-icon>view_list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/listarrecord/insertarrecord"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <!--record-->
 <mat-menu #Match="matMenu">
-  <button mat-menu-item routerLink="/listarmatch">Listar</button>
-  <button mat-menu-item routerLink="/listarmatch/insertarmatch">Registrar</button>
+  <button mat-menu-item routerLink="/listarmatch"><mat-icon>view_list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/listarmatch/insertarmatch"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <!--teamxmatches-->
 <mat-menu #TeamxMatches="matMenu">
-  <button mat-menu-item routerLink="/listarteamsxmatches">Listar</button>
-  <button mat-menu-item routerLink="/listarteamsxmatches/insertarteamsxmatches">Registrar</button>
+  <button mat-menu-item routerLink="/listarteamsxmatches"><mat-icon>view_list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/listarteamsxmatches/insertarteamsxmatches"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 
 <!--user-->
 <mat-menu #User="matMenu">
-  <button mat-menu-item routerLink="/listaruser">Listar</button>
-  <button mat-menu-item routerLink="/listaruser/insertaruser">Registrar</button>
+  <button mat-menu-item routerLink="/listaruser"><mat-icon>view_list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/listaruser/insertaruser"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <!--role-->
 <mat-menu #Role="matMenu">
-  <button mat-menu-item routerLink="/listarrole">Listar</button>
-  <button mat-menu-item routerLink="/listarrole/insertarrole">Registrar</button>
+  <button mat-menu-item routerLink="/listarrole"><mat-icon>view_list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/listarrole/insertarrole"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <!--role-->
 <mat-menu #Favorite="matMenu">
-  <button mat-menu-item routerLink="/listarfavorite">Listar</button>
-  <button mat-menu-item routerLink="/listarfavorite/insertarfavorite">Registrar</button>
+  <button mat-menu-item routerLink="/listarfavorite"><mat-icon>view_list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/listarfavorite/insertarfavorite"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
 <!--ticket-->
 <mat-menu #Ticket="matMenu">
-  <button mat-menu-item routerLink="/listarticket">Listar</button>
-  <button mat-menu-item routerLink="/listarticket/insertarticket">Registrar</button>
+  <button mat-menu-item routerLink="/listarticket"><mat-icon>view_list</mat-icon>Listar</button>
+  <button mat-menu-item routerLink="/listarticket/insertarticket"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 <router-outlet></router-outlet>
