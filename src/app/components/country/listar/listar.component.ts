@@ -26,7 +26,7 @@ import { MatButtonModule } from '@angular/material/button';
 })
 export class ListarComponent implements OnInit {
   dataSource: MatTableDataSource<Country> = new MatTableDataSource();
-  displayedColumns: string[] = ['namecountry', 'accion01', 'accion02'];
+  displayedColumns: string[] = ['Codigo', 'namecountry', 'accion01', 'accion02'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private cS: CountryService) { }

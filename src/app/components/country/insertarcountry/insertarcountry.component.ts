@@ -13,7 +13,6 @@ import { MatInputModule } from '@angular/material/input';
 import { CountryService } from '../../../services/country.service';
 import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { Country } from '../../../models/Country';
-import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core';
 import { MatSelectModule } from '@angular/material/select';
 
@@ -26,7 +25,6 @@ import { MatSelectModule } from '@angular/material/select';
     MatFormFieldModule,
     CommonModule,
     NgIf,
-    MatDatepickerModule,
     MatNativeDateModule,
     RouterLink,
     ReactiveFormsModule,
