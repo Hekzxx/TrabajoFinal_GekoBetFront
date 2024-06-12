@@ -6,13 +6,13 @@
   <button mat-button [matMenuTriggerFor]="Season" *ngIf="isADMIN()" ><mat-icon>today</mat-icon>Season</button>
   <button mat-button [matMenuTriggerFor]="Ligue" *ngIf="isADMIN()"><mat-icon>sports_soccer</mat-icon>Ligue</button>
   <button mat-button [matMenuTriggerFor]="Team" *ngIf="isADMIN()"><mat-icon>group</mat-icon>Team</button>
-  <button mat-button [matMenuTriggerFor]="Record"><mat-icon>leaderboard</mat-icon>Record</button>
-  <button mat-button [matMenuTriggerFor]="Match"><mat-icon>compare_arrows</mat-icon>Match</button>
+  <button mat-button [matMenuTriggerFor]="Record" *ngIf="isADMIN()"><mat-icon>leaderboard</mat-icon>Record</button>
+  <button mat-button [matMenuTriggerFor]="Match" *ngIf="isADMIN()"><mat-icon>compare_arrows</mat-icon>Match</button>
   <button mat-button [matMenuTriggerFor]="TeamxMatches" *ngIf="isADMIN()"><mat-icon>sports_handball</mat-icon>TeamxMatches</button>
   <button mat-button [matMenuTriggerFor]="User" ><mat-icon>person</mat-icon>User</button>
   <button mat-button [matMenuTriggerFor]="Role" *ngIf="isADMIN()"><mat-icon>security</mat-icon>Role</button>
   <button mat-button [matMenuTriggerFor]="Favorite" *ngIf="isUSER()"><mat-icon>star</mat-icon>Favorite</button>
-  <button mat-button [matMenuTriggerFor]="Ticket"><mat-icon>confirmation_number</mat-icon>Ticket</button>
+  <button mat-button [matMenuTriggerFor]="Ticket" *ngIf="isUSER()"><mat-icon>confirmation_number</mat-icon>Ticket</button>
 </mat-toolbar>
 
 <!--Opciones de cada una de las tablas-->
