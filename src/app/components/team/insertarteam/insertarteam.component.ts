@@ -36,16 +36,12 @@ import { SeasonService } from '../../../services/season.service';
 export class InsertarteamComponent implements OnInit{
   form: FormGroup = new FormGroup({});
   team: Team = new Team();
-  listaCountries: Country[] = [];
-  listaSeasons: Season[] = [];
   listaLigue: Ligue[] = [];
 
   edicion: boolean = false;
   id: number = 0;
   constructor(
     private formBuilder: FormBuilder,
-    private cS: CountryService,
-    private sS: SeasonService,
     private lS: LigueService,
     private tS: TeamService,
     private router: Router,
@@ -60,26 +56,16 @@ export class InsertarteamComponent implements OnInit{
     });
     this.form = this.formBuilder.group({
       codigo: [''],
-      paiscountry: ['', Validators.required],
-      year: ['', Validators.required],
       LigaLigue: ['', Validators.required],
       nameTeam: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9\s]*$/)]],
     });
     this.lS.list().subscribe((data) => {
       this.listaLigue = data;
     });
-    this.sS.list().subscribe((data) => {
-      this.listaSeasons = data;
-    });
-    this.cS.list().subscribe((data) => {
-      this.listaCountries = data;
-    });
   }
   registrar(): void {
     if (this.form.valid) {
       this.team.id= this.form.value.codigo;
-      this.team.ligue.season.country.id = this.form.value.paiscountry;
-      this.team.ligue.season.id = this.form.value.year;
       this.team.ligue.id = this.form.value.LigaLigue;
       this.team.nameteam = this.form.value.nameTeam;
       this.tS.insert(this.team).subscribe((data) => {
@@ -95,8 +81,6 @@ export class InsertarteamComponent implements OnInit{
       this.tS.listId(this.id).subscribe((data)=>{
         this.form = new FormGroup({
           codigo: new FormControl(data.id),
-          paiscountry: new FormControl(data.ligue.season.country.id),
-          year: new FormControl({ value: data.ligue.season.id, disabled: this.edicion}),
           LigaLigue: new FormControl(data.ligue.id),
           nameTeam: new FormControl(data.nameteam),
         });
