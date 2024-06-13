@@ -1,15 +1,16 @@
-<div class="container" style="text-align: center">
+<body>
+  <div class="container" style="background-image: url('assets/messi.png'); background-size: cover; background-position: contain; height: 100vh;">
     <div>
-      <img src="assets/logo.png" alt="Logo de la empresa" />
+      <img src="assets/logo.png" alt="Logo de empresa" />
     </div>
-    <h2>Inicie sesión</h2>
+    <h2 class="titulo">Inicie sesión</h2>
     <mat-form-field class="example-full-width">
-      <mat-label>Usuario</mat-label>
-      <input matInput placeholder="Username" [(ngModel)]="username" />
+      <mat-label class="container2">Usuario</mat-label>
+      <input  matInput placeholder="Username" [(ngModel)]="username" />
     </mat-form-field>
     <br />
     <mat-form-field class="example-full-width">
-      <mat-label>Password</mat-label>
+      <mat-label class="container2">Password</mat-label>
       <input
         type="password"
         matInput
@@ -18,5 +19,11 @@
       />
     </mat-form-field>
     <br />
-    <button mat-raised-button color="primary" (click)="login()">Ingresar</button>
+    <button class="container2" mat-raised-button color="primary" (click)="login()">Ingresar</button>
   </div>
+</body>
+
+
+
+
+
