@@ -25,12 +25,9 @@ import { MatchService } from '../../../services/match.service';
     MatFormFieldModule,
     CommonModule,
     NgIf,
-    MatDatepickerModule,
-    MatNativeDateModule,
     RouterLink,
     ReactiveFormsModule,
-    MatInputModule,
-    
+    MatInputModule
   ],
   templateUrl: './insertarticket.component.html',
   styleUrl: './insertarticket.component.css'
@@ -43,14 +40,14 @@ export class InsertarticketComponent implements OnInit{
 
   edicion: boolean = false;
   id: number = 0;
-
   constructor(
     private formBuilder: FormBuilder,
     private tS: TicketService,
     private mS: MatchService,
+    private uS: UserService,
     private router: Router,
     private route: ActivatedRoute,
-    private uS: UserService
+    
   ) { }
 
   ngOnInit(): void {
@@ -59,15 +56,13 @@ export class InsertarticketComponent implements OnInit{
       this.edicion = data['id'] != null;
       this.init();
     });
-
     this.form = this.formBuilder.group({
       codigo: [''],
-      probabilidad: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-      equipoGanador: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
-      user: ['', Validators.required],
-      match: ['', Validators.required],
+      username: ['', Validators.required],
+      versus: ['', Validators.required],
+      probabilidad: ['', [Validators.required, Validators.pattern('^[0-9 ]*$')]],
+      equipoGanador: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
     });
-
     this.uS.list().subscribe((data) => {
       this.listaUsers = data;
     });
@@ -75,15 +70,13 @@ export class InsertarticketComponent implements OnInit{
       this.listaMatches = data;
     });
   }
-
   registrar(): void {
     if (this.form.valid) {
       this.ticket.id= this.form.value.codigo;
+      this.ticket.user.id = this.form.value.username;
+      this.ticket.match.id = this.form.value.versus;
       this.ticket.probabilidad = this.form.value.probabilidad;
       this.ticket.equipoGanador = this.form.value.equipoGanador;
-      this.ticket.user.id = this.form.value.user;
-      this.ticket.match.id = this.form.value.match;
-      
       this.tS.insert(this.ticket).subscribe((data) => {
         this.tS.list().subscribe((data) => {
           this.tS.setList(data);
@@ -97,8 +90,10 @@ export class InsertarticketComponent implements OnInit{
       this.tS.listId(this.id).subscribe((data)=>{
         this.form = new FormGroup({
           codigo: new FormControl(data.id),
-          user: new FormControl(data.user.id),
-          
+          username: new FormControl(data.user.id),
+          versus: new FormControl(data.match.id),
+          probabilidad: new FormControl(data.probabilidad),
+          equipoGanador: new FormControl(data.equipoGanador)
         });
       });
     }

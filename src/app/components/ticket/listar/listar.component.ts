@@ -28,11 +28,10 @@ import { TicketService } from '../../../services/ticket.service';
 })
 export class ListarComponent {
   dataSource: MatTableDataSource<Ticket> = new MatTableDataSource();
-  displayedColumns: string[] = [ 'idTicket','probabilidad','EquipoGanador','USERid','Matchid','accion01', 'accion02'];
+  displayedColumns: string[] = [ 'idTicket','USERid','Matchid','EquipoGanador','probabilidad', 'fecha', 'accion01', 'accion02'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private tS: TicketService) { }
-
   ngOnInit(): void {
     this.tS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
