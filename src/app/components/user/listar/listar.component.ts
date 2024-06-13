@@ -12,8 +12,14 @@ import { RouterLink } from '@angular/router';
 @Component({
   selector: 'app-listar',
   standalone: true,
-  imports: [MatTableModule,
-    MatPaginatorModule, MatCardModule, MatButtonModule, MatIconModule, CommonModule, RouterLink],
+  imports: [
+    MatTableModule,
+    MatPaginatorModule, 
+    MatCardModule, 
+    MatButtonModule, 
+    MatIconModule, 
+    CommonModule, 
+    RouterLink],
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'
 })
@@ -24,23 +30,16 @@ export class ListarComponent implements OnInit {
   dataSource: MatTableDataSource<User> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private uS: UserService) {
-
-  }
-
-
+  constructor(private uS: UserService) { }
   ngOnInit(): void {
     this.uS.list().subscribe((data) => {
-
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
-
-    })
-
+    });
     this.uS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
-    })
+    });
   }
 
   eliminar(id: number) {
@@ -50,6 +49,5 @@ export class ListarComponent implements OnInit {
       });
     });
   }
-
 }
 

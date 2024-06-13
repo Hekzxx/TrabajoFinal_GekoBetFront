@@ -1,22 +1,17 @@
-<div class="title-container">
-  <div class="title-container"><h1>Registro</h1></div>
+<div class="title-container"><h1>Registro de Usuarios</h1></div>
+<div class="title-container" style="text-align: center">
   <form [formGroup]="form" (submit)="registrar()">
 
     <mat-form-field class="example-full-width"  *ngIf="edicion" >
       <mat-label>Codigo</mat-label>
-      <input matInput placeholder="Codigo" formControlName="codigo" />
+      <input matInput placeholder="Codigo" formControlName="codigo" readonly/>
     </mat-form-field>
 
     <br/>
 
-
-
     <mat-form-field>
-      <input
-        matInput
-        placeholder="Ingrese su username"
-        formControlName="username"
-      />
+      <mat-label>Username</mat-label>
+      <input matInput placeholder="Ingrese su username" formControlName="username"/>
       <mat-error *ngIf="form.get('username')?.hasError('required')">
         Ingresar el username es obligatorio</mat-error
       >
@@ -25,11 +20,8 @@
     <br />
 
     <mat-form-field>
-      <input
-        matInput
-        placeholder="Ingrese su contraseña"
-        formControlName="password"
-      />
+      <mat-label>Password</mat-label>
+      <input matInput placeholder="Ingrese su contraseña" formControlName="password"/>
       <mat-error *ngIf="form.get('password')?.hasError('required')">
         Ingresar contraseña es obligatorio
       </mat-error>
@@ -38,19 +30,20 @@
     <br />
 
     <mat-form-field>
-      <input
-        matInput
-        placeholder="Ingrese su correo electrónico"
-        formControlName="mail"
-      />
+      <mat-label>Email</mat-label>
+      <input matInput placeholder="Ingrese su correo electrónico" formControlName="mail"/>
       <mat-error *ngIf="form.get('mail')?.hasError('required')">
         El correo electrónico es obligatoria.</mat-error
+      >
+      <mat-error *ngIf="form.get('mail')?.hasError('email')">
+        Ingrese un correo electronico valido</mat-error
       >
     </mat-form-field>
 
     <br />
 
     <mat-form-field>
+      <mat-label>Estado</mat-label>
       <mat-select formControlName="estado" placeholder="Ingrese el estado">
         <mat-option *ngFor="let user of listaestados" [value]="user.value">
           {{ user.viewValue }}
@@ -64,11 +57,8 @@
     <br />
 
     <mat-form-field>
-      <input
-        matInput
-        placeholder="Ingrese su dirección "
-        formControlName="address"
-      />
+      <mat-label>Addres</mat-label>
+      <input matInput placeholder="Ingrese su dirección" formControlName="address"/>
       <mat-error *ngIf="form.get('address')?.hasError('required')">
         Ingresar la dirección es obligatorio</mat-error
       >
@@ -76,21 +66,26 @@
     <br />
 
     <mat-form-field>
-      <input
-        matInput
-        placeholder="Ingrese su número de celular"
-        formControlName="phone"
-      />
+      <mat-label>Phone</mat-label>
+      <input matInput placeholder="Ingrese su número de celular" formControlName="phone"/>
       <mat-error *ngIf="form.get('phone')?.hasError('required')">
         Ingresar el celular es obligatorio</mat-error
       >
       <mat-error *ngIf="form.get('phone')?.hasError('pattern')">
         Solo se permiten números</mat-error
       >
+      <mat-error *ngIf="form.get('phone')?.hasError('minLength')">
+        El numero de celular tiene que ser de 9 digitos</mat-error
+      >
+      <mat-error *ngIf="form.get('phone')?.hasError('maxLength')">
+        El numero de celular tiene que ser de 9 digitos</mat-error
+      >
     </mat-form-field>
 
     <br />
+
     <mat-form-field>
+      <mat-label>DNI</mat-label>
       <input matInput placeholder="Ingrese su DNI" formControlName="dni" />
       <mat-error *ngIf="form.get('dni')?.hasError('required')">
         El dni es obligatoria.</mat-error
@@ -98,10 +93,18 @@
       <mat-error *ngIf="form.get('dni')?.hasError('pattern')">
         Solo se permiten números</mat-error
       >
+      <mat-error *ngIf="form.get('dni')?.hasError('minLength')">
+        El DNI contiene 8 digitos</mat-error
+      >
+      <mat-error *ngIf="form.get('dni')?.hasError('maxLength')">
+        El DNI contiene 8 digitos</mat-error
+      >
     </mat-form-field>
+
     <br />
 
     <mat-form-field>
+      <mat-label>Enabled</mat-label>
       <mat-select formControlName="enabled" placeholder="Ingrese el valor">
         <mat-option *ngFor="let user of listaestados" [value]="user.value">
           {{ user.viewValue }}

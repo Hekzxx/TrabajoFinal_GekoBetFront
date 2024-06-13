@@ -55,7 +55,7 @@ export class InsertaruserComponent implements OnInit {
       codigo: [''],
       username: ['', Validators.required],
       password: ['', Validators.required],
-      mail: ['', Validators.required],
+      mail: ['', [Validators.required, Validators.email]],
       estado: ['', Validators.required],
       address: ['', Validators.required],
       phone: [
@@ -63,12 +63,16 @@ export class InsertaruserComponent implements OnInit {
         [
           Validators.required,
           Validators.pattern('^[0-9]*$'),
+          Validators.minLength(9),
+          Validators.maxLength(9)
         ]
       ],
       dni: ['',
         [
           Validators.required,
           Validators.pattern('^[0-9]*$'),
+          Validators.minLength(8),
+          Validators.maxLength(8)
         ]],
       enabled: ['', Validators.required]
     })
@@ -78,7 +82,7 @@ export class InsertaruserComponent implements OnInit {
 
   registrar(): void {
     if (this.form.valid) {
-    this.user.id = this.form.value.codigo
+      this.user.id = this.form.value.codigo
       this.user.username = this.form.value.username
       this.user.password = this.form.value.password
       this.user.mail = this.form.value.mail
@@ -92,13 +96,9 @@ export class InsertaruserComponent implements OnInit {
       this.uS.insert(this.user).subscribe((data) => {
         this.uS.list().subscribe((data) => {
           this.uS.setList(data)
-        })
+        });
       });
-      this.router.navigate(['listaruser']).then(() => {
-        window.location.reload();
-      });
-
-
+      this.router.navigate(['listaruser']);
     }
   }
   init(){
@@ -114,7 +114,6 @@ export class InsertaruserComponent implements OnInit {
           phone: new FormControl (data.phone),
           dni: new FormControl (data.dni),
           enabled: new FormControl (data.enabled)
-
         });
       });
     }
