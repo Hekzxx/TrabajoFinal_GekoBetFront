@@ -16,6 +16,7 @@ import { Match } from '../../../models/Match';
 import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { MatchService } from '../../../services/match.service';
 import { MatSelectModule } from '@angular/material/select';
+import moment from 'moment';
 @Component({
   selector: 'app-insertarmatch',
   standalone: true,
@@ -38,6 +39,7 @@ import { MatSelectModule } from '@angular/material/select';
 export class InsertarmatchComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   match: Match = new Match();
+  minFecha: Date = moment().add(0, 'days').toDate();
 
   edicion: boolean = false;
   id: number = 0;

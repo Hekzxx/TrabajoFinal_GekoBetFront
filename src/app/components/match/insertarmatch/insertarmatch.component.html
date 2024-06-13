@@ -10,11 +10,13 @@
     <br />
 
     <mat-form-field appearance="fill" class="example-full-width">
+      <mat-label>Dia del Partido</mat-label>
       <input
         matInput
         placeholder="Fecha del partido"
         [matDatepicker]="picker"
         formControlName="fecha"
+        [min]="minFecha"
       />
       <mat-hint>MM/DD/YYYY</mat-hint>
       <mat-datepicker-toggle
@@ -22,6 +24,7 @@
         [for]="picker"
       ></mat-datepicker-toggle>
       <mat-datepicker #picker></mat-datepicker>
+
       <mat-error *ngIf="form.get('fecha')?.hasError('required')"
         >La fecha es obligatoria.</mat-error
       >
@@ -30,6 +33,7 @@
     <br />
 
     <mat-form-field>
+      <mat-label>Versus</mat-label>
       <input matInput placeholder="Ingrese los equipos que se enfrentaran" formControlName="versus" />
       <mat-error *ngIf="form.get('versus')?.hasError('required')">
         El versus es obligatorio.</mat-error
