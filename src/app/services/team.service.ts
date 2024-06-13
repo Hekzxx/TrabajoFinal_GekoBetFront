@@ -10,7 +10,6 @@ const base_url = environment.base;
 export class TeamService {
   private url =`${base_url}/teams`;
   private listacambio = new Subject<Team[]>();
-
   constructor(private httpClient: HttpClient) { }
   list() {
     return this.httpClient.get<Team[]>(this.url);

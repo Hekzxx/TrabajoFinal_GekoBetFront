@@ -9,17 +9,6 @@
     
     <br/>
 
-    <mat-form-field class="example-full-width" *ngIf="edicion" >
-        <mat-label>Pais</mat-label>
-        <mat-select formControlName="paiscountry" >
-          <mat-option *ngFor="let c of listaCountries" [value]="c.id">
-            {{ c.namecountry }}
-          </mat-option>
-        </mat-select>
-    </mat-form-field>
-
-    <br/>
-
     <mat-form-field class="example-full-width">
         <mat-label>Year</mat-label>
         <mat-select formControlName="year">

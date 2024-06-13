@@ -26,7 +26,7 @@ import { TeamService } from '../../../services/team.service';
 })
 export class ListarComponent implements OnInit{
   dataSource: MatTableDataSource<Team> = new MatTableDataSource();
-  displayedColumns: string[] = ['Ligaligue', 'nameteam', 'accion01', 'accion02'];
+  displayedColumns: string[] = ['Codigo', 'paiscountry', 'year','nameligue', 'nameteam', 'accion01', 'accion02'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   
   constructor(private st: TeamService){}
