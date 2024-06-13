@@ -38,7 +38,6 @@ export class InsertarseasonComponent implements OnInit {
 
   edicion: boolean = false;
   id: number = 0;
-
   constructor(
     private formBuilder: FormBuilder,
     private sS: SeasonService,
@@ -56,7 +55,13 @@ export class InsertarseasonComponent implements OnInit {
     this.form = this.formBuilder.group({
       codigo: [''],
       paiscountry: ['', Validators.required],
-      year: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
+      year: ['', 
+        [
+         Validators.required,
+         Validators.pattern('^[0-9]*$'),
+         Validators.min(2024),
+         Validators.max(2030),
+        ]],
     });
     this.cS.list().subscribe((data) => {
       this.listaCountries = data;

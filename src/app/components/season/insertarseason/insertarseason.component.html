@@ -1,10 +1,10 @@
 <div class="title-container"><h1>Registro de Temporadas</h1></div>
 <div class="container" style="text-align: center">
-  <form [formGroup]="form" (submit)="registrar()">
+  <form [formGroup]="form" (submit)="registrar()" class="example-form">
 
     <mat-form-field class="example-full-width"  *ngIf="edicion" >
       <mat-label>Codigo</mat-label>
-      <input matInput placeholder="Codigo" formControlName="codigo" />      
+      <input matInput placeholder="Codigo" formControlName="codigo" readonly/>      
     </mat-form-field>
     
     <br/>
@@ -28,11 +28,16 @@
       <mat-error *ngIf="form.get('year')?.hasError('required')">
         Ingresar el año de la temporada es obligatoria</mat-error
       >
-      <mat-error *ngIf="form.get('year')?.hasError('pattern')">
-        Solo se permiten numeros</mat-error
+      <mat-error *ngIf="form.get('year')?.hasError('min')">
+        El año no puede ser antes del 2024</mat-error
+      >
+      <mat-error *ngIf="form.get('year')?.hasError('max')">
+        El año no puede ser despues del 2030</mat-error
       >
     </mat-form-field>
+
     <br />
+
     <button mat-raised-button color="primary">Registrar</button>
     <button mat-raised-button color="warn" routerLink="/listarseason">
       Cancelar

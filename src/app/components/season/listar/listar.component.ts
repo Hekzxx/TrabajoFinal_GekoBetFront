@@ -26,7 +26,7 @@ import { SeasonService } from '../../../services/season.service';
 })
 export class ListarComponent implements OnInit{
   dataSource: MatTableDataSource<Season> = new MatTableDataSource();
-  displayedColumns: string[] = ['paiscountry', 'year', 'accion01', 'accion02'];
+  displayedColumns: string[] = ['Codigo', 'namecountry', 'year', 'accion01', 'accion02'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private sS: SeasonService) { }
