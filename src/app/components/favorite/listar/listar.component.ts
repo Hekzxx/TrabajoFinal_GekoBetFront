@@ -26,24 +26,24 @@ import { FavoriteService } from '../../../services/favorite.service';
 })
 export class ListarComponent implements OnInit{
   dataSource: MatTableDataSource<Favorite> = new MatTableDataSource();
-  displayedColumns: string[] = ['UsurioUser', 'Equiposteam','accion01', 'accion02'];
+  displayedColumns: string[] = ['Codigo', 'iduser', 'idteam', 'accion01', 'accion02'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private sF: FavoriteService) { }
+  constructor(private fS: FavoriteService) { }
   ngOnInit(): void {
-    this.sF.list().subscribe((data) => {
+    this.fS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
-    this.sF.getList().subscribe((data) => {
+    this.fS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;
     });
   }
   eliminar(id: number) {
-    this.sF.eliminar(id).subscribe((data) => {
-      this.sF.list().subscribe((data) => {
-        this.sF.setList(data);
+    this.fS.eliminar(id).subscribe((data) => {
+      this.fS.list().subscribe((data) => {
+        this.fS.setList(data);
       });
     });
   }

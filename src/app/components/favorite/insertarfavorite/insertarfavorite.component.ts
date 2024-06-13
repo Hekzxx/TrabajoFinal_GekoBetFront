@@ -24,11 +24,9 @@ import { TeamService } from '../../../services/team.service';
     MatFormFieldModule,
     CommonModule,
     NgIf,
-    MatDatepickerModule,
-    MatNativeDateModule,
     RouterLink,
     ReactiveFormsModule,
-    MatInputModule,
+    MatInputModule
   ],
   templateUrl: './insertarfavorite.component.html',
   styleUrl: './insertarfavorite.component.css'
@@ -41,7 +39,6 @@ export class InsertarfavoriteComponent implements OnInit{
 
   edicion: boolean = false;
   id: number = 0;
-
   constructor(
     private formBuilder: FormBuilder,
     private sF: FavoriteService,
