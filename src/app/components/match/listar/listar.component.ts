@@ -6,6 +6,8 @@ import { MatchService } from '../../../services/match.service';
 import { RouterLink } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
 
 @Component({
   selector: 'app-listar',
@@ -13,16 +15,20 @@ import { MatButtonModule } from '@angular/material/button';
   imports: [
     MatTableModule,
     MatPaginatorModule,
+    MatFormFieldModule,
     RouterLink,
     MatIconModule,
-    MatButtonModule],
+    MatButtonModule,
+    MatInputModule,
+  ],
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'
 })
 export class ListarComponent implements OnInit {
-  displayedColumns: string[] = ['id', 'dateMatch', 'versus','accion01', 'accion02'];
+  displayedColumns: string[] = ['Codigo', 'dateMatch', 'versus','accion01', 'accion02'];
   dataSource: MatTableDataSource<Match> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
+  
   constructor(private mS: MatchService) { }
   ngOnInit(): void {
     this.mS.list().subscribe((data) => {

@@ -54,7 +54,7 @@ export class InsertarcountryComponent implements OnInit {
     });
     this.form = this.formBuilder.group({
       codigo: [''],
-      pais: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
+      pais: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
     });
   }
 

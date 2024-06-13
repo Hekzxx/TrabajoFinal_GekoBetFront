@@ -1,11 +1,14 @@
-<div class="title-container">
-  <div class="title-container"><h1>Registro</h1></div>
-  <form [formGroup]="form" (submit)="registrar()">
-    <mat-form-field class="example-full-width"  *ngIf="edicion" >
+<div class="title-container"><h1>Registro de Partidos</h1></div>
+<div class="title-container" style="text-align: center">
+  <form [formGroup]="form" (submit)="registrar()" class="example-form">
+
+    <mat-form-field class="example-full-width" *ngIf="edicion">
       <mat-label>Codigo</mat-label>
-      <input matInput placeholder="Codigo" formControlName="codigo" />
+      <input matInput placeholder="Codigo" formControlName="codigo" readonly/>
     </mat-form-field>
-    <br>
+
+    <br />
+
     <mat-form-field appearance="fill" class="example-full-width">
       <input
         matInput
@@ -23,10 +26,11 @@
         >La fecha es obligatoria.</mat-error
       >
     </mat-form-field>
+
     <br />
-    <br />
+
     <mat-form-field>
-      <input matInput placeholder="Equipos versus" formControlName="versus" />
+      <input matInput placeholder="Ingrese los equipos que se enfrentaran" formControlName="versus" />
       <mat-error *ngIf="form.get('versus')?.hasError('required')">
         El versus es obligatorio.</mat-error
       >
@@ -34,7 +38,9 @@
         Solo se permiten letras</mat-error
       >
     </mat-form-field>
+
     <br />
+    
     <button mat-raised-button color="primary">Aceptar</button>
     <button mat-raised-button color="warn" routerLink="/listarmatch">
       Cancelar

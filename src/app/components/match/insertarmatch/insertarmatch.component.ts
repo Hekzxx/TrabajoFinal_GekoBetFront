@@ -34,12 +34,13 @@ import { MatSelectModule } from '@angular/material/select';
   templateUrl: './insertarmatch.component.html',
   styleUrl: './insertarmatch.component.css',
 })
+
 export class InsertarmatchComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   match: Match = new Match();
-  id: number = 0;
-  edicion: boolean = false;
 
+  edicion: boolean = false;
+  id: number = 0;
   constructor(
     private formBuilder: FormBuilder,
     private mS: MatchService,
@@ -53,17 +54,16 @@ export class InsertarmatchComponent implements OnInit {
       this.edicion = data['id'] != null;
       this.init();
     });
-
     this.form = this.formBuilder.group({
       codigo: [''],
-      versus: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
+      versus: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
       fecha: ['', Validators.required],
     });
   }
 
   registrar(): void {
     if (this.form.valid) {
-      this.match.id = this.form.value.codigo
+      this.match.id = this.form.value.codigo;
       this.match.versus = this.form.value.versus;
       this.match.dateMatch = this.form.value.fecha;
 
@@ -72,9 +72,7 @@ export class InsertarmatchComponent implements OnInit {
           this.mS.setList(data);
         });
       });
-      this.router.navigate(['listarmatch']).then(() => {
-        window.location.reload();
-      });
+      this.router.navigate(['listarmatch']);
     }
   }
   init(){
