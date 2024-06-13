@@ -35,6 +35,7 @@
     <br>
 
     <mat-form-field>
+      <mat-label>Liga</mat-label>
       <input matInput placeholder="Ingrese la liga" formControlName="nameligue" />
       <mat-error *ngIf="form.get('nameligue')?.hasError('required')">
         Ingresar el nombre de la liga es obligatoria</mat-error
