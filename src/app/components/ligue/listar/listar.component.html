@@ -2,6 +2,10 @@
     <div class="title-container"><h1 class="title">Lista de Ligues</h1></div>
     <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+      <ng-container matColumnDef="Codigo">
+        <th mat-header-cell *matHeaderCellDef>Código</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
 
     <!--LLamado de la tabla independiente country (NameCountry)-->
     <ng-container matColumnDef="paiscountry">

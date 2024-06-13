@@ -1,12 +1,23 @@
 <div class="title-container"><h1>Registro de Ligas</h1></div>
 <div class="container" style="text-align: center">
-  <form [formGroup]="form" (submit)="registrar()">
+  <form [formGroup]="form" (submit)="registrar()"  class="example-form">
 
     <mat-form-field class="example-full-width"  *ngIf="edicion" >
       <mat-label>Codigo</mat-label>
-      <input matInput placeholder="Codigo" formControlName="codigo" />      
+      <input matInput placeholder="Codigo" formControlName="codigo" readonly/>      
     </mat-form-field>
     
+    <br/>
+
+    <mat-form-field class="example-full-width" *ngIf="edicion" >
+        <mat-label>Pais</mat-label>
+        <mat-select formControlName="paiscountry" >
+          <mat-option *ngFor="let c of listaCountries" [value]="c.id">
+            {{ c.namecountry }}
+          </mat-option>
+        </mat-select>
+    </mat-form-field>
+
     <br/>
 
     <mat-form-field class="example-full-width">
@@ -17,9 +28,9 @@
           </mat-option>
         </mat-select>
         <mat-error *ngIf="form.get('year')?.hasError('required')"
-          >El ano de la temporada es obligatorio.</mat-error
+          >El año de la temporada es obligatorio.</mat-error
         >
-      </mat-form-field>
+    </mat-form-field>
 
     <br>
 

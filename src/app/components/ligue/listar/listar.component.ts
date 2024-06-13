@@ -26,7 +26,7 @@ import { LigueService } from '../../../services/ligue.service';
 })
 export class ListarComponent {
   dataSource: MatTableDataSource<Ligue> = new MatTableDataSource();
-  displayedColumns: string[] = ['paiscountry', 'year','nameligue', 'accion01', 'accion02'];
+  displayedColumns: string[] = ['Codigo', 'paiscountry', 'year','nameligue', 'accion01', 'accion02'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private lS: LigueService) { }
