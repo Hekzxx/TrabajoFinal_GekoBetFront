@@ -26,7 +26,6 @@ export class RoleService {
     return this.listacambio.asObservable()
   }
 
-
   listId(id:number) {
     return this.http.get<Role>(`${this.url}/${id}`);
   }
