@@ -1,1 +1,58 @@
-<p>listar works!</p>
+<div class="container">
+  <div class="title-container"><h1 class="title">Lista de Records</h1></div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="Codigo">
+      <th mat-header-cell *matHeaderCellDef>Código</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <!--Atributo nameteam (Team)-->
+    <ng-container matColumnDef="nameteam">
+      <th mat-header-cell *matHeaderCellDef>Equipo</th>
+      <td mat-cell *matCellDef="let element">{{ element.team.nameteam }}</td>
+    </ng-container>
+
+    <!--Atributo record(Record)-->
+    <ng-container matColumnDef="record">
+      <th mat-header-cell *matHeaderCellDef>Record</th>
+      <td mat-cell *matCellDef="let element">{{ element.resultado }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="dateRecord">
+      <th mat-header-cell *matHeaderCellDef>Ultimo partido Ganado</th>
+      <td mat-cell *matCellDef="let element">{{ element.dateRecord }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="accion01">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          color="warn"
+          [routerLink]="['ediciones', element.id]"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accion02">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button mat-raised-button color="warn" (click)="eliminar(element.id)">
+          <mat-icon>delete_sweep</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<br />
+
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  showFirstLastButtons
+></mat-paginator>
