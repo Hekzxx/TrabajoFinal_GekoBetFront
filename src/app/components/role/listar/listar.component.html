@@ -2,12 +2,12 @@
   <div class="title-container"><h1 class="title">Lista roles</h1></div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
+    <!--LLamado de la tabla independiente User (username)-->
     <ng-container matColumnDef="username">
       <th mat-header-cell *matHeaderCellDef>Nombre Usuario</th>
       <td mat-cell *matCellDef="let element"> {{ element.user.username }}</td>
     </ng-container>
 
-    
     <ng-container matColumnDef="tipo">
       <th mat-header-cell *matHeaderCellDef>Tipo</th>
       <td mat-cell *matCellDef="let element">{{ element.tipo }}</td>

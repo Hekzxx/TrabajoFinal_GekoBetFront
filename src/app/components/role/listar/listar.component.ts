@@ -12,7 +12,8 @@ import { Role } from '../../../models/Role';
 @Component({
   selector: 'app-listar',
   standalone: true,
-  imports: [    MatTableModule,
+  imports: [    
+    MatTableModule,
     MatPaginatorModule,
     MatFormFieldModule,
     RouterLink,
@@ -23,13 +24,11 @@ import { Role } from '../../../models/Role';
   styleUrl: './listar.component.css'
 })
 export class ListarComponent implements OnInit {
-
   dataSource: MatTableDataSource<Role> = new MatTableDataSource();
   displayedColumns: string[] = [ 'username','tipo', 'accion01', 'accion02'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
   constructor(private rS: RoleService) { }
-
   ngOnInit(): void {
     this.rS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);

@@ -38,7 +38,6 @@ export class InsertaruserComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private uS: UserService,
-
     private router: Router,
     private route: ActivatedRoute
   ) { }

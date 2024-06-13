@@ -22,8 +22,6 @@ import { UserService } from '../../../services/user.service';
     MatFormFieldModule,
     CommonModule,
     NgIf,
-    MatDatepickerModule,
-    MatNativeDateModule,
     RouterLink,
     ReactiveFormsModule,
     MatInputModule,
@@ -35,9 +33,12 @@ export class InsertarroleComponent implements OnInit {
   form: FormGroup = new FormGroup({});
   role: Role = new Role();
   listaUsers: User[] = [];
-
   edicion: boolean = false;
   id: number = 0;
+  listaroles: { value: string; viewValue: string }[] = [
+    { value: 'ADMIN', viewValue: 'Administrador' },
+    { value: 'USER', viewValue: 'Usuario' }
+  ]
 
   constructor(
     private formBuilder: FormBuilder,
