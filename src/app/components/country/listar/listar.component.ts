@@ -8,6 +8,7 @@ import { RouterLink } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-listar',
@@ -29,7 +30,11 @@ export class ListarComponent implements OnInit {
   displayedColumns: string[] = ['Codigo', 'namecountry', 'accion01', 'accion02'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private cS: CountryService) { }
+  constructor(
+    private cS: CountryService,
+    private us: UserService,
+  ) { }
+
   ngOnInit(): void {
     this.cS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);

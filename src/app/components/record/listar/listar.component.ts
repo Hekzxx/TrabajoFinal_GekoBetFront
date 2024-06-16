@@ -8,6 +8,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { Record } from '../../../models/Record';
 import { RecordService } from '../../../services/record.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-listar',
@@ -29,7 +30,10 @@ export class ListarComponent implements OnInit {
   displayedColumns: string[] = ['Codigo', 'nameteam', 'record', 'dateRecord', 'accion01', 'accion02'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private rS: RecordService) { }
+  constructor(
+    private rS: RecordService,
+    private us: UserService
+  ) { }
   ngOnInit(): void {
     this.rS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);

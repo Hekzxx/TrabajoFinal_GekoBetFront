@@ -8,6 +8,7 @@ import { MatTableDataSource, MatTableModule } from '@angular/material/table';
 import { RouterLink } from '@angular/router';
 import { TeamXMatch } from '../../../models/TeamXMatch';
 import { TeamXMatchService } from '../../../services/team-xmatch.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-listar',
@@ -29,7 +30,10 @@ export class ListarComponent implements OnInit{
   displayedColumns: string[] = ['Codigo', 'idteam', 'idmatch', 'idmatchfecha', 'accion01', 'accion02'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private tmS: TeamXMatchService){}
+  constructor(
+    private tmS: TeamXMatchService,
+    private us: UserService
+  ){}
   ngOnInit(): void {
     this.tmS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);

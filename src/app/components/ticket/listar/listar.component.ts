@@ -10,6 +10,7 @@ import { Match } from '../../../models/Match';
 import { MatchService } from '../../../services/match.service';
 import { Ticket } from '../../../models/Ticket';
 import { TicketService } from '../../../services/ticket.service';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-listar',
@@ -31,7 +32,10 @@ export class ListarComponent {
   displayedColumns: string[] = [ 'idTicket','USERid','Matchid','EquipoGanador','probabilidad', 'fecha', 'accion01', 'accion02'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private tS: TicketService) { }
+  constructor(
+    private tS: TicketService,
+    private us: UserService
+  ) { }
   ngOnInit(): void {
     this.tS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
