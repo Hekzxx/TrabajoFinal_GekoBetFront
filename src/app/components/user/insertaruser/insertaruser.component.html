@@ -19,9 +19,9 @@
 
     <br />
 
-    <mat-form-field >
+    <mat-form-field *ngIf="!edicion">
       <mat-label>Password</mat-label>
-      <input type="password" [(ngModel)]="password" matInput placeholder="Ingrese su contraseña" formControlName="password" readonly/>
+      <input type="password" [(ngModel)]="password" matInput placeholder="Ingrese su contraseña" formControlName="password"/>
       <mat-error *ngIf="form.get('password')?.hasError('required')">
         Ingresar contraseña es obligatorio
       </mat-error>
