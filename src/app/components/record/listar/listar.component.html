@@ -1,5 +1,5 @@
 <div class="container">
-  <div class="title-container"><h1 class="title">Lista de Records</h1></div>
+  <div class="title-container"><h1 class="title">Lista de Registro</h1></div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
     <ng-container matColumnDef="Codigo">
       <th mat-header-cell *matHeaderCellDef>Código</th>
@@ -14,7 +14,7 @@
 
     <!--Atributo record(Record)-->
     <ng-container matColumnDef="record">
-      <th mat-header-cell *matHeaderCellDef>Record</th>
+      <th mat-header-cell *matHeaderCellDef>Registro</th>
       <td mat-cell *matCellDef="let element">{{ element.resultado }}</td>
     </ng-container>
 

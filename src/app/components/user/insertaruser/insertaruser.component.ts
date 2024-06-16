@@ -29,11 +29,13 @@ export class InsertaruserComponent implements OnInit {
   form: FormGroup = new FormGroup({})
   user: User = new User()
   edicion: boolean = false;
+  password: any;
   id: number = 0;
   listaestados: { value: boolean; viewValue: string }[] = [
     { value: true, viewValue: 'Verdadero' },
     { value: false, viewValue: 'Falso' }
   ]
+  
 
   constructor(
     private formBuilder: FormBuilder,
