@@ -1,6 +1,6 @@
 import { CommonModule, NgIf } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatSelectModule } from '@angular/material/select';
@@ -31,6 +31,7 @@ export class InsertaruserComponent implements OnInit {
   edicion: boolean = false;
   password: any;
   id: number = 0;
+  mensaje: string = '';
   listaestados: { value: boolean; viewValue: string }[] = [
     { value: true, viewValue: 'Verdadero' },
     { value: false, viewValue: 'Falso' }
@@ -93,13 +94,27 @@ export class InsertaruserComponent implements OnInit {
       this.user.dni = this.form.value.dni
       this.user.enabled = this.form.value.enabled
 
-
-      this.uS.insert(this.user).subscribe((data) => {
-        this.uS.list().subscribe((data) => {
-          this.uS.setList(data)
-        });
-      });
-      this.router.navigate(['listaruser']);
+      this.uS.list().subscribe(listausuarios => {
+        let camposunicos: boolean = true;
+        for (let u of listausuarios) {
+          if (this.form.value.username == u.username && this.form.value.id != u.id) {
+            camposunicos = false;
+            this.mensaje = "El nombre de usuario ya existe"
+          }
+          if (this.form.value.mail == u.mail && this.form.value.id != u.id) {
+            camposunicos = false;
+            this.mensaje = "El email ya está asociado con otra cuenta"
+          }
+        } 
+        if (camposunicos==true) {
+          this.uS.insert(this.user).subscribe((data) => {
+            this.uS.list().subscribe((data) => {
+              this.uS.setList(data)
+            });
+          });
+          this.router.navigate(['listaruser']);
+        }
+      })
     }
   }
   init(){
@@ -119,9 +134,4 @@ export class InsertaruserComponent implements OnInit {
       });
     }
   }
-
-
-
-
-
 }
