@@ -10,17 +10,17 @@
     <br/>
 
     <mat-form-field>
-      <mat-label>Username</mat-label>
+      <mat-label>Usuario</mat-label>
       <input matInput placeholder="Ingrese su username" formControlName="username"/>
       <mat-error *ngIf="form.get('username')?.hasError('required')">
-        Ingresar el username es obligatorio</mat-error
+        Ingresar el usuario es obligatorio</mat-error
       >
     </mat-form-field>
 
     <br />
 
     <mat-form-field *ngIf="!edicion">
-      <mat-label>Password</mat-label>
+      <mat-label>Contraseña</mat-label>
       <input type="password" [(ngModel)]="password" matInput placeholder="Ingrese su contraseña" formControlName="password"/>
       <mat-error *ngIf="form.get('password')?.hasError('required')">
         Ingresar contraseña es obligatorio
@@ -30,7 +30,7 @@
     <br />
 
     <mat-form-field>
-      <mat-label>Email</mat-label>
+      <mat-label>Correo</mat-label>
       <input matInput placeholder="Ingrese su correo electrónico" formControlName="mail"/>
       <mat-error *ngIf="form.get('mail')?.hasError('required')">
         El correo electrónico es obligatoria.</mat-error
@@ -57,7 +57,7 @@
     <br />
 
     <mat-form-field>
-      <mat-label>Addres</mat-label>
+      <mat-label>Dirección</mat-label>
       <input matInput placeholder="Ingrese su dirección" formControlName="address"/>
       <mat-error *ngIf="form.get('address')?.hasError('required')">
         Ingresar la dirección es obligatorio</mat-error
@@ -66,7 +66,7 @@
     <br />
 
     <mat-form-field>
-      <mat-label>Phone</mat-label>
+      <mat-label>Número de celular</mat-label>
       <input matInput placeholder="Ingrese su número de celular" formControlName="phone"/>
       <mat-error *ngIf="form.get('phone')?.hasError('required')">
         Ingresar el celular es obligatorio</mat-error
