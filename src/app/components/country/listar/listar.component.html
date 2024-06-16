@@ -1,46 +1,35 @@
 <div class="container">
   <div class="title-container"><h1 class="title">Lista de Paises</h1></div>
-  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-    <ng-container matColumnDef="Codigo">
-      <th mat-header-cell *matHeaderCellDef>Código</th>
-      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-    </ng-container>
+  <div class="card-grid">
+    <div *ngFor="let country of dataSource.data" class="card-item">
+      <mat-card class="example-card">
+        <mat-card-header>
+          <div mat-card-avatar class="example-header-image"></div>
+          <mat-card-title>Pais: {{ country.id  }}</mat-card-title>
 
-    <ng-container matColumnDef="namecountry">
-      <th mat-header-cell *matHeaderCellDef>Pais</th>
-      <td mat-cell *matCellDef="let element">{{ element.namecountry }}</td>
-    </ng-container>
+        </mat-card-header>
 
-    <ng-container matColumnDef="accion01">
-      <th mat-header-cell *matHeaderCellDef>Acciones</th>
-      <td mat-cell *matCellDef="let element">
-        <button
-          mat-raised-button
-          color="warn"
-          [routerLink]="['ediciones', element.id]"
-        >
-          <mat-icon>edit</mat-icon>
-        </button>
-      </td>
-    </ng-container>
+        <mat-card-content>
+          <img mat-card-image class="small-image" src="https://cdn.icon-icons.com/icons2/1524/PNG/512/globe_106381.png" alt="user icono" >
+          <p>Codigo: {{ country.id  }}</p>
+          <br />
+          <p>Pais: {{ country.namecountry  }}</p>
+          <br />
+        </mat-card-content>
 
-    <ng-container matColumnDef="accion02">
-      <th mat-header-cell *matHeaderCellDef>Acciones</th>
-      <td mat-cell *matCellDef="let element">
-        <button
-          mat-raised-button
-          color="warn"
-          (click)="eliminar(element.id)"
-        >
-          <mat-icon>delete_sweep</mat-icon>
-        </button>
-      </td>
-    </ng-container>
+        <mat-card-actions>
+          <button mat-raised-button color="warn" [routerLink]="['ediciones', country.id]">
+            <mat-icon>edit</mat-icon>
+          </button>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-  </table>
+          <button mat-raised-button color="warn" (click)="eliminar(country.id)" >
+            <mat-icon>delete_sweep</mat-icon>
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
 </div>
 
 <br>

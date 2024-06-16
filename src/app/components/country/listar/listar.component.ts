@@ -9,6 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { UserService } from '../../../services/user.service';
+import { MatCardModule } from '@angular/material/card';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-listar',
@@ -20,7 +22,9 @@ import { UserService } from '../../../services/user.service';
     RouterLink,
     MatInputModule,
     MatIconModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule,
+    CommonModule
   ],
   templateUrl: './listar.component.html',
   styleUrl: './listar.component.css'
