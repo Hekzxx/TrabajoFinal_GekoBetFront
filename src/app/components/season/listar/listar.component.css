@@ -75,6 +75,36 @@ button.mat-raised-button mat-icon {
   font-size: 18px;
 }
 
+/* Estilo de los botones */
+button.edit-button, button.delete-button {
+  font-size: 20px;
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+button.edit-button {
+  background-color: #5db73b;
+  color: #ffffff;
+}
+
+button.edit-button:hover {
+  background-color: #4ca32d;
+}
+
+button.delete-button {
+  background-color: #efae03;
+  color: #ffffff;
+}
+
+button.delete-button:hover {
+  background-color: #e2a60f;
+}
+
 /* Estilos del Paginador */
 .paginator {
   margin-top: 20px;
