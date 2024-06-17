@@ -1,12 +1,106 @@
+/* Contenedor Principal */
+.principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  background-color: #ca2222; /* Fondo de la página */
+  min-height: 100vh; /* Asegura que el contenido cubra toda la altura de la ventana */
+}
+
+/* Contenedor de la Tabla */
+.container {
+  max-width: 1000px;
+  width: 100%;
+  padding: 20px;
+  background-color: #170968; /* Fondo blanco para la tabla */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+}
+
+/* Título de la Tabla */
 .title-container {
-    text-align: center;
-    margin-bottom: 40px; /* Increase the margin-bottom to move the title lower */
-    margin-top: 60px;    /* Add a margin-top to further position it down the page */
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+/* Estilos de la Tabla */
+table.mat-table {
+  width: 100%;
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+
+/* Estilos para las Celdas de Encabezado */
+th.mat-header-cell {
+  padding: 12px 16px;
+  background-color: #b5573f; /* Color de fondo de encabezados (Azul Material) */
+  color: #ffffff; /* Color de texto blanco */
+  font-family: 'Roboto', sans-serif;
+  font-weight: 600;
+  text-align: left;
+}
+
+/* Estilos para las Celdas de la Tabla */
+td.mat-cell {
+  padding: 12px 16px;
+  font-family: 'Roboto', sans-serif;
+  border-bottom: 1px solid #20cf6f; /* Borde inferior claro */
+  background-color: #f5f5f5; /* Fondo de celdas (gris claro) */
+  color: #ce1d1d; /* Color de texto */
+}
+
+/* Alternar color de las filas */
+tr.mat-row:nth-child(odd) td.mat-cell {
+  background-color: #e7e7e7; /* Color para filas impares */
+}
+
+/* Estilos de los Botones */
+button.mat-raised-button {
+  margin-right: 8px;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  gap: 4px; /* Espacio entre el icono y el texto */
+}
+
+button.mat-raised-button mat-icon {
+  font-size: 18px;
+}
+
+/* Estilos del Paginador */
+.paginator {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+
+  .principal{
+    padding: 10px;
   }
-  
+  .container {
+    padding: 10px;
+  }
+
+  th.mat-header-cell, td.mat-cell {
+    padding: 8px;
+  }
+
   .title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2em;
-    color: #333;
+    font-size: 24px;
   }
+}
