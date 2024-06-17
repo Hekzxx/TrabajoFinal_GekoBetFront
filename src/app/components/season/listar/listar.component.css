@@ -4,7 +4,7 @@
   flex-direction: column;
   align-items: center;
   padding: 20px;
-  background-color: #ca2222; /* Fondo de la página */
+  background-color: #8cc6a0; /* Fondo de la página */
   min-height: 100vh; /* Asegura que el contenido cubra toda la altura de la ventana */
 }
 
@@ -107,7 +107,7 @@ button.delete-button:hover {
 
 /* Estilos del Paginador */
 .paginator {
-  margin-top: 20px;
+  margin-top: 10px;
   display: flex;
   justify-content: center;
   background-color: #fafafa;

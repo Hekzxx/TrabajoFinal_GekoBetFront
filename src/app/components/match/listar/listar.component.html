@@ -1,3 +1,4 @@
+<div class="principal">
 <div class="container">
   <div class="title-container"><h1 class="title">Lista de Partidos</h1></div>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
@@ -46,7 +47,11 @@
   </table>
   <br />
 </div>
-<mat-paginator
+
+<div class="paginator"><mat-paginator
   [pageSizeOptions]="[5, 10, 25, 100]"
   showFirstLastButtons
-></mat-paginator>
+></mat-paginator></div>
+
+
+</div>
