@@ -1,29 +1,35 @@
+
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="login.component.css">
+</head>
 <body>
-  <div class="container" style="background-image: url('assets/messi.png'); background-size: cover; background-position: contain; height: 100vh;">
-    <div>
-      <img src="assets/logo.png" alt="Logo de empresa" />
+  <div class="background-container">
+    <div class="login-container">
+      <div>
+        <img src="assets/logo.png" alt="Logo de empresa" class="logo"/>
+      </div>
+      <h2 class="titulo">Inicie sesión</h2>
+      <mat-form-field class="example-full-width">
+        <mat-label class="container2">Usuario</mat-label>
+        <input matInput placeholder="Username" [(ngModel)]="username" />
+      </mat-form-field>
+      <br />
+      <mat-form-field class="example-full-width">
+        <mat-label class="container2">Password</mat-label>
+        <input
+          type="password"
+          matInput
+          placeholder="Password"
+          [(ngModel)]="password"
+        />
+      </mat-form-field>
+      <br />
+      <button class="boton" mat-raised-button (click)="login()">Ingresar</button>
     </div>
-    <h2 class="titulo">Inicie sesión</h2>
-    <mat-form-field class="example-full-width">
-      <mat-label class="container2">Usuario</mat-label>
-      <input  matInput placeholder="Username" [(ngModel)]="username" />
-    </mat-form-field>
-    <br />
-    <mat-form-field class="example-full-width">
-      <mat-label class="container2">Password</mat-label>
-      <input
-        type="password"
-        matInput
-        placeholder="Password"
-        [(ngModel)]="password"
-      />
-    </mat-form-field>
-    <br />
-    <button class="container2" mat-raised-button color="primary" (click)="login()">Ingresar</button>
   </div>
 </body>
-
-
-
-
-
+</html>

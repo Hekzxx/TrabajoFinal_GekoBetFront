@@ -1,34 +1,61 @@
-mat-form-field {
-  width: 50%;
+body, html {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
 }
 
+.background-container {
+  background-image: url('https://media.admagazine.com/photos/637d11a6e63c8afac40e7a01/4:3/w_3859,h_2894,c_limit/1442809583');
+  background-size: 80%;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: flex-start; /* Alinea el contenido a la izquierda */
+  align-items: center;
+  padding-left: 50px; /* Ajusta la cantidad de espacio a la izquierda */
+}
+
+.login-container {
+  background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 300px;
+}
 
 .titulo {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 700;
+  padding-left: 75px;
+  font-family: 'Open Sans', sans-serif;
+  
 }
+
+.example-full-width {
+  width: 100%;
+}
+
 .container2 {
-  font-family: "Open Sans", sans-serif;
-  font-weight: 600;
+  font-family: 'Open Sans', sans-serif;
+  display: block;
+  margin-top: 10px;
 }
-.container {
-  max-width: 100%;
-  max-height: 100%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: cover;
-  padding: 0px;
-  margin: 0px;
+.logo{
+  height: 300px;
 }
-body {
-  background-color: #f8b726;
-  background-color: rgb(248, 183, 38, 255);
+.boton{
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  margin: 0 auto;
+  background-color: #5db73b !important; /* Color base del botón */
 }
-
-/* Estilos Responsivos */
-@media (max-width: 768px) {
-
-  *{
-    padding: 10px;
-  }
+/*
+.boton:hover {
+  background-color: #4a9e30; /* Color del botón al pasar el mouse por encima* / 
 }
+*/
+ 
