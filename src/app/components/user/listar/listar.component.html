@@ -5,7 +5,7 @@
 
   <div class="card-grid">
     <div *ngFor="let user of dataSource.data" class="card-item">
-      <mat-card class="example-card">
+      <mat-card class="example-card" style="border: 2px solid black; border-radius: 3%;">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
           <mat-card-title>Usuario: {{ user.id  }}</mat-card-title>
@@ -26,11 +26,11 @@
         </mat-card-content>
 
         <mat-card-actions>
-          <button mat-raised-button color="warn" [routerLink]="['ediciones', user.id]">
+          <button mat-raised-button class="edit-button" [routerLink]="['ediciones', user.id]">
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button mat-raised-button color="warn" (click)="eliminar(user.id)" >
+          <button mat-raised-button class="delete-button" (click)="eliminar(user.id)" >
             <mat-icon>delete_sweep</mat-icon>
           </button>
         </mat-card-actions>

@@ -1,12 +1,125 @@
+/* Estilos base */
+body {
+  font-family: 'Open Sans', sans-serif;
+  background-color: #f8f8f8;
+  color: #000000;
+  margin: 0;
+  padding: 20px;
+}
+
+/* Estilo de encabezados */
+h1.title {
+  font-size: 48px;
+  color: #5db73b;
+  margin-bottom: 20px;
+}
+
+h2, h3 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+  font-size: 43px;
+  color: #5db73b;
+}
+
+h3 {
+  font-size: 38px;
+  color: #efae03;
+}
+
+p {
+  font-size: 25px;
+  font-family: 'Open Sans', sans-serif;
+  color: #000;
+}
+
+/* Contenedor del título */
 .title-container {
-    text-align: center;
-    margin-bottom: 40px; /* Increase the margin-bottom to move the title lower */
-    margin-top: 60px;    /* Add a margin-top to further position it down the page */
+  text-align: center;
+  margin: 60px 0 40px;
+}
+
+/* Estilo de la tabla */
+.mat-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.mat-table th, .mat-table td {
+  padding: 15px;
+  text-align: left;
+  border-bottom: 1px solid #d9d9d9;
+}
+
+.mat-table th {
+  background-color: #efae03;
+  color: #ffffff;
+  font-size: 30px;
+}
+
+.mat-table td {
+  font-size: 25px;
+}
+
+.mat-table tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+/* Estilo de los botones */
+button.edit-button, button.delete-button {
+  font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+}
+
+button.edit-button {
+  background-color: #5db73b;
+  color: #ffffff;
+}
+
+button.edit-button:hover {
+  background-color: #4ca32d;
+}
+
+button.delete-button {
+  background-color: #efae03;
+  color: #ffffff;
+}
+
+button.delete-button:hover {
+  background-color: #e2a60f;
+}
+
+mat-icon {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Estilo del paginador */
+mat-paginator {
+  margin: 20px 0;
+  display: flex;
+  justify-content: center;
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  .mat-table th, .mat-table td {
+      font-size: 20px;
   }
-  
-  .title {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 600;
-    font-size: 2em;
-    color: #333;
+
+  button.edit-button, button.delete-button {
+      font-size: 20px;
+      padding: 8px 15px;
   }
+}
+
+
