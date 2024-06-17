@@ -87,6 +87,8 @@
     gap: 200px;
     width: 100%;
     max-width: 1200px;
+    
+
   }
 
 
@@ -94,6 +96,8 @@
   .card-item {
     display: flex;
     justify-content: center;
+
+
   }
 
 
@@ -111,12 +115,14 @@
   .mat-card-content p {
     text-align: center;
     margin: 10px 0;
+
   }
 
   .mat-card-actions {
     display: flex;
     justify-content: space-around;
   }
+
 
 
   /* Estilo de los botones */
@@ -129,6 +135,7 @@ button.edit-button, button.delete-button {
   display: inline-flex;
   align-items: center;
   transition: background-color 0.3s ease;
+  margin: 4%;
 }
 
 button.edit-button {
