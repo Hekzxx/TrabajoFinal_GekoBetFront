@@ -56,7 +56,16 @@
   / Add a margin-top to further position it down the page */
 
 }
-
+/* Estilos del Paginador */
+.paginator {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
 
 .title {

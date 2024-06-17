@@ -87,7 +87,7 @@
     gap: 200px;
     width: 100%;
     max-width: 1200px;
-    
+
 
   }
 
@@ -123,7 +123,16 @@
     justify-content: space-around;
   }
 
-
+/* Estilos del Paginador */
+.paginator {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
   /* Estilo de los botones */
 button.edit-button, button.delete-button {
