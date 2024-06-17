@@ -19,11 +19,11 @@
         </mat-card-content>
 
         <mat-card-actions>
-          <button mat-raised-button color="warn" [routerLink]="['ediciones', country.id]">
+          <button mat-raised-button class="edit-button" [routerLink]="['ediciones', country.id]">
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button mat-raised-button color="warn" (click)="eliminar(country.id)" >
+          <button mat-raised-button  class="delete-button" (click)="eliminar(country.id)" >
             <mat-icon>delete_sweep</mat-icon>
           </button>
         </mat-card-actions>
