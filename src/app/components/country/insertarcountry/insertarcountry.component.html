@@ -1,4 +1,5 @@
-<div class="title-container"><h1>Registro de Paises</h1></div>
+<div class="title-container"><h1 class="textoBox">Registro de Paises</h1></div>
+
 <div class="container" style="text-align: center">
   <form [formGroup]="form" (submit)="registrar()" class="example-form">
 
@@ -10,7 +11,7 @@
     <br/>
 
     <mat-form-field>
-      <mat-label>Pais:</mat-label>
+      <mat-label class="textoBox">Pais:</mat-label>
       <input matInput placeholder="Ingrese el nombre del pais" formControlName="pais"/>
       <mat-error *ngIf="form.get('pais')?.hasError('required')">
         Ingresar el nombre del pais es obligatorio</mat-error
