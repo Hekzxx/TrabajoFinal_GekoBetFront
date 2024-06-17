@@ -1,4 +1,5 @@
-/* Contenedor Principal */
+/* Estilos base */
+
 .principal {
   display: flex;
   flex-direction: column;
@@ -13,71 +14,77 @@
   max-width: 1000px;
   width: 100%;
   padding: 20px;
-  background-color: #170968; /* Fondo blanco para la tabla */
+  background-color: #efae03; /* Fondo blanco para la tabla */
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
-/* Título de la Tabla */
+/* Estilo de encabezados */
+h1.title {
+  font-size: 48px;
+  color: #5db73b;
+  margin-bottom: 20px;
+  text-shadow: 0px 0px 3px rgb(8, 105, 3);
+
+}
+
+h2, h3 {
+  font-family: 'Open Sans', sans-serif;
+}
+
+h2 {
+  font-size: 43px;
+  color: #5db73b;
+}
+
+h3 {
+  font-size: 38px;
+  color: #efae03;
+}
+
+p {
+  font-size: 25px;
+  font-family: 'Open Sans', sans-serif;
+  color: #000;
+}
+
+/* Contenedor del título */
 .title-container {
   text-align: center;
-  margin-bottom: 20px;
+  margin: 20px 0 40px;
 }
 
-.title {
-  font-family: 'Roboto', sans-serif;
-  color: #333;
-  font-size: 28px;
-  font-weight: 700;
-}
-
-/* Estilos de la Tabla */
-table.mat-table {
+/* Estilo de la tabla */
+.mat-table {
   width: 100%;
-  border-spacing: 0;
   border-collapse: collapse;
+  margin-bottom: 40px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Estilos para las Celdas de Encabezado */
-th.mat-header-cell {
-  padding: 12px 16px;
-  background-color: #b5573f; /* Color de fondo de encabezados (Azul Material) */
-  color: #ffffff; /* Color de texto blanco */
-  font-family: 'Roboto', sans-serif;
-  font-weight: 600;
+.mat-table th, .mat-table td {
+  padding: 15px;
   text-align: left;
+  border-bottom: 1px solid #d9d9d9;
 }
 
-/* Estilos para las Celdas de la Tabla */
-td.mat-cell {
-  padding: 12px 16px;
-  font-family: 'Roboto', sans-serif;
-  border-bottom: 1px solid #20cf6f; /* Borde inferior claro */
-  background-color: #f5f5f5; /* Fondo de celdas (gris claro) */
-  color: #ce1d1d; /* Color de texto */
+.mat-table th {
+  background-color: #efae03;
+  color: #ffffff;
+  font-size: 30px;
 }
 
-/* Alternar color de las filas */
-tr.mat-row:nth-child(odd) td.mat-cell {
-  background-color: #e7e7e7; /* Color para filas impares */
+.mat-table td {
+  font-size: 25px;
 }
 
-/* Estilos de los Botones */
-button.mat-raised-button {
-  margin-right: 8px;
-  font-size: 14px;
-  display: flex;
-  align-items: center;
-  gap: 4px; /* Espacio entre el icono y el texto */
-}
-
-button.mat-raised-button mat-icon {
-  font-size: 18px;
+.mat-table tr:nth-child(even) {
+  background-color: #f2f2f2;
 }
 
 /* Estilo de los botones */
 button.edit-button, button.delete-button {
-  font-size: 20px;
+  font-size: 30px;
   font-family: 'Open Sans', sans-serif;
   border: none;
   padding: 10px 20px;
@@ -105,32 +112,35 @@ button.delete-button:hover {
   background-color: #e2a60f;
 }
 
-/* Estilos del Paginador */
+mat-icon {
+  vertical-align: middle;
+  margin-right: 5px;
+}
+
+/* Estilo del paginador */
 .paginator {
-  margin-top: 10px;
+  margin-top: 1px;
   display: flex;
   justify-content: center;
   background-color: #fafafa;
   padding: 10px;
   border-radius: 4px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  width: 100%;
 }
 
-/* Estilos Responsivos */
+/* Responsivo */
 @media (max-width: 768px) {
-
-  .principal{
-    padding: 10px;
-  }
-  .container {
-    padding: 10px;
+  .mat-table th, .mat-table td {
+      font-size: 20px;
   }
 
-  th.mat-header-cell, td.mat-cell {
-    padding: 8px;
-  }
-
-  .title {
-    font-size: 24px;
+  button.edit-button, button.delete-button {
+      font-size: 20px;
+      padding: 8px 15px;
   }
 }
+
+
+
