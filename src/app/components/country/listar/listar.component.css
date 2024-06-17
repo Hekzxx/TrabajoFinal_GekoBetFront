@@ -168,3 +168,32 @@ button.delete-button:hover {
       padding: 8px 15px;
   }
 }
+/* Estilos del Paginador */
+.paginator {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+
+  .principal{
+    padding: 10px;
+  }
+  .container {
+    padding: 10px;
+  }
+
+  th.mat-header-cell, td.mat-cell {
+    padding: 8px;
+  }
+
+  .title {
+    font-size: 24px;
+  }
+}
