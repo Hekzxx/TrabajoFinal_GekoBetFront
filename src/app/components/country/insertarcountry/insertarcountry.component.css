@@ -1,17 +1,23 @@
+body{
+   max-width: 100%;
+    max-height: 100%;
+}
 .title-container {
   
     text-align: center;
 
-    margin-bottom: 40px;
-    /* Increase the margin-bottom to move the title lower */
-
-    margin-top: 60px;
-    /* Add a margin-top to further position it down the page */
+   
     
 
 }
 
-
+.fondo{
+    background-size: cover;
+    display: block;
+   
+    max-width: 100%;
+    max-height: 100%;
+}
 
 .title {
     
@@ -32,4 +38,5 @@ mat-form-field {
 
 .textoBox{
     font-family: 'Open Sans', sans-serif;
+    
 }
