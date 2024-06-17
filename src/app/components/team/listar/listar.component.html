@@ -1,54 +1,69 @@
 <div class="container">
-    <div class="title-container"><h1 class="title">Lista de Equipos</h1></div>
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      
-      <!--LLamado de la tabla independiente Liga (nameligue)-->
-      <ng-container matColumnDef="Ligaligue">
-        <th mat-header-cell *matHeaderCellDef>Liga</th>
-        <td mat-cell *matCellDef="let element"> {{ element.ligue.nameligue }}</td>
-      </ng-container>
-  
-      <!--Atributo nameteam (Team)-->
-      <ng-container matColumnDef="nameteam">
-        <th mat-header-cell *matHeaderCellDef>Equipo</th>
-        <td mat-cell *matCellDef="let element">{{ element.nameteam }}</td>
-      </ng-container>
-  
-      <ng-container matColumnDef="accion01">
-          <th mat-header-cell *matHeaderCellDef>Acciones</th>
-          <td mat-cell *matCellDef="let element">
-            <button
-              mat-raised-button
-              color="warn"
-              [routerLink]="['ediciones', element.id]"
-            >
-              <mat-icon>edit</mat-icon>
-            </button>
-          </td>
-        </ng-container>
-    
-        <ng-container matColumnDef="accion02">
-          <th mat-header-cell *matHeaderCellDef>Acciones</th>
-          <td mat-cell *matCellDef="let element">
-            <button
-              mat-raised-button
-              color="warn"
-              (click)="eliminar(element.id)"
-            >
-              <mat-icon>delete_sweep</mat-icon>
-            </button>
-          </td>
-        </ng-container>
-  
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-  </div>
-  
-  <br />
-  
-  <mat-paginator
-    [pageSizeOptions]="[5, 10, 25, 100]"
-    showFirstLastButtons
-  ></mat-paginator>
-  
+  <div class="title-container"><h1 class="title">Lista de Equipos</h1></div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <ng-container matColumnDef="Codigo">
+      <th mat-header-cell *matHeaderCellDef>Código</th>
+      <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="paiscountry">
+      <th mat-header-cell *matHeaderCellDef>Pais</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.ligue.season.country.namecountry }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="year">
+      <th mat-header-cell *matHeaderCellDef>Año</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.ligue.season.year }}
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="nameligue">
+      <th mat-header-cell *matHeaderCellDef>Liga</th>
+      <td mat-cell *matCellDef="let element">{{ element.ligue.nameligue }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="nameteam">
+      <th mat-header-cell *matHeaderCellDef>Equipo</th>
+      <td mat-cell *matCellDef="let element">{{ element.nameteam }}</td>
+    </ng-container>
+
+    <ng-container matColumnDef="accion01">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          class="edit-button"
+          [routerLink]="['ediciones', element.id]"
+        >
+          <mat-icon>edit</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <ng-container matColumnDef="accion02">
+      <th mat-header-cell *matHeaderCellDef>Acciones</th>
+      <td mat-cell *matCellDef="let element">
+        <button
+          mat-raised-button
+          class="delete-button"
+          (click)="eliminar(element.id)"
+        >
+          <mat-icon>delete_sweep</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
+</div>
+
+<br />
+
+<mat-paginator
+  [pageSizeOptions]="[5, 10, 25, 100]"
+  showFirstLastButtons
+></mat-paginator>

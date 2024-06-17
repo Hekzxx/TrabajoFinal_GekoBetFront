@@ -12,6 +12,10 @@ import { Team } from '../../../models/Team';
 import { Ligue } from '../../../models/Ligue';
 import { TeamService } from '../../../services/team.service';
 import { LigueService } from '../../../services/ligue.service';
+import { Country } from '../../../models/Country';
+import { Season } from '../../../models/Season';
+import { CountryService } from '../../../services/country.service';
+import { SeasonService } from '../../../services/season.service';
 
 @Component({
   selector: 'app-insertarteam',
@@ -22,8 +26,6 @@ import { LigueService } from '../../../services/ligue.service';
     MatFormFieldModule,
     CommonModule,
     NgIf,
-    MatDatepickerModule,
-    MatNativeDateModule,
     RouterLink,
     ReactiveFormsModule,
     MatInputModule
@@ -33,16 +35,15 @@ import { LigueService } from '../../../services/ligue.service';
 })
 export class InsertarteamComponent implements OnInit{
   form: FormGroup = new FormGroup({});
-  Team: Team = new Team();
+  team: Team = new Team();
   listaLigue: Ligue[] = [];
 
   edicion: boolean = false;
   id: number = 0;
-  
   constructor(
     private formBuilder: FormBuilder,
-    private st: TeamService,
-    private Sl: LigueService,
+    private lS: LigueService,
+    private tS: TeamService,
     private router: Router,
     private route: ActivatedRoute,
   ) { }
@@ -58,27 +59,26 @@ export class InsertarteamComponent implements OnInit{
       LigaLigue: ['', Validators.required],
       nameTeam: ['', [Validators.required, Validators.pattern(/^[a-zA-Z0-9\s]*$/)]],
     });
-    this.Sl.list().subscribe((data) => {
+    this.lS.list().subscribe((data) => {
       this.listaLigue = data;
     });
   }
   registrar(): void {
     if (this.form.valid) {
-      this.Team.id= this.form.value.codigo;
-      this.Team.ligue.id = this.form.value.LigaLigue;
-      this.Team.nameteam = this.form.value.nameTeam;
-      this.st.insert(this.Team).subscribe((data) => {
-        this.st.list().subscribe((data) => {
-          this.st.setList(data);
+      this.team.id= this.form.value.codigo;
+      this.team.ligue.id = this.form.value.LigaLigue;
+      this.team.nameteam = this.form.value.nameTeam;
+      this.tS.insert(this.team).subscribe((data) => {
+        this.tS.list().subscribe((data) => {
+          this.tS.setList(data);
         });
       });
       this.router.navigate(['listarteam']);
     }
   }
-
   init(){
     if (this.edicion) {
-      this.st.listId(this.id).subscribe((data)=>{
+      this.tS.listId(this.id).subscribe((data)=>{
         this.form = new FormGroup({
           codigo: new FormControl(data.id),
           LigaLigue: new FormControl(data.ligue.id),

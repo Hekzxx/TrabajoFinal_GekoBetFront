@@ -16,8 +16,8 @@ export class TicketService {
   list() {
     return this.httpClient.get<Ticket[]>(this.url);
   }
-  insert(co: Ticket) {
-    return this.httpClient.post(this.url, co);
+  insert(ti: Ticket) {
+    return this.httpClient.post(this.url, ti);
   }
   setList(listaNueva: Ticket[]) {
     this.listacambio.next(listaNueva);
@@ -29,8 +29,8 @@ export class TicketService {
     return this.httpClient.get<Ticket>(`${this.url}/${id}`);
   }
 
-  update(co:Ticket) {
-    return this.httpClient.put(this.url, co);
+  update(ti:Ticket) {
+    return this.httpClient.put(this.url, ti);
   }
 
   eliminar(id: number) {

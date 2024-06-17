@@ -24,8 +24,6 @@ import { LigueService } from '../../../services/ligue.service';
     MatFormFieldModule,
     CommonModule,
     NgIf,
-    MatDatepickerModule,
-    MatNativeDateModule,
     RouterLink,
     ReactiveFormsModule,
     MatInputModule,
@@ -36,7 +34,6 @@ import { LigueService } from '../../../services/ligue.service';
 export class InsertarligueComponent implements OnInit{
   form: FormGroup = new FormGroup({});
   ligue: Ligue = new Ligue();
-  listaCountries: Country[] = [];
   listaSeasons: Season[] = [];
 
   edicion: boolean = false;
@@ -45,7 +42,6 @@ export class InsertarligueComponent implements OnInit{
   constructor(
     private formBuilder : FormBuilder,
     private sS: SeasonService,
-    private cS: CountryService,
     private lS: LigueService,
     private router: Router,
     private route: ActivatedRoute,
@@ -59,8 +55,8 @@ export class InsertarligueComponent implements OnInit{
     });
     this.form = this.formBuilder.group({
       codigo: [''],
-      year: ['', [Validators.required, Validators.pattern('^[0-9]*$')]],
-      nameligue: ['', [Validators.required, Validators.pattern('[a-zA-Z]*')]],
+      year: ['', Validators.required],
+      nameligue: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
     });
     this.sS.list().subscribe((data) => {
       this.listaSeasons = data;

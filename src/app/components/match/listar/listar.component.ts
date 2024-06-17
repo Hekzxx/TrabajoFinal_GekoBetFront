@@ -8,6 +8,7 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { UserService } from '../../../services/user.service';
 
 @Component({
   selector: 'app-listar',
@@ -29,7 +30,10 @@ export class ListarComponent implements OnInit {
   dataSource: MatTableDataSource<Match> = new MatTableDataSource();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   
-  constructor(private mS: MatchService) { }
+  constructor(
+    private mS: MatchService,
+    private us: UserService,
+  ) { }
   ngOnInit(): void {
     this.mS.list().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);

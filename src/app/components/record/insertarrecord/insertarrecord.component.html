@@ -1,1 +1,68 @@
-<p>insertarrecord works!</p>
+<div class="title-container"><h1>Registrar de Registro</h1></div>
+<div class="container" style="text-align: center">
+  <form [formGroup]="form" (submit)="registrar()" >
+
+    <mat-form-field class="example-full-width"  *ngIf="edicion" >
+      <mat-label>Codigo</mat-label>
+      <input matInput placeholder="Codigo" formControlName="codigo"  readonly/>      
+    </mat-form-field>
+
+    <br/>
+
+    <mat-form-field class="example-full-width" >
+        <mat-label>Equipo</mat-label>
+        <mat-select formControlName="nameTeam">
+          <mat-option *ngFor="let t of listaTeam" [value]="t.id">
+            {{ t.nameteam }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('nameTeam')?.hasError('required')"
+          >El equipo es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+    <br>
+
+    <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label>Fecha del Ultimo Partido</mat-label>
+        <input
+          matInput
+          placeholder="Fecha del partido"
+          [matDatepicker]="picker"
+          formControlName="fecha"
+          [min]="maxFecha"  
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+  
+        <mat-error *ngIf="form.get('fecha')?.hasError('required')"
+          >La fecha es obligatoria.</mat-error
+        >
+      </mat-form-field>
+
+    <br/>
+
+    <mat-form-field>
+      <mat-label>Partidos Ganados</mat-label>
+      <input matInput placeholder="Ingrese la cantidad de partidos ganados" formControlName="resultado" />
+      <mat-error *ngIf="form.get('resultado')?.hasError('required')">
+        El resultado de partidos ganados es obligatorio</mat-error
+      >
+      <mat-error *ngIf="form.get('resultado')?.hasError('pattern')">
+        El resultado permitido es de 0 a 5</mat-error
+        >
+    </mat-form-field>
+
+    <br />
+    
+    <button mat-raised-button color="primary">Registrar</button>
+    <button mat-raised-button color="warn" routerLink="/listarteam">
+      Cancelar
+    </button>
+  </form>
+</div>
+
