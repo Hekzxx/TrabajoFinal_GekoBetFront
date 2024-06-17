@@ -51,4 +51,11 @@ body, html {
   font-family: 'Open Sans', sans-serif;
   display: flex;
   margin: 0 auto;
+  background-color: #5db73b !important; /* Color base del botón */
 }
+/*
+.boton:hover {
+  background-color: #4a9e30; /* Color del botón al pasar el mouse por encima* / 
+}
+*/
+ 
