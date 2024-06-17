@@ -122,13 +122,15 @@ mat-icon {
   margin-top: 1px;
   display: flex;
   justify-content: center;
-  background-color: #fafafa;
+
   padding: 10px;
   border-radius: 4px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
   max-width: 1000px;
   width: 100%;
+  background-color: #efae03;
 }
+
 
 /* Responsivo */
 @media (max-width: 768px) {
