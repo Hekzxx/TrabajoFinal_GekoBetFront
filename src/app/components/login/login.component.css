@@ -30,8 +30,9 @@ body, html {
 }
 
 .titulo {
-  margin-top: 0;
-  font-family: Arial, sans-serif;
+  padding-left: 75px;
+  font-family: 'Open Sans', sans-serif;
+  
 }
 
 .example-full-width {
@@ -39,9 +40,15 @@ body, html {
 }
 
 .container2 {
+  font-family: 'Open Sans', sans-serif;
   display: block;
   margin-top: 10px;
 }
 .logo{
   height: 300px;
+}
+.boton{
+  font-family: 'Open Sans', sans-serif;
+  display: flex;
+  margin: 0 auto;
 }
