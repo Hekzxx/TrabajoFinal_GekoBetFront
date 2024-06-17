@@ -38,5 +38,6 @@ mat-form-field {
 
 .textoBox{
     font-family: 'Open Sans', sans-serif;
-    
+    margin: 0 auto;
+    padding-top: 15%;
 }
