@@ -4,9 +4,9 @@
   <div class="card-grid">
     <div *ngFor="let country of dataSource.data" class="card-item">
       <mat-card class="example-card" style="border: 2px solid black; border-radius: 3%;">
-        <mat-card-header>
+        <mat-card-header class=".mat-card-header">
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>País: {{ country.id  }}</mat-card-title>
+          <mat-card-title class="mat-card-title">País: {{country.id}}</mat-card-title>
 
         </mat-card-header>
 
@@ -34,7 +34,7 @@
 
 <br>
 
-<div class="paginator-container">
+<div class="paginator">
   <mat-paginator
   [pageSizeOptions]="[5, 10, 25, 100]"
   showFirstLastButtons
