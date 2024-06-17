@@ -22,9 +22,7 @@ mat-form-field {
 }
 body {
   font-family: "Open Sans", sans-serif;
-  background-color: #f8b726;
-  background-color: rgb(248, 183, 38, 255);
-}
+ }
 
 /* Estilos Responsivos */
 @media (max-width: 768px) {
