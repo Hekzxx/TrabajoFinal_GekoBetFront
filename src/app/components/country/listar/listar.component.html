@@ -1,29 +1,29 @@
 <div class="container">
-  <div class="title-container"><h1 class="title">Lista de Paises</h1></div>
+  <div class="title-container"><h1 class="title">Lista de Países</h1></div>
 
   <div class="card-grid">
     <div *ngFor="let country of dataSource.data" class="card-item">
-      <mat-card class="example-card">
+      <mat-card class="example-card" style="border: 2px solid black; border-radius: 3%;">
         <mat-card-header>
           <div mat-card-avatar class="example-header-image"></div>
-          <mat-card-title>Pais: {{ country.id  }}</mat-card-title>
+          <mat-card-title>País: {{ country.id  }}</mat-card-title>
 
         </mat-card-header>
 
         <mat-card-content>
           <img mat-card-image class="small-image" src="https://cdn.icon-icons.com/icons2/1524/PNG/512/globe_106381.png" alt="user icono" >
-          <p>Codigo: {{ country.id  }}</p>
+          <p>Código: {{ country.id  }}</p>
           <br />
-          <p>Pais: {{ country.namecountry  }}</p>
+          <p>País: {{ country.namecountry  }}</p>
           <br />
         </mat-card-content>
 
         <mat-card-actions>
-          <button mat-raised-button color="warn" [routerLink]="['ediciones', country.id]">
+          <button mat-raised-button class="edit-button" [routerLink]="['ediciones', country.id]">
             <mat-icon>edit</mat-icon>
           </button>
 
-          <button mat-raised-button color="warn" (click)="eliminar(country.id)" >
+          <button mat-raised-button  class="delete-button" (click)="eliminar(country.id)" >
             <mat-icon>delete_sweep</mat-icon>
           </button>
         </mat-card-actions>

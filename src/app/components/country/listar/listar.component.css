@@ -28,14 +28,14 @@
     width: 100px;
     height: auto;
   }
-  
+
   .centrar-imagen {
     display: block;
     margin-left: auto;
     margin-right: auto;
-  
+
   }
-  
+
   .paginator-container {
     display: flex;
     justify-content: center;
@@ -45,76 +45,126 @@
     max-width: 400px;
     margin: auto; /* Centra la tarjeta en el contenedor padre */
   }
-  
+
   .title-container {
-  
+
     text-align: center;
-  
+
     margin-bottom: 40px;
     /* Increase the margin-bottom to move the title lower /
-  
+
     margin-top: 60px;
     / Add a margin-top to further position it down the page */
-  
+
   }
-  
-  
-  
+
+
+
   .title {
-  
+
     font-family: 'Poppins', sans-serif;
-  
+
     font-weight: 600;
-  
+
     font-size: 2em;
-  
+
     color: #333;
-  
+
   }
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   .title-container {
     margin-bottom: 20px;
   }
-  
+
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 200px;
     width: 100%;
     max-width: 1200px;
+    
+
   }
-  
-  
-  
+
+
+
   .card-item {
     display: flex;
     justify-content: center;
+
+
   }
-  
-  
-  
+
+
+
   .mat-card-header {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
-  
+
   .mat-card-title {
     text-align: center;
   }
-  
+
   .mat-card-content p {
     text-align: center;
     margin: 10px 0;
+
   }
-  
+
   .mat-card-actions {
     display: flex;
     justify-content: space-around;
   }
-  
+
+
+
+  /* Estilo de los botones */
+button.edit-button, button.delete-button {
+  font-size: 30px;
+  font-family: 'Open Sans', sans-serif;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  margin: 4%;
+}
+
+button.edit-button {
+  background-color: #5db73b;
+  color: #ffffff;
+}
+
+button.edit-button:hover {
+  background-color: #4ca32d;
+}
+
+button.delete-button {
+  background-color: #efae03;
+  color: #ffffff;
+}
+
+button.delete-button:hover {
+  background-color: #e2a60f;
+}
+
+
+  /* Responsivo */
+@media (max-width: 768px) {
+  .mat-table th, .mat-table td {
+      font-size: 20px;
+  }
+
+  button.edit-button, button.delete-button {
+      font-size: 20px;
+      padding: 8px 15px;
+  }
+}
