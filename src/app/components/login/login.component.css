@@ -10,11 +10,11 @@ body, html {
 }
 
 .background-container {
-  background-image: url('https://media.admagazine.com/photos/637d11a6e63c8afac40e7a01/4:3/w_3859,h_2894,c_limit/1442809583');
-  background-size: contain; /*contain*/
+  /*background-image: url('https://media.admagazine.com/photos/637d11a6e63c8afac40e7a01/4:3/w_3859,h_2894,c_limit/1442809583');  url('https://media.admagazine.com/photos/637d11a6e63c8afac40e7a01/4:3/w_3859,h_2894,c_limit/1442809583');*/
+  background-size: cover;
   background-position: center;
   width: 100%;
-  height: 100vh;
+  height: 100vh;  
   display: flex;
   justify-content: flex-start; /* Alinea el contenido a la izquierda */
   align-items: center;
@@ -46,6 +46,8 @@ body, html {
 }
 .logo{
   height: 300px;
+  
+
 }
 .boton{
   font-family: 'Open Sans', sans-serif;
@@ -68,12 +70,24 @@ body, html {
     padding: 10px;
   }
 
-  th.mat-header-cell, td.mat-cell {
+  .login-container{
     padding: 8px;
+    margin: 10px;
   }
 
   .title {
     font-size: 24px;
   }
+  .example-full-width{
+    padding: 8px ;
+    margin: 10px ; 
+  }
+  .logo {
+    max-width: 80%;
+  }
+
 }
+
+
+
  
