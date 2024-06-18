@@ -10,7 +10,6 @@ body, html {
 }
 
 .background-container {
-  /*background-image: url('https://media.admagazine.com/photos/637d11a6e63c8afac40e7a01/4:3/w_3859,h_2894,c_limit/1442809583');  url('https://media.admagazine.com/photos/637d11a6e63c8afac40e7a01/4:3/w_3859,h_2894,c_limit/1442809583');*/
   background-size: cover;
   background-position: center;
   width: 100%;
