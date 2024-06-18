@@ -1,5 +1,5 @@
 <body class="fondo" style="background-image: url('assets/patron.jpg')">
-  <div class="title-container">
+  <div class="register-container">
     <h1 class="tituloBox">Registro de Partidos</h1>
     <form [formGroup]="form" (submit)="registrar()" class="example-form">
       <mat-form-field class="example-full-width" *ngIf="edicion">
@@ -55,11 +55,15 @@
       <br />
       <div class="boton-container">
         <button class="boton" mat-raised-button color="primary">Aceptar</button>
-      <button  class="boton1" mat-raised-button color="warn" routerLink="/listarmatch">
-        Cancelar
-      </button>
+        <button
+          class="boton1"
+          mat-raised-button
+          color="warn"
+          routerLink="/listarmatch"
+        >
+          Cancelar
+        </button>
       </div>
-      
     </form>
   </div>
 </body>
