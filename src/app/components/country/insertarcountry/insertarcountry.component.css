@@ -51,5 +51,19 @@
 .boton1 {
     background-color: red !important; /* Color base del botón */
 }
-
+/* Media Queries */
+@media (max-width: 600px) {
+    .register-container {
+      padding: 15px;
+      width: 95%;
+    }
+  
+    .tituloBox {
+      font-size: 1.2em;
+    }
+  
+    .boton, .boton1 {
+      max-width: 80px;
+    }
+  }
   
