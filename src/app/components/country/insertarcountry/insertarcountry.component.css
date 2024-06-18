@@ -49,7 +49,7 @@
 }
 
 .boton1 {
-    background-color: red !important; /* Color base del botón */
+    background-color: #efae03 !important; /* Color base del botón */
 }
 /* Media Queries */
 @media (max-width: 600px) {

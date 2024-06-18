@@ -1,6 +1,16 @@
-
 mat-toolbar{
     display: flex;
     justify-content: space-between;
     background-color: #5db73b;
 }
+
+.custom-button{
+    color: #5db73b; /* NO FUNCIONA */
+  }
+  
+  .custom-button .mat-icon {
+    color: #ffd700; /* Color de los iconos */
+  }
+  
+  
+  

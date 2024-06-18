@@ -1,16 +1,20 @@
 <body>
-  <div class="title-container"><h1>Registro de Temporadas</h1></div>
-<div class="container" style="text-align: center">
-  <form [formGroup]="form" (submit)="registrar()" class="example-form">
+  <h1>Registro de Temporadas</h1>
+  <div class="container" style="text-align: center">
+    <form [formGroup]="form" (submit)="registrar()" class="example-form">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input
+          matInput
+          placeholder="Codigo"
+          formControlName="codigo"
+          readonly
+        />
+      </mat-form-field>
 
-    <mat-form-field class="example-full-width"  *ngIf="edicion" >
-      <mat-label>Codigo</mat-label>
-      <input matInput placeholder="Codigo" formControlName="codigo" readonly/>      
-    </mat-form-field>
-    
-    <br/>
+      <br />
 
-    <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width">
         <mat-label>Pais</mat-label>
         <mat-select formControlName="paiscountry">
           <mat-option *ngFor="let c of listaCountries" [value]="c.id">
@@ -22,29 +26,32 @@
         >
       </mat-form-field>
 
-    <br>
+      <br />
 
-    <mat-form-field>
-      <mat-label>Temporada</mat-label>
-      <input matInput placeholder="Ingrese la Temporada" formControlName="year" />
-      <mat-error *ngIf="form.get('year')?.hasError('required')">
-        Ingresar el año de la temporada es obligatoria</mat-error
-      >
-      <mat-error *ngIf="form.get('year')?.hasError('min')">
-        El año no puede ser antes del 2024</mat-error
-      >
-      <mat-error *ngIf="form.get('year')?.hasError('max')">
-        El año no puede ser despues del 2030</mat-error
-      >
-    </mat-form-field>
+      <mat-form-field>
+        <mat-label>Temporada</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese la Temporada"
+          formControlName="year"
+        />
+        <mat-error *ngIf="form.get('year')?.hasError('required')">
+          Ingresar el año de la temporada es obligatoria</mat-error
+        >
+        <mat-error *ngIf="form.get('year')?.hasError('min')">
+          El año no puede ser antes del 2024</mat-error
+        >
+        <mat-error *ngIf="form.get('year')?.hasError('max')">
+          El año no puede ser despues del 2030</mat-error
+        >
+      </mat-form-field>
 
-    <br />
+      <br />
 
-    <button mat-raised-button color="primary">Registrar</button>
-    <button mat-raised-button color="warn" routerLink="/listarseason">
-      Cancelar
-    </button>
-  </form>
-</div>
-
+      <button mat-raised-button color="primary">Registrar</button>
+      <button mat-raised-button color="warn" routerLink="/listarseason">
+        Cancelar
+      </button>
+    </form>
+  </div>
 </body>
