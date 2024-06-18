@@ -15,8 +15,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     width: 400px;
     text-align: center; /* Centra el contenido dentro del contenedor */
-    
-    
+        
 }  
 mat-form-field {
 
@@ -26,6 +25,22 @@ mat-form-field {
     font-family: 'Open Sans', sans-serif;
     margin: 0 auto;
     padding-top: 15%;  
+}
+.boton-container{
+    display: flex;
+    justify-content: center; /* Opcional: Centra el contenedor de botones */
+    gap: 10px; /* Espacio entre los botones */
+}
+.boton, .boton1 {
+    font-family: 'Open Sans', sans-serif;
+    
+}
+.boton {
+    background-color: #5db73b !important; /* Color base del botón */
+}
+
+.boton1 {
+    background-color: red !important; /* Color base del botón */
 }
 
   
