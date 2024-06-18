@@ -1,41 +1,46 @@
-<div class="title-container"><h1>Registro de Equipos</h1></div>
-<div class="container" style="text-align: center">
-  <form [formGroup]="form" (submit)="registrar()" >
-
-    <mat-form-field class="example-full-width"  *ngIf="edicion" >
-      <mat-label>Codigo</mat-label>
-      <input matInput placeholder="Codigo" formControlName="codigo"  readonly/>
-    </mat-form-field>
-
-    <br/>
-
-    <mat-form-field class="example-full-width">
-        <mat-label>Liga</mat-label>
-        <mat-select formControlName="LigaLigue">
-          <mat-option *ngFor="let l of listaLigue" [value]="l.id">
-            {{ l.nameligue }}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="form.get('LigaLigue')?.hasError('required')"
-          >La Liga es obligatorio.</mat-error
+<body class="fondo" style="background-image: url('assets/patron.jpg')">
+  <div class="register-container">
+    <h1 class="tituloBox">Registro de Equipos</h1>
+    <form [formGroup]="form" (submit)="registrar()" >
+  
+      <mat-form-field class="example-full-width"  *ngIf="edicion" >
+        <mat-label class="textoBox">Codigo</mat-label>
+        <input matInput placeholder="Codigo" formControlName="codigo"  readonly/>
+      </mat-form-field>
+  
+      <br/>
+  
+      <mat-form-field class="example-full-width">
+          <mat-label class="textoBox">Liga</mat-label>
+          <mat-select formControlName="LigaLigue">
+            <mat-option *ngFor="let l of listaLigue" [value]="l.id">
+              {{ l.nameligue }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('LigaLigue')?.hasError('required')"
+            >La Liga es obligatorio.</mat-error
+          >
+        </mat-form-field>
+  
+      <br>
+  
+      <mat-form-field>
+        <mat-label class="textoBox">Equipo</mat-label>
+        <input matInput placeholder="Ingrese el Equipo" formControlName="nameTeam" />
+        <mat-error *ngIf="form.get('nameTeam')?.hasError('required')">
+          Ingresar el nombre del Equipo es obligatoria</mat-error
         >
       </mat-form-field>
+  
+      <br />
+      <div class="boton-container">
+        <button class="boton" mat-raised-button color="primary">Registrar</button>
+      <button class="boton1" mat-raised-button color="warn" routerLink="/listarteam">
+        Cancelar
+      </button>
+      </div>
+      
+    </form>
+  </div>
+</body>
 
-    <br>
-
-    <mat-form-field>
-      <mat-label>Equipo</mat-label>
-      <input matInput placeholder="Ingrese el Equipo" formControlName="nameTeam" />
-      <mat-error *ngIf="form.get('nameTeam')?.hasError('required')">
-        Ingresar el nombre del Equipo es obligatoria</mat-error
-      >
-    </mat-form-field>
-
-    <br />
-    
-    <button mat-raised-button color="primary">Registrar</button>
-    <button mat-raised-button color="warn" routerLink="/listarteam">
-      Cancelar
-    </button>
-  </form>
-</div>
