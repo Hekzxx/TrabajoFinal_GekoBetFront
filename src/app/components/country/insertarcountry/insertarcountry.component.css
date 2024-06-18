@@ -15,18 +15,29 @@
     box-shadow: 0 4px 4px 6px rgba(0, 0, 0, 0.2);
     width: 400px;
     text-align: center; /* Centra el contenido dentro del contenedor */
-    
+    margin-top: -100px;  /* centrado vertical manual */
         
 }  
 mat-form-field {
 
     width: 0 auto;
 }
-.textoBox{
+.textoBox,.tituloBox{
     font-family: 'Open Sans', sans-serif;
+    
+}
+.tituloBox{
+    color: #5db73b;
+  font-size: 25px;
+  font-weight: 700;
+
+}
+.textoBox{
     margin-top: 0 auto;
     padding-top: 10px;  
 }
+
+
 .boton-container{
     display: flex;
     justify-content: center; /* Opcional: Centra el contenedor de botones */
