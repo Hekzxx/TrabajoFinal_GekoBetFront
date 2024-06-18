@@ -1,53 +1,65 @@
-<div class="title-container"><h1>Registro de Partidos</h1></div>
-<div class="title-container" style="text-align: center">
-  <form [formGroup]="form" (submit)="registrar()" class="example-form">
+<body class="fondo" style="background-image: url('assets/patron.jpg')">
+  <div class="title-container">
+    <h1 class="tituloBox">Registro de Partidos</h1>
+    <form [formGroup]="form" (submit)="registrar()" class="example-form">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label class="textoBox">Codigo</mat-label>
+        <input
+          matInput
+          placeholder="Codigo"
+          formControlName="codigo"
+          readonly
+        />
+      </mat-form-field>
 
-    <mat-form-field class="example-full-width" *ngIf="edicion">
-      <mat-label>Codigo</mat-label>
-      <input matInput placeholder="Codigo" formControlName="codigo" readonly/>
-    </mat-form-field>
+      <br />
 
-    <br />
+      <mat-form-field appearance="fill" class="example-full-width">
+        <mat-label class="textoBox">Dia del Partido</mat-label>
+        <input
+          matInput
+          placeholder="Fecha del partido"
+          [matDatepicker]="picker"
+          formControlName="fecha"
+          [min]="minFecha"
+        />
+        <mat-hint>MM/DD/YYYY</mat-hint>
+        <mat-datepicker-toggle
+          matIconSuffix
+          [for]="picker"
+        ></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
 
-    <mat-form-field appearance="fill" class="example-full-width">
-      <mat-label>Dia del Partido</mat-label>
-      <input
-        matInput
-        placeholder="Fecha del partido"
-        [matDatepicker]="picker"
-        formControlName="fecha"
-        [min]="minFecha"
-      />
-      <mat-hint>MM/DD/YYYY</mat-hint>
-      <mat-datepicker-toggle
-        matIconSuffix
-        [for]="picker"
-      ></mat-datepicker-toggle>
-      <mat-datepicker #picker></mat-datepicker>
+        <mat-error *ngIf="form.get('fecha')?.hasError('required')"
+          >La fecha es obligatoria.</mat-error
+        >
+      </mat-form-field>
 
-      <mat-error *ngIf="form.get('fecha')?.hasError('required')"
-        >La fecha es obligatoria.</mat-error
-      >
-    </mat-form-field>
+      <br />
 
-    <br />
+      <mat-form-field>
+        <mat-label class="textoBox">Versus</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese los equipos que se enfrentaran"
+          formControlName="versus"
+        />
+        <mat-error *ngIf="form.get('versus')?.hasError('required')">
+          El versus es obligatorio.</mat-error
+        >
+        <mat-error *ngIf="form.get('versus')?.hasError('pattern')">
+          Solo se permiten letras</mat-error
+        >
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Versus</mat-label>
-      <input matInput placeholder="Ingrese los equipos que se enfrentaran" formControlName="versus" />
-      <mat-error *ngIf="form.get('versus')?.hasError('required')">
-        El versus es obligatorio.</mat-error
-      >
-      <mat-error *ngIf="form.get('versus')?.hasError('pattern')">
-        Solo se permiten letras</mat-error
-      >
-    </mat-form-field>
-
-    <br />
-    
-    <button mat-raised-button color="primary">Aceptar</button>
-    <button mat-raised-button color="warn" routerLink="/listarmatch">
-      Cancelar
-    </button>
-  </form>
-</div>
+      <br />
+      <div class="boton-container">
+        <button class="boton" mat-raised-button color="primary">Aceptar</button>
+      <button  class="boton1" mat-raised-button color="warn" routerLink="/listarmatch">
+        Cancelar
+      </button>
+      </div>
+      
+    </form>
+  </div>
+</body>
