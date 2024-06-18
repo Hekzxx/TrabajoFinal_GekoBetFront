@@ -1,16 +1,16 @@
-<div class="title-container"><h1>Registro de Equipos Favoritos</h1></div>
-<div class="container" style="text-align: center">
-  <form [formGroup]="form" (submit)="registrar()">
-
-    <mat-form-field class="example-full-width"  *ngIf="edicion" >
-      <mat-label>Codigo</mat-label>
-      <input matInput placeholder="Codigo" formControlName="codigo"  readonly/>      
-    </mat-form-field>
-
-    <br/>
-
-    <mat-form-field class="example-full-width">
-        <mat-label>Usuario</mat-label>
+<body class="fondo" style="background-image: url('assets/patron.jpg')">
+  <div class="register-container">
+    <h1 class="tituloBox">Registro de Equipos Favoritos</h1>
+    <form [formGroup]="form" (submit)="registrar()">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label class="textoBox">Codigo</mat-label>
+        <input matInput placeholder="Codigo" formControlName="codigo" readonly />
+      </mat-form-field>
+  
+      <br />
+  
+      <mat-form-field class="example-full-width">
+        <mat-label class="textoBox">Usuario</mat-label>
         <mat-select formControlName="UsurioUser">
           <mat-option *ngFor="let u of listaUsers" [value]="u.id">
             {{ u.username }}
@@ -20,11 +20,11 @@
           >El Usuario es obligatorio.</mat-error
         >
       </mat-form-field>
-    
-    <br/>
-
-    <mat-form-field class="example-full-width">
-        <mat-label>Equipo</mat-label>
+  
+      <br />
+  
+      <mat-form-field class="example-full-width">
+        <mat-label class="textoBox">Equipo</mat-label>
         <mat-select formControlName="Equiposteam">
           <mat-option *ngFor="let t of listaTeams" [value]="t.id">
             {{ t.nameteam }}
@@ -34,12 +34,15 @@
           >El Equipo es obligatorio.</mat-error
         >
       </mat-form-field>
+  
+      <br />
+      <div class="boton-container"> </div>
+      <button class="boton" mat-raised-button color="primary">Registrar</button>
+      <button class="boton1" mat-raised-button color="warn" routerLink="/listarfavorite">
+        Cancelar
+      </button>
+    </form>
+  </div>
+  
+</body>
 
-    <br />
-
-    <button mat-raised-button color="primary">Registrar</button>
-    <button mat-raised-button color="warn" routerLink="/listarfavorite">
-      Cancelar
-    </button>
-  </form>
-</div>
