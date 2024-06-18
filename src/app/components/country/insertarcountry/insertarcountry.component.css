@@ -11,10 +11,11 @@
 .register-container{
     background-color: rgba(255, 255, 255, 0.9); /* Fondo blanco semitransparente */
     padding: 25px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 20px;
+    box-shadow: 0 4px 4px 6px rgba(0, 0, 0, 0.2);
     width: 400px;
     text-align: center; /* Centra el contenido dentro del contenedor */
+    
         
 }  
 mat-form-field {
@@ -23,8 +24,8 @@ mat-form-field {
 }
 .textoBox{
     font-family: 'Open Sans', sans-serif;
-    margin: 0 auto;
-    padding-top: 15%;  
+    margin-top: 0 auto;
+    padding-top: 10px;  
 }
 .boton-container{
     display: flex;
