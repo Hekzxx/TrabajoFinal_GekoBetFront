@@ -1,10 +1,14 @@
 <body class="fondo" style="background-image: url('assets/patron.jpg')">
+
   <div class="formulario">
     <div class="title-container">
-      <h1 class="textoBox">Registro de Paises</h1>
+     
     </div>
 
-    <div class="container" style="text-align: center">
+    <div class="container" style="text-align: center"> 
+      
+      <h1 class="textoBox">Registro de Paises</h1>
+
       <form [formGroup]="form" (submit)="registrar()" class="example-form">
         <mat-form-field class="example-full-width" *ngIf="edicion">
           <mat-label>Codigo</mat-label>
