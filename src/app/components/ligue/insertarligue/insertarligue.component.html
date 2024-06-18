@@ -1,16 +1,22 @@
-<div class="title-container"><h1>Registro de Ligas</h1></div>
-<div class="container" style="text-align: center">
-  <form [formGroup]="form" (submit)="registrar()"  class="example-form">
+<body class="fondo" style="background-image: url('assets/patron.jpg')">
+  <div class="register-container">
+    <h1 class="tituloBox">Registro de Ligas</h1>
 
-    <mat-form-field class="example-full-width"  *ngIf="edicion" >
-      <mat-label>Codigo</mat-label>
-      <input matInput placeholder="Codigo" formControlName="codigo" readonly/>      
-    </mat-form-field>
-    
-    <br/>
+    <form [formGroup]="form" (submit)="registrar()" class="example-form">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label>Codigo</mat-label>
+        <input
+          matInput
+          placeholder="Codigo"
+          formControlName="codigo"
+          readonly
+        />
+      </mat-form-field>
 
-    <mat-form-field class="example-full-width">
-        <mat-label>Año</mat-label>
+      <br />
+
+      <mat-form-field class="example-full-width">
+        <mat-label class="textoBox">Año</mat-label>
         <mat-select formControlName="year">
           <mat-option *ngFor="let s of listaSeasons" [value]="s.id">
             {{ s.year }}
@@ -19,24 +25,31 @@
         <mat-error *ngIf="form.get('year')?.hasError('required')"
           >El año de la temporada es obligatorio.</mat-error
         >
-    </mat-form-field>
+      </mat-form-field>
 
-    <br>
+      <br />
 
-    <mat-form-field>
-      <mat-label>Liga</mat-label>
-      <input matInput placeholder="Ingrese la liga" formControlName="nameligue" />
-      <mat-error *ngIf="form.get('nameligue')?.hasError('required')">
-        Ingresar el nombre de la liga es obligatoria</mat-error
-      >
-      <mat-error *ngIf="form.get('nameligue')?.hasError('pattern')">
-        Solo se permiten letras</mat-error
-      >
-    </mat-form-field>
-    <br />
-    <button mat-raised-button color="primary">Registrar</button>
-    <button mat-raised-button color="warn" routerLink="/listarligue">
-      Cancelar
-    </button>
-  </form>
-</div>
+      <mat-form-field>
+        <mat-label class="textoBox">Liga</mat-label>
+        <input
+          matInput
+          placeholder="Ingrese la liga"
+          formControlName="nameligue"
+        />
+        <mat-error *ngIf="form.get('nameligue')?.hasError('required')">
+          Ingresar el nombre de la liga es obligatoria</mat-error
+        >
+        <mat-error *ngIf="form.get('nameligue')?.hasError('pattern')">
+          Solo se permiten letras</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <div class="boton-container">
+        <button mat-raised-button color="primary">Registrar</button>
+        <button mat-raised-button color="warn" routerLink="/listarligue">
+          Cancelar
+        </button>
+      </div>
+    </form>
+  </div>
+</body>
