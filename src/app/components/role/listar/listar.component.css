@@ -1,10 +1,22 @@
 /* Estilos base */
-body {
-  font-family: 'Open Sans', sans-serif;
-  background-color: #f8f8f8;
-  color: #000000;
-  margin: 0;
+
+.principal {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   padding: 20px;
+  background-color: #8cc6a0; /* Fondo de la página */
+  min-height: 100vh; /* Asegura que el contenido cubra toda la altura de la ventana */
+}
+
+/* Contenedor de la Tabla */
+.container {
+  max-width: 1000px;
+  width: 100%;
+  padding: 20px;
+  background-color: #efae03; /* Fondo blanco para la tabla */
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
 }
 
 /* Estilo de encabezados */
@@ -12,6 +24,8 @@ h1.title {
   font-size: 48px;
   color: #5db73b;
   margin-bottom: 20px;
+  text-shadow: 0px 0px 3px rgb(8, 105, 3);
+
 }
 
 h2, h3 {
@@ -37,7 +51,7 @@ p {
 /* Contenedor del título */
 .title-container {
   text-align: center;
-  margin: 60px 0 40px;
+  margin: 20px 0 40px;
 }
 
 /* Estilo de la tabla */
@@ -104,10 +118,16 @@ mat-icon {
 }
 
 /* Estilo del paginador */
-mat-paginator {
-  margin: 20px 0;
+.paginator {
+  margin-top: 1px;
   display: flex;
   justify-content: center;
+  background-color: #fafafa;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 1000px;
+  width: 100%;
 }
 
 /* Responsivo */

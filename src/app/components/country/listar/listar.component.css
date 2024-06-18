@@ -10,8 +10,6 @@
 
 }
 
-
-
 .title {
 
     font-family: 'Poppins', sans-serif;
@@ -20,74 +18,45 @@
 
     font-size: 2em;
 
-    color: #333;
+    color: green;
 
 }
 
 .small-image {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
     width: 100px;
     height: auto;
   }
 
-  .centrar-imagen {
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
 
-  }
 
-  .paginator-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 20px; /* Opcional: añade espacio superior si es necesario */
-  }
+
   .example-card {
-    max-width: 400px;
+    max-width: 200px;
     margin: auto; /* Centra la tarjeta en el contenedor padre */
   }
 
-  .title-container {
-
-    text-align: center;
-
-    margin-bottom: 40px;
-    /* Increase the margin-bottom to move the title lower /
-
-    margin-top: 60px;
-    / Add a margin-top to further position it down the page */
-
-  }
 
 
 
-  .title {
 
-    font-family: 'Open Sans', sans-serif;
-
-    font-weight: 600;
-
-    font-size: 2em;
-
-    color: #333;
-
-  }
   .container {
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  .title-container {
-    margin-bottom: 20px;
-  }
+
 
   .card-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-    gap: 200px;
+    gap: 10px;
     width: 100%;
     max-width: 1200px;
-    
+
 
   }
 
@@ -109,21 +78,30 @@
   }
 
   .mat-card-title {
-    text-align: center;
+    color: #4ca32d;
+    text-align: left;
+
   }
 
   .mat-card-content p {
-    text-align: center;
+    text-align: left;
     margin: 10px 0;
 
   }
 
-  .mat-card-actions {
-    display: flex;
-    justify-content: space-around;
-  }
 
 
+
+/* Estilos del Paginador */
+.paginator {
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+  padding: 10px;
+  border-radius: 4px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
 
   /* Estilo de los botones */
 button.edit-button, button.delete-button {
