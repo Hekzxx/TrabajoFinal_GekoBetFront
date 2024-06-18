@@ -1,16 +1,21 @@
-<div class="title-container"><h1>Registro de Equipos por Partido</h1></div>
-<div class="container" style="text-align: center">
-  <form [formGroup]="form" (submit)="registrar()" >
+<body class="fondo" style="background-image: url('assets/patron.jpg')">
+  <div class="register-container">
+    <h1 class="tituloBox">Registro de Equipos por Partido</h1>
+    <form [formGroup]="form" (submit)="registrar()">
+      <mat-form-field class="example-full-width" *ngIf="edicion">
+        <mat-label class="textoBox">Codigo</mat-label>
+        <input
+          matInput
+          placeholder="Codigo"
+          formControlName="codigo"
+          readonly
+        />
+      </mat-form-field>
 
-    <mat-form-field class="example-full-width"  *ngIf="edicion" >
-      <mat-label>Codigo</mat-label>
-      <input matInput placeholder="Codigo" formControlName="codigo"  readonly/>      
-    </mat-form-field>
+      <br />
 
-    <br/>
-
-    <mat-form-field class="example-full-width">
-        <mat-label>Equipo</mat-label>
+      <mat-form-field class="example-full-width">
+        <mat-label class="textoBox">Equipo</mat-label>
         <mat-select formControlName="idteam">
           <mat-option *ngFor="let t of listaTeam" [value]="t.id">
             {{ t.nameteam }}
@@ -21,10 +26,10 @@
         >
       </mat-form-field>
 
-    <br>
+      <br />
 
-    <mat-form-field class="example-full-width">
-        <mat-label>Partido</mat-label>
+      <mat-form-field class="example-full-width">
+        <mat-label class="textoBox">Partido</mat-label>
         <mat-select formControlName="idpartido">
           <mat-option *ngFor="let m of listaMatch" [value]="m.id">
             {{ m.versus }}
@@ -35,11 +40,14 @@
         >
       </mat-form-field>
 
-    <br />
-    
-    <button mat-raised-button color="primary">Registrar</button>
-    <button mat-raised-button color="warn" routerLink="/listarteam">
-      Cancelar
-    </button>
-  </form>
-</div>
+      <br />
+      <div class="boton-container">
+        <button class="boton" mat-raised-button color="primary">Registrar</button>
+        <button class="boton1" mat-raised-button color="warn" routerLink="/listarteam">
+          Cancelar
+        </button>
+      </div>
+      
+    </form>
+  </div>
+</body>
