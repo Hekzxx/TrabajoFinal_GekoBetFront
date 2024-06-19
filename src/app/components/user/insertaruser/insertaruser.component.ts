@@ -8,6 +8,8 @@ import { User } from '../../../models/User';
 import { UserService } from '../../../services/user.service';
 import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
+import * as bcrypt from 'bcryptjs';
+
 
 @Component({
   selector: 'app-insertaruser',
@@ -86,7 +88,8 @@ export class InsertaruserComponent implements OnInit {
     if (this.form.valid) {
       this.user.id = this.form.value.codigo
       this.user.username = this.form.value.username
-      this.user.password = this.form.value.password
+      const salt = bcrypt.genSaltSync(10);
+      this.user.password = bcrypt.hashSync(this.form.value.password, salt);
       this.user.mail = this.form.value.mail
       this.user.estado = this.form.value.estado
       this.user.address = this.form.value.address
