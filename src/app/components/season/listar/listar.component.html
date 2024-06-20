@@ -1,68 +1,61 @@
-<html>
-  <body>
-    <div class="fondo" style="background-image: url('assets/patron.jpg');">
-      <div class="container">
-        <div class="title-container"><h1 class="title">Lista de Temporadas</h1></div>
-        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+<div class="fondo" style="background-image: url('assets/patron.jpg')">
+  <div class="container">
     
-          <ng-container matColumnDef="Codigo">
-            <th mat-header-cell *matHeaderCellDef>Código</th>
-            <td mat-cell *matCellDef="let element">{{ element.id }}</td>
-          </ng-container>
-    
-          <ng-container matColumnDef="namecountry">
-            <th mat-header-cell *matHeaderCellDef>Pais</th>
-            <td mat-cell *matCellDef="let element">{{ element.country.namecountry }}</td>
-          </ng-container>
-    
-          <ng-container matColumnDef="year">
-            <th mat-header-cell *matHeaderCellDef>Año</th>
-            <td mat-cell *matCellDef="let element">{{ element.year }}</td>
-          </ng-container>
-    
-          <ng-container matColumnDef="accion01">
-              <th mat-header-cell *matHeaderCellDef>Editar</th>
-              <td mat-cell *matCellDef="let element">
-                <button
-                  mat-raised-button
-                  class="edit-button"
-                  [routerLink]="['ediciones', element.id]"
-                >
-                  <mat-icon>edit</mat-icon>
-                  
-                </button>
-              </td>
-            </ng-container>
-    
-            <ng-container matColumnDef="accion02">
-              <th mat-header-cell *matHeaderCellDef>Eliminar</th>
-              <td mat-cell *matCellDef="let element">
-                <button
-                  mat-raised-button
-                  class="delete-button"
-                  (click)="eliminar(element.id)"
-                >
-                  <mat-icon>delete_sweep</mat-icon>
-    
-                </button>
-              </td>
-            </ng-container>
-    
-          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-        </table>
-        <br>
-        <div class="paginator">
-          <mat-paginator
-            [pageSizeOptions]="[5, 10, 25, 100]"
-            showFirstLastButtons
-          ></mat-paginator>
-        </div>
-      </div>
+      <h1 class="tituloBox">Lista de Temporadas</h1>
+  
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="Codigo">
+        <th mat-header-cell *matHeaderCellDef>Código</th>
+        <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+      </ng-container>
 
-    
-      
+      <ng-container matColumnDef="namecountry">
+        <th mat-header-cell *matHeaderCellDef>Pais</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.country.namecountry }}
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef>Año</th>
+        <td mat-cell *matCellDef="let element">{{ element.year }}</td>
+      </ng-container>
+
+      <ng-container matColumnDef="accion01">
+        <th mat-header-cell *matHeaderCellDef>Editar</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-raised-button
+            class="edit-button"
+            [routerLink]="['ediciones', element.id]"
+          >
+            <mat-icon>edit</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <ng-container matColumnDef="accion02">
+        <th mat-header-cell *matHeaderCellDef>Eliminar</th>
+        <td mat-cell *matCellDef="let element">
+          <button
+            mat-raised-button
+            class="delete-button"
+            (click)="eliminar(element.id)"
+          >
+            <mat-icon>delete_sweep</mat-icon>
+          </button>
+        </td>
+      </ng-container>
+
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+    <br />
+    <div class="paginator">
+      <mat-paginator
+        [pageSizeOptions]="[5, 10, 25, 100]"
+        showFirstLastButtons
+      ></mat-paginator>
     </div>
-  </body>
-</html>
-
+  </div>
+</div>
