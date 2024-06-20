@@ -1,35 +1,39 @@
 /* Estilos base */
 
-.principal {
+.fondo {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100vh;
   display: flex;
-  flex-direction: column;
+  justify-content: flex-start; /* Alinea el contenido a la izquierda */
   align-items: center;
-  padding: 20px;
-  background-color: #8cc6a0; /* Fondo de la página */
-  min-height: 100vh; /* Asegura que el contenido cubra toda la altura de la ventana */
+  padding: 0px; /* Ajusta la cantidad de espacio a la izquierda */
 }
 
 /* Contenedor de la Tabla */
 .container {
   max-width: 1000px;
   width: 100%;
-  padding: 20px;
+  padding: 25px;
   background-color: #efae03; /* Fondo blanco para la tabla */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  border-radius: 20px;
+  box-shadow: 0 4px 4px 6px rgba(0, 0, 0, 0.1); /* Sombra ligera */
+  text-align: center; 
 }
-
-/* Estilo de encabezados */
-h1.title {
+.tituloBox {
+  text-align: center;
+  margin: 20px 0 40px;
+  font-family: "Open Sans", sans-serif;
   font-size: 48px;
   color: #5db73b;
-  margin-bottom: 20px;
   text-shadow: 0px 0px 3px rgb(8, 105, 3);
-
 }
+/* Estilo de encabezados */
 
-h2, h3 {
-  font-family: 'Open Sans', sans-serif;
+h2,
+h3 {
+  font-family: "Open Sans", sans-serif;
 }
 
 h2 {
@@ -44,14 +48,8 @@ h3 {
 
 p {
   font-size: 25px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   color: #000;
-}
-
-/* Contenedor del título */
-.title-container {
-  text-align: center;
-  margin: 20px 0 40px;
 }
 
 /* Estilo de la tabla */
@@ -62,7 +60,8 @@ p {
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.mat-table th, .mat-table td {
+.mat-table th,
+.mat-table td {
   padding: 15px;
   text-align: left;
   border-bottom: 1px solid #d9d9d9;
@@ -83,9 +82,10 @@ p {
 }
 
 /* Estilo de los botones */
-button.edit-button, button.delete-button {
+button.edit-button,
+button.delete-button {
   font-size: 30px;
-  font-family: 'Open Sans', sans-serif;
+  font-family: "Open Sans", sans-serif;
   border: none;
   padding: 10px 20px;
   cursor: pointer;
@@ -132,15 +132,14 @@ mat-icon {
 
 /* Responsivo */
 @media (max-width: 768px) {
-  .mat-table th, .mat-table td {
-      font-size: 20px;
+  .mat-table th,
+  .mat-table td {
+    font-size: 20px;
   }
 
-  button.edit-button, button.delete-button {
-      font-size: 20px;
-      padding: 8px 15px;
+  button.edit-button,
+  button.delete-button {
+    font-size: 20px;
+    padding: 8px 15px;
   }
 }
-
-
-
