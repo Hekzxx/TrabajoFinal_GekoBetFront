@@ -1,15 +1,15 @@
 <body class="fondo" style="background-image: url('assets/patron.jpg')">
   <div class="register-container">
-    <h1 class="tituloBox">Registro de Temporadas</h1>
+    <h1 class="tituloBox">Registro de Roles</h1>
     <form [formGroup]="form" (submit)="registrar()" class="example-form">
-  
+
       <mat-form-field class="example-full-width"  *ngIf="edicion" >
         <mat-label class="textoBox">Codigo</mat-label>
         <input matInput placeholder="Codigo" formControlName="codigo" readonly/>
       </mat-form-field>
-  
+
       <br/>
-  
+
       <mat-form-field class="example-full-width">
           <mat-label class="textoBox">Codigo del Usuario</mat-label>
           <mat-select formControlName="user">
@@ -21,9 +21,9 @@
             >El codigo es obligatorio.</mat-error
           >
         </mat-form-field>
-  
+
       <br>
-  
+
       <mat-form-field>
         <mat-label class="textoBox">Rol</mat-label>
         <mat-select formControlName="tipo" placeholder="Ingrese el tipo de rol">
@@ -35,7 +35,7 @@
           El rol es obligatorio.
         </mat-error>
       </mat-form-field>
-  
+
       <br />
       <div class="boton-container">
         <button class="boton" mat-raised-button color="primary">Registrar</button>
@@ -43,10 +43,10 @@
           Cancelar
         </button>
       </div>
-      
+
     </form>
   </div>
-  
+
 </body>
 
 
