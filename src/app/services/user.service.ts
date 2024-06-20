@@ -29,6 +29,10 @@ export class UserService {
     return this.http.get<User>(`${this.url}/${id}`);
   }
 
+  listarUsuarioPorId(id:number) {
+    return this.http.get<User[]>(`${this.url}/listar/${id}`);
+  }
+
   update(us:User) {
     return this.http.put(this.url, us);
   }
