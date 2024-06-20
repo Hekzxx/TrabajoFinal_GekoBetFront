@@ -14,6 +14,7 @@ import { Team } from '../../../models/Team';
 import { FavoriteService } from '../../../services/favorite.service';
 import { UserService } from '../../../services/user.service';
 import { TeamService } from '../../../services/team.service';
+import { LoginService } from '../../../services/login.service';
 
 @Component({
   selector: 'app-insertarfavorite',
@@ -39,6 +40,8 @@ export class InsertarfavoriteComponent implements OnInit{
 
   edicion: boolean = false;
   id: number = 0;
+  usuarioactual: string = "";
+
   constructor(
     private formBuilder: FormBuilder,
     private sF: FavoriteService,
@@ -46,6 +49,7 @@ export class InsertarfavoriteComponent implements OnInit{
     private sT: TeamService,
     private router: Router,
     private route: ActivatedRoute,
+    private loginService: LoginService
   ) { }
 
   ngOnInit(): void {
@@ -56,7 +60,7 @@ export class InsertarfavoriteComponent implements OnInit{
     });
     this.form = this.formBuilder.group({
       codigo: [''],
-      UsurioUser: ['', Validators.required],
+      UsurioUser: ['', /*Validators.required*/],
       Equiposteam: ['', Validators.required],
     });
     this.sU.list().subscribe((data) => {
@@ -65,18 +69,31 @@ export class InsertarfavoriteComponent implements OnInit{
     this.sT.list().subscribe((data) => {
       this.listaTeams = data;
     });
+    this.usuarioactual=this.loginService.showUser();
   }
   registrar(): void {
     if (this.form.valid) {
-      this.favorite.id= this.form.value.codigo;
-      this.favorite.user.id = this.form.value.UsurioUser;
-      this.favorite.team.id = this.form.value.Equiposteam;
-      this.sF.insert(this.favorite).subscribe((data) => {
-        this.sF.list().subscribe((data) => {
-          this.sF.setList(data);
-        });
+
+      this.sU.list().subscribe((listausuarios) => {
+        for (let usuario of listausuarios)
+          {
+            if (this.usuarioactual == usuario.username)
+              {
+                this.favorite.id= this.form.value.codigo;
+                this.favorite.user.id = usuario.id;
+                this.favorite.team.id = this.form.value.Equiposteam;
+                this.sF.insert(this.favorite).subscribe((data) => {
+                  this.sF.list().subscribe((data) => {
+                    this.sF.setList(data);
+                  });
+                });
+                this.router.navigate(['listarfavorite']);
+              }
+          }
+        
       });
-      this.router.navigate(['listarfavorite']);
+
+     
     }
   }
 

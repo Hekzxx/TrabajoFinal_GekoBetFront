@@ -28,6 +28,10 @@ export class FavoriteService {
     return this.httpClient.get<Favorite>(`${this.url}/${id}`);
   }
 
+  listarporusuarioid(id:number) {
+    return this.httpClient.get<Favorite[]>(`${this.url}/listar/${id}`);
+  }
+
   update(fe:Favorite) {
     return this.httpClient.put(this.url, fe);
   }

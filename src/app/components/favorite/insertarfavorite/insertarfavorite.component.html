@@ -7,9 +7,7 @@
         <input matInput placeholder="Codigo" formControlName="codigo" readonly />
       </mat-form-field>
   
-      <br />
-  
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" hidden>
         <mat-label class="textoBox">Usuario</mat-label>
         <mat-select formControlName="UsurioUser">
           <mat-option *ngFor="let u of listaUsers" [value]="u.id">

@@ -9,6 +9,7 @@ import { RouterLink } from '@angular/router';
 import { Favorite } from '../../../models/Favorite';
 import { FavoriteService } from '../../../services/favorite.service';
 import { UserService } from '../../../services/user.service';
+import { LoginService } from '../../../services/login.service';
 
 @Component({
   selector: 'app-listar',
@@ -30,15 +31,46 @@ export class ListarComponent implements OnInit{
   displayedColumns: string[] = ['Codigo', 'iduser', 'idteam', 'accion01', 'accion02'];
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
+  usuarioactual : string = '';
+  rolactual: string = '';
+
   constructor(
     private fS: FavoriteService,
-    private us: UserService
+    private us: UserService,
+    private loginService: LoginService
+
   ) { }
   ngOnInit(): void {
-    this.fS.list().subscribe((data) => {
-      this.dataSource = new MatTableDataSource(data);
-      this.dataSource.paginator = this.paginator;
-    });
+
+    this.usuarioactual=this.loginService.showUser();
+    this.rolactual=this.loginService.showRole();
+
+    if (this.rolactual=='ADMIN')
+    {
+      this.fS.list().subscribe((data) => {
+        this.dataSource = new MatTableDataSource(data);
+        this.dataSource.paginator = this.paginator;
+      });
+    }
+    else
+    {
+      this.us.list().subscribe((listausuarios)=>{
+        for (let usuarios of listausuarios)
+          {
+            if (this.usuarioactual==usuarios.username)
+              {
+                this.fS.listarporusuarioid(usuarios.id).subscribe((data) => {
+                  this.dataSource = new MatTableDataSource(data);
+                  this.dataSource.paginator = this.paginator;
+                });
+              }
+          }
+      })
+    }
+
+
+
+
     this.fS.getList().subscribe((data) => {
       this.dataSource = new MatTableDataSource(data);
       this.dataSource.paginator = this.paginator;

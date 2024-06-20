@@ -42,8 +42,9 @@ export class InsertarticketComponent implements OnInit {
 
   edicion: boolean = false;
   id: number = 0;
-
+  //Para que validen usuarios
   usuarioactual: string = "";
+  //
   loops: number = 0;
 
 
@@ -56,8 +57,9 @@ export class InsertarticketComponent implements OnInit {
     private teS: TeamService,
     private router: Router,
     private route: ActivatedRoute,
+    //Para que validen usuarios
     private loginService: LoginService
-
+    //
   ) { }
 
   ngOnInit(): void {

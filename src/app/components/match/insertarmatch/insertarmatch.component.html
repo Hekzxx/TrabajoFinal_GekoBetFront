@@ -36,8 +36,37 @@
       </mat-form-field>
 
       <br />
+      <br />
 
-      <mat-form-field>
+      <mat-form-field class="example-full-width" *ngIf="edicion==false">
+        <mat-label class="textoBox">Equipo 1</mat-label>
+        <mat-select formControlName="idteam1">
+          <mat-option *ngFor="let t1 of listaTeams1" [value]="t1.id">
+            {{ t1.nameteam }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('idteam1')?.hasError('required')"
+          >El equipo 1 es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field class="example-full-width" *ngIf="edicion==false">
+        <mat-label class="textoBox">Equipo 2</mat-label>
+        <mat-select formControlName="idteam2">
+          <mat-option *ngFor="let t2 of listaTeams2" [value]="t2.id">
+            {{ t2.nameteam }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('idteam2')?.hasError('required')"
+          >El equipo es obligatorio.</mat-error
+        >
+      </mat-form-field>
+
+      <br />
+
+      <mat-form-field hidden>
         <mat-label class="textoBox">Versus</mat-label>
         <input
           matInput
@@ -64,6 +93,8 @@
           Cancelar
         </button>
       </div>
+      <br />
+      {{mensaje}}
     </form>
   </div>
 </body>

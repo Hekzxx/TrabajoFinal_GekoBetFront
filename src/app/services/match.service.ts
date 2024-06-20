@@ -51,4 +51,8 @@ export class MatchService {
       `${this.url}/EquiposSegunPartido/${idm}`
     );
   }
+
+  UltimoMatchCreado() :Observable<number>{
+    return this.http.get<number>(`${this.url}/last`)
+  }
 }
