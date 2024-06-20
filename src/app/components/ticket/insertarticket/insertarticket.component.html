@@ -14,7 +14,7 @@
 
       <br />
 
-      <mat-form-field class="example-full-width">
+      <mat-form-field class="example-full-width" hidden>
         <mat-label class="textoBox">Nombre del Usuario</mat-label>
         <mat-select formControlName="username">
           <mat-option *ngFor="let u of listaUsers" [value]="u.id">
@@ -42,7 +42,7 @@
 
       <br />
 
-      <mat-form-field>
+      <mat-form-field hidden>
         <mat-label class="textoBox">Probabilidad</mat-label>
         <input
           matInput
@@ -57,9 +57,7 @@
         >
       </mat-form-field>
 
-      <br />
-
-      <mat-form-field>
+      <mat-form-field hidden>
         <mat-label class="textoBox">Equipo Ganador</mat-label>
         <input
           matInput

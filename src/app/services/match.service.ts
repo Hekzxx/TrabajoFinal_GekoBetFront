@@ -2,7 +2,9 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environements';
 import { Match } from '../models/Match';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
+import { queryMatchObtenerEquipoSegunPartidoDTO } from '../models/queryMatchObtenerEquipoSegunPartidoDTO';
+import { Team } from '../models/Team';
 const base_url = environment.base;
 @Injectable({
   providedIn: 'root'
@@ -34,5 +36,19 @@ export class MatchService {
 
   eliminar(id: number) {
     return this.http.delete(`${this.url}/${id}`);
+  }
+
+  getProbabilidadEquipo(teamrecord:number, idmatchinggresado:number) {
+    return this.http.get<number>(`${this.url}/ProbabilidadEquipo/${teamrecord}/${idmatchinggresado}`)
+  }
+
+  getGolesdeEquipo(idteam:number) {
+    return this.http.get<number>(`${this.url}/GolesdeEquipo/${idteam}`)
+  }
+
+  getNombreEquipo(idm:number) :Observable<queryMatchObtenerEquipoSegunPartidoDTO[]>{
+    return this.http.get<queryMatchObtenerEquipoSegunPartidoDTO[]>(
+      `${this.url}/EquiposSegunPartido/${idm}`
+    );
   }
 }

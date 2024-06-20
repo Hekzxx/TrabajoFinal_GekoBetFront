@@ -26,6 +26,7 @@ export class AppComponent {
   title = 'TrabajoFinal_GekoBet';
 
   tipo: string = '';
+  username: string = '';
   constructor(private loginService: LoginService) {}
 
   cerrar() {
@@ -34,6 +35,7 @@ export class AppComponent {
 
   verificar() {
     this.tipo = this.loginService.showRole();
+    this.username =this.loginService.showUser();
     return this.loginService.verificar();
   }
   isADMIN() {
