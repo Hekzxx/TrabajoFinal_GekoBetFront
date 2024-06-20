@@ -16,12 +16,12 @@ import * as bcrypt from 'bcryptjs';
   standalone: true,
   imports: [
     MatFormFieldModule,
-     ReactiveFormsModule, 
-     CommonModule, 
-     MatSelectModule, 
-     MatButtonModule, 
-     MatInputModule, 
-     RouterLink, 
+     ReactiveFormsModule,
+     CommonModule,
+     MatSelectModule,
+     MatButtonModule,
+     MatInputModule,
+     RouterLink,
      NgIf
   ],
   templateUrl: './insertaruser.component.html',
@@ -35,10 +35,10 @@ export class InsertaruserComponent implements OnInit {
   id: number = 0;
   mensaje: string = '';
   listaestados: { value: boolean; viewValue: string }[] = [
-    { value: true, viewValue: 'Verdadero' },
-    { value: false, viewValue: 'Falso' }
+    { value: true, viewValue: 'Activo' },
+    { value: false, viewValue: 'Inactivo' }
   ]
-  
+
 
   constructor(
     private formBuilder: FormBuilder,
@@ -108,7 +108,7 @@ export class InsertaruserComponent implements OnInit {
             camposunicos = false;
             this.mensaje = "El email ya está asociado con otra cuenta"
           }
-        } 
+        }
         if (camposunicos==true) {
           this.uS.insert(this.user).subscribe((data) => {
             this.uS.list().subscribe((data) => {
