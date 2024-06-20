@@ -1,6 +1,6 @@
-<div class="principal">
+<div class="fondo" style="background-image: url('assets/patron.jpg')">
 <div class="container">
-  <div class="title-container"><h1 class="title">Lista roles</h1></div>
+  <h1 class="tituloBox">Lista roles</h1>
   <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
     <!--LLamado de la tabla independiente User (username)-->
@@ -43,13 +43,14 @@
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
     <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
-</div>
-
-<br />
+  <br />
 <div class="paginator"><mat-paginator
   [pageSizeOptions]="[5, 10, 25, 100]"
   showFirstLastButtons
 ></mat-paginator></div>
+</div>
+
+
 
 
 </div>
