@@ -8,7 +8,7 @@
   display: flex;
   justify-content: flex-start; /* Alinea el contenido a la izquierda */
   align-items: center;
-  padding-left: 190px; /* Ajusta la cantidad de espacio a la izquierda */
+  padding: 0px; /* Ajusta la cantidad de espacio a la izquierda */
 }
 
 /* Contenedor de la Tabla */
