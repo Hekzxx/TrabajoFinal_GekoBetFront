@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environements';
 import { HttpClient } from '@angular/common/http';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Team } from '../models/Team';
+import { queryTeamCantEquipoTempActualDTO } from '../models/queryTeamCantEquipoTempActualDTO';
 const base_url = environment.base;
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,12 @@ export class TeamService {
 
   eliminar(id: number) {
     return this.httpClient.delete(`${this.url}/${id}`);
+  }
+
+  //Maycol
+  equipos_temporada_actual(): Observable<queryTeamCantEquipoTempActualDTO[]>{
+    return this.httpClient.get<queryTeamCantEquipoTempActualDTO[]>(
+      `${this.url}/Equipos_Temporada_Actual`
+    );
   }
 }
