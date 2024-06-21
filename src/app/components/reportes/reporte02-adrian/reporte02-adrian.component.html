@@ -1,1 +1,30 @@
-<p>reporte02-adrian works!</p>
+<div class="title-container">
+    <div style="text-align: center" class="title">
+      <h1>Cantidad de partidos jugados en una liga especifica</h1>
+    </div>
+    <div style="text-align: center" class="form-container">
+      <form [formGroup]="form" (ngSubmit)="getCantidad()">
+        <mat-form-field>
+          <mat-label>Liga de los partidos</mat-label>
+          <input matInput formControlName="nameligue"  required />
+          <mat-error *ngIf="form.get('nameligue')?.hasError('required')">
+            La liga es obligatoria.
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="submit">Aceptar</button>
+      </form>
+    </div>
+    <div style="text-align: center" class="chart-container">
+      <!-- Gráfico de barras -->
+      <canvas
+        baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [type]="barChartType"
+      >
+      </canvas>
+    </div>
+  </div>
