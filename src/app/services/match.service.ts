@@ -5,6 +5,7 @@ import { Match } from '../models/Match';
 import { Observable, Subject } from 'rxjs';
 import { queryMatchObtenerEquipoSegunPartidoDTO } from '../models/queryMatchObtenerEquipoSegunPartidoDTO';
 import { Team } from '../models/Team';
+import { queryMatchPartidosXTemporadaDTO } from '../models/queryMatchPartidosXTemporadaDTO';
 const base_url = environment.base;
 @Injectable({
   providedIn: 'root'
@@ -54,5 +55,11 @@ export class MatchService {
 
   UltimoMatchCreado() :Observable<number>{
     return this.http.get<number>(`${this.url}/last`)
+  }
+
+  CantidadPartidosTemporada(anio_ingresado:number) :Observable<queryMatchPartidosXTemporadaDTO[]>{
+    return this.http.get<queryMatchPartidosXTemporadaDTO[]>(
+      `${this.url}/Partidos_por_temporada/${anio_ingresado}`
+    );
   }
 }
