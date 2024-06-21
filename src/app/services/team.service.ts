@@ -4,6 +4,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, Subject } from 'rxjs';
 import { Team } from '../models/Team';
 import { queryTeamCantEquipoTempActualDTO } from '../models/queryTeamCantEquipoTempActualDTO';
+import { queryTeamEquiposFavXPaisDTO } from '../models/queryTeamEquiposFavXPaisDTO';
 const base_url = environment.base;
 @Injectable({
   providedIn: 'root'
@@ -40,6 +41,13 @@ export class TeamService {
   equipos_temporada_actual(): Observable<queryTeamCantEquipoTempActualDTO[]>{
     return this.httpClient.get<queryTeamCantEquipoTempActualDTO[]>(
       `${this.url}/Equipos_Temporada_Actual`
+    );
+  }
+
+  //Maycol
+  equipos_favoritos_pais(pais_ingresado:string, id_usuario:number): Observable<queryTeamEquiposFavXPaisDTO[]>{
+    return this.httpClient.get<queryTeamEquiposFavXPaisDTO[]>(
+      `${this.url}/Equipos_Favoritos_X_Pais/${pais_ingresado}/${id_usuario}`
     );
   }
 }
