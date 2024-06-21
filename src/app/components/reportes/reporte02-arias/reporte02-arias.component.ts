@@ -9,6 +9,8 @@ import { RouterLink } from '@angular/router';
 import { ChartDataset, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { TicketService } from '../../../services/ticket.service';
+import { CountryService } from '../../../services/country.service';
+import { Country } from '../../../models/Country';
 
 @Component({
   selector: 'app-reporte02-arias',
@@ -23,6 +25,7 @@ import { TicketService } from '../../../services/ticket.service';
     MatSelectModule,
     CommonModule,
     RouterLink,
+    MatSelectModule
   ],
   templateUrl: './reporte02-arias.component.html',
   styleUrl: './reporte02-arias.component.css'
@@ -37,18 +40,23 @@ export class Reporte02AriasComponent implements OnInit {
   //barChartType: ChartType = 'line';
   barChartType: ChartType = 'bar';
   //barChartType: ChartType = 'polarArea';
+  listaCountries: Country[] = [];
 
   barChartLegend = true;
   barChartData: ChartDataset[] = [];
   form: FormGroup;
-  constructor(private tS: TicketService, private formBuilder: FormBuilder) {
+  constructor(private tS: TicketService, private formBuilder: FormBuilder, private cS:CountryService) {
     this.form = formBuilder.group({
-      namecountry: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      namecountry: ['', [Validators.required/*, Validators.pattern('[a-zA-Z ]*')*/]],
     })
   }
 
   ngOnInit(): void {
+    this.cS.list().subscribe((data)=>{
+      this.listaCountries=data;
+    })
     // Initial data load can be added here if needed
+    
   }
 
   getCantidad(): void {

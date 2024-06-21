@@ -5,11 +5,15 @@
     <div style="text-align: center" class="form-container">
       <form [formGroup]="form" (ngSubmit)="getCantidad()">
         <mat-form-field>
-          <mat-label>Pais</mat-label>
-          <input matInput formControlName="namecountry"  required />
-          <mat-error *ngIf="form.get('namecountry')?.hasError('required')">
-            La Pais es obligatorio.
-          </mat-error>
+          <mat-label class="textoBox">Pais</mat-label>
+          <mat-select formControlName="namecountry">
+            <mat-option *ngFor="let c of listaCountries" [value]="c.namecountry">
+              {{ c.namecountry }}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="form.get('namecountry')?.hasError('required')"
+            >El pais es obligatorio.</mat-error
+          >
         </mat-form-field>
         <br>
         <button mat-raised-button color="primary" type="submit">Aceptar</button>

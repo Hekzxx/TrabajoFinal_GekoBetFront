@@ -9,6 +9,8 @@ import { BaseChartDirective } from 'ng2-charts';
 import { ChartDataset, ChartOptions, ChartType } from 'chart.js';
 import { MatchService } from '../../../services/match.service';
 import { MatInputModule } from '@angular/material/input';
+import { SeasonService } from '../../../services/season.service';
+import { Season } from '../../../models/Season';
 
 @Component({
   selector: 'app-reporte01-arias',
@@ -23,6 +25,7 @@ import { MatInputModule } from '@angular/material/input';
     MatSelectModule,
     CommonModule,
     RouterLink,
+    MatSelectModule
   ],
   templateUrl: './reporte01-arias.component.html',
   styleUrl: './reporte01-arias.component.css'
@@ -40,22 +43,27 @@ export class Reporte01AriasComponent implements OnInit{
 
   barChartLegend = true;
   barChartData: ChartDataset[] = [];
+  listaSeasons: Season[] = [];
+  
 
   form: FormGroup;
-  constructor(private mS: MatchService, private formBuilder: FormBuilder) {
+  constructor(private mS: MatchService, private formBuilder: FormBuilder, private sS:SeasonService) {
     this.form = formBuilder.group({
       year: ['', 
         [
-         Validators.required,
+         Validators.required/*, 
          Validators.pattern('^[0-9]*$'),
          Validators.min(2024),
-         Validators.max(2030),
+         Validators.max(2030),*/
         ]],
     })
   }
 
   ngOnInit(): void {
     // Initial data load can be added here if needed
+    this.sS.list().subscribe((data) => {
+      this.listaSeasons = data;
+    });
   }
 
   getCantidad(): void {

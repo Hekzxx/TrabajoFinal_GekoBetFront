@@ -5,11 +5,15 @@
     <div style="text-align: center" class="form-container">
       <form [formGroup]="form" (ngSubmit)="getCantidad()">
         <mat-form-field>
-          <mat-label>Temporada de los partidos</mat-label>
-          <input matInput formControlName="year" type="number" required />
-          <mat-error *ngIf="form.get('year')?.hasError('required')">
-            La temporada es obligatoria.
-          </mat-error>
+          <mat-label class="textoBox">Temporada de los partidos</mat-label>
+        <mat-select formControlName="year">
+          <mat-option *ngFor="let s of listaSeasons" [value]="s.year">
+            {{ s.year }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('year')?.hasError('required')"
+          >La temporada es obligatoria.</mat-error
+        >
         </mat-form-field>
         <br>
         <button mat-raised-button color="primary" type="submit">Aceptar</button>
