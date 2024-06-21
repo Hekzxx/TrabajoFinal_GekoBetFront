@@ -24,6 +24,15 @@ import { InsertarticketComponent } from './components/ticket/insertarticket/inse
 import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { segGuard } from './guard/seguridad.guard';
+import { ReportesComponent } from './components/reportes/reportes.component';
+import { Reporte01AriasComponent } from './components/reportes/reporte01-arias/reporte01-arias.component';
+import { Reporte01AdrianComponent } from './components/reportes/reporte01-adrian/reporte01-adrian.component';
+import { Reporte02AdrianComponent } from './components/reportes/reporte02-adrian/reporte02-adrian.component';
+import { Reporte01JulioComponent } from './components/reportes/reporte01-julio/reporte01-julio.component';
+import { Reporte02JulioComponent } from './components/reportes/reporte02-julio/reporte02-julio.component';
+import { Reporte01MaycolComponent } from './components/reportes/reporte01-maycol/reporte01-maycol.component';
+import { Reporte02MaycolComponent } from './components/reportes/reporte02-maycol/reporte02-maycol.component';
+import { Reporte02AriasComponent } from './components/reportes/reporte02-arias/reporte02-arias.component';
 
 export const routes: Routes = [
     //Login
@@ -142,4 +151,19 @@ export const routes: Routes = [
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
     },
+    //reportes
+    {
+        path: 'reportes', component: ReportesComponent,
+        children: [
+            { path: 'reporte02Arias', component: Reporte02AriasComponent },
+            { path: 'reporte01Adrian', component: Reporte01AdrianComponent },
+            { path: 'reporte02Adrian', component: Reporte02AdrianComponent },
+            { path: 'reporte01Julio', component: Reporte01JulioComponent },
+            { path: 'reporte02Julio', component: Reporte02JulioComponent },
+            { path: 'reporte01Maycol', component: Reporte01MaycolComponent },
+            { path: 'reporte01Maycol', component: Reporte02MaycolComponent },
+
+        ],
+        canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+    }
 ];
