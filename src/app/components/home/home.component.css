@@ -1,0 +1,202 @@
+/* Reseteo básico para asegurar consistencia entre navegadores */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Open Sans";
+}
+
+/* Tipografías y colores */
+body {
+    font-family: "Open Sans";
+    color: #333;
+    line-height: 1.6;
+    background-color: #f9f9f9;
+    padding: 0 20px;
+}
+
+/* Estilo del header */
+header {
+    background-color: #5db73b;
+    padding: 20px;
+    text-align: center;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+}
+
+.logo {
+    font-size: 2em;
+    color: #fff;
+    font-weight: bold;
+}
+
+/* Estilo del contenido principal */
+main {
+    margin-top: 20px;
+}
+
+.welcome-text {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.welcome-text h1 {
+    font-size: 2.5em;
+    color: #4CAF50;
+}
+
+.welcome-text p {
+    font-size: 1.2em;
+    color: #555;
+}
+
+/* Icono */
+.icon {
+    text-align: center;
+    margin: 20px 0;
+}
+
+.icon img {
+    max-width: 200px;
+}
+
+/* Estilo de testimonios */
+.testimonials {
+    background-color: #f0f0f0;
+    padding: 20px;
+    border-radius: 8px;
+    margin: 30px 0;
+}
+
+.testimonials h2 {
+    text-align: center;
+    color: #4CAF50;
+    margin-bottom: 20px;
+}
+
+.testimonial {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.arrow {
+    background: none;
+    border: 2px solid #4CAF50;
+    color: #4CAF50;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2em;
+}
+
+.arrow:hover {
+    background-color: #4CAF50;
+    color: #fff;
+}
+
+.testimonial-content {
+    max-width: 600px;
+    text-align: center;
+}
+
+.testimonial-content p {
+    font-size: 1.1em;
+    margin-bottom: 10px;
+    color: #666;
+}
+
+.testimonial-author {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    justify-content: center;
+}
+
+.testimonial-author img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+.testimonial-author p {
+    font-weight: bold;
+}
+
+/* Estilo de la sección de descarga */
+.download {
+    text-align: center;
+    margin: 30px 0;
+}
+
+.download h2 {
+    font-size: 2em;
+    color: #4CAF50;
+}
+
+.download p {
+    font-size: 1.2em;
+    color: #555;
+    margin-bottom: 20px;
+}
+
+.store-buttons img {
+    width: 150px;
+    margin: 0 10px;
+}
+
+/* Estilo del footer */
+footer {
+    background-color: #5db73b;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    margin-top: 40px;
+    border-radius: 8px;
+}
+
+footer h2 {
+    margin-bottom: 10px;
+}
+
+footer p {
+    margin: 5px 0;
+}
+
+.contact-info {
+    margin-top: 20px;
+}
+
+.contact-item p {
+    background-color: #fff;
+    color: #5db73b;
+    padding: 10px;
+    border-radius: 4px;
+    margin: 5px 0;
+}
+
+/* Media Queries para responsividad */
+@media (max-width: 768px) {
+    .testimonial {
+        flex-direction: column;
+    }
+    
+    .arrow {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .welcome-text h1 {
+        font-size: 1.8em;
+    }
+
+    .testimonial-content p {
+        font-size: 1em;
+    }
+
+    .download h2, .download p {
+        font-size: 1.2em;
+    }
+}
