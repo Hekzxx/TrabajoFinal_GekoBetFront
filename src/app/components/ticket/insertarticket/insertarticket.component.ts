@@ -199,12 +199,12 @@ export class InsertarticketComponent implements OnInit {
   init() {
     if (this.edicion) {
       this.tS.listId(this.id).subscribe((data) => {
-        this.form = new FormGroup({
-          codigo: new FormControl(data.id),
-          username: new FormControl(data.user.id),
-          versus: new FormControl(data.match.id),
-          probabilidad: new FormControl(data.probabilidad),
-          equipoGanador: new FormControl(data.equipoGanador)
+        this.form.setValue({
+          codigo: data.id,
+          username: data.user.id,
+          versus: data.match.id,
+          probabilidad: data.probabilidad,
+          equipoGanador: data.equipoGanador
         });
       });
     }

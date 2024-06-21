@@ -82,10 +82,10 @@ export class InsertarseasonComponent implements OnInit {
   init(){
     if (this.edicion) {
       this.sS.listId(this.id).subscribe((data)=>{
-        this.form = new FormGroup({
-          codigo: new FormControl(data.id),
-          paiscountry: new FormControl(data.country.id),
-          year: new FormControl(data.year),
+        this.form.setValue({
+          codigo: data.id,
+          paiscountry: data.country.id,
+          year: data.year,
         });
       });
     }

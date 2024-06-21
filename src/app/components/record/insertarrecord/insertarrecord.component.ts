@@ -83,11 +83,11 @@ export class InsertarrecordComponent implements OnInit{
   init(){
     if (this.edicion) {
       this.rS.listId(this.id).subscribe((data)=>{
-        this.form = new FormGroup({
-          codigo: new FormControl(data.id),
-          nameTeam: new FormControl(data.team.id),
-          fecha: new FormControl(data.dateRecord),
-          resultado: new FormControl(data.resultado),
+        this.form.setValue({
+          codigo: data.id,
+          nameTeam: data.team.id,
+          fecha: data.dateRecord,
+          resultado: data.resultado,
         });
       });
     }

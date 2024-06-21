@@ -78,10 +78,10 @@ export class InsertarligueComponent implements OnInit{
   init(){
     if (this.edicion) {
       this.lS.listId(this.id).subscribe((data)=>{
-        this.form = new FormGroup({
-          codigo: new FormControl(data.id),
-          year: new FormControl(data.season.id),
-          nameligue: new FormControl(data.nameligue),
+        this.form.setValue({
+          codigo: data.id,
+          year: data.season.id,
+          nameligue: data.nameligue,
         });
       });
     }

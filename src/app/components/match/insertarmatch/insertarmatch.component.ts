@@ -154,10 +154,10 @@ export class InsertarmatchComponent implements OnInit {
   init() {
     if (this.edicion) {
       this.mS.listId(this.id).subscribe((data) => {
-        this.form = new FormGroup({
-          codigo: new FormControl(data.id),
-          fecha: new FormControl(data.dateMatch),
-          versus: new FormControl(data.versus),
+        this.form.setValue({
+          codigo: data.id,
+          fecha: data.dateMatch,
+          versus: data.versus,
         });
       });
     }

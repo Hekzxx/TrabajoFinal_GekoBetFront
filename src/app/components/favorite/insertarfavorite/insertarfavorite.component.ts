@@ -100,10 +100,10 @@ export class InsertarfavoriteComponent implements OnInit{
   init(){
     if (this.edicion) {
       this.sF.listId(this.id).subscribe((data)=>{
-        this.form = new FormGroup({
-          codigo: new FormControl(data.id),
-          UsurioUser: new FormControl(data.user.id),
-          Equiposteam: new FormControl(data.team.id),
+        this.form.setValue({
+          codigo: data.id,
+          UsurioUser: data.user.id,
+          Equiposteam: data.team.id,
         });
       });
     }

@@ -79,10 +79,10 @@ export class InsertarteamComponent implements OnInit{
   init(){
     if (this.edicion) {
       this.tS.listId(this.id).subscribe((data)=>{
-        this.form = new FormGroup({
-          codigo: new FormControl(data.id),
-          LigaLigue: new FormControl(data.ligue.id),
-          nameTeam: new FormControl(data.nameteam),
+        this.form.setValue({
+          codigo: data.id,
+          LigaLigue: data.ligue.id,
+          nameTeam: data.nameteam,
         });
       });
     }

@@ -74,9 +74,9 @@ export class InsertarcountryComponent implements OnInit {
   init(){
     if (this.edicion) {
       this.cS.listId(this.id).subscribe((data)=>{
-        this.form = new FormGroup({
-          codigo: new FormControl(data.id),
-          pais: new FormControl(data.namecountry),
+        this.form.setValue({
+          codigo: data.id,
+          pais: data.namecountry,
         });
       });
     }

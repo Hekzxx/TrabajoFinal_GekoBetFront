@@ -84,10 +84,10 @@ export class InsertarroleComponent implements OnInit {
   init(){
     if (this.edicion) {
       this.rS.listId(this.id).subscribe((data)=>{
-        this.form = new FormGroup({
-          codigo: new FormControl(data.id),
-          user: new FormControl(data.user.id),
-          tipo: new FormControl(data.tipo),
+        this.form.setValue({
+          codigo: data.id,
+          user: data.user.id,
+          tipo: data.tipo,
         });
       });
     }

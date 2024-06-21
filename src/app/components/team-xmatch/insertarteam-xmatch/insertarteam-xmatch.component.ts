@@ -80,10 +80,10 @@ export class InsertarteamXmatchComponent implements OnInit{
   init(){
     if (this.edicion) {
       this.tmS.listId(this.id).subscribe((data)=>{
-        this.form = new FormGroup({
-          codigo: new FormControl(data.id),
-          idteam: new FormControl(data.team.id),
-          idpartido: new FormControl(data.match.id),
+        this.form.setValue({
+          codigo: data.id,
+          idteam: data.team.id,
+          idpartido: data.match.id,
         });
       });
     }
