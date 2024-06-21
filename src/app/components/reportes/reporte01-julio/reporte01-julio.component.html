@@ -1,1 +1,34 @@
-<p>reporte01-julio works!</p>
+<div style="text-align: center" class="title">
+    <h1>Lista de equipos que juegan en una temporada</h1>
+  </div>
+  <div style="text-align: center" class="form-container">
+    <form [formGroup]="form" (ngSubmit)="getCantidad()">
+      <mat-form-field>
+        <mat-label>Temporada de los partidos</mat-label>
+        <input matInput formControlName="year" type="number" required />
+        <mat-error *ngIf="form.get('year')?.hasError('required')">
+          La temporada es obligatoria.
+        </mat-error>
+      </mat-form-field>
+      <br />
+      <button mat-raised-button color="primary" type="submit">Aceptar</button>
+    </form>
+  </div>
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="nameteam">
+        <th mat-header-cell *matHeaderCellDef>Nombre de Equipo</th>
+        <td mat-cell *matCellDef="let element">{{ element.nameteam }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef>Temporada</th>
+        <td mat-cell *matCellDef="let element">
+          {{ element.year }}
+        </td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
