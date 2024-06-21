@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { provideClientHydration } from '@angular/platform-browser';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
 import { provideHttpClient, withFetch, withInterceptorsFromDi } from '@angular/common/http';
+import { provideCharts, withDefaultRegisterables } from 'ng2-charts';
 import { JwtModule } from '@auth0/angular-jwt';
 
 export function tokenGetter() {
@@ -16,6 +17,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     provideClientHydration(),
     provideHttpClient(withInterceptorsFromDi(), withFetch()),
+    provideCharts(withDefaultRegisterables()),
     importProvidersFrom(
       JwtModule.forRoot({
         config: {

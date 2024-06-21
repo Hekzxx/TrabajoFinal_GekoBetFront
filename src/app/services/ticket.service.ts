@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environements';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { Ticket } from '../models/Ticket';
 import { HttpClient } from '@angular/common/http';
+import { queryTicketTicketXTeamDTO } from '../models/queryTicketTicketXTeamDTO';
 const base_url = environment.base;
 @Injectable({
   providedIn: 'root'
@@ -35,5 +36,11 @@ export class TicketService {
 
   eliminar(id: number) {
     return this.httpClient.delete(`${this.url}/${id}`);
+  }
+
+  probabilidadesPais(): Observable<queryTicketTicketXTeamDTO[]>{
+    return this.httpClient.get<queryTicketTicketXTeamDTO[]>(
+      `${this.url}/Probabilidad_por_equipo`
+    );
   }
 }
