@@ -9,6 +9,8 @@
   <button mat-button class="custom-button"[matMenuTriggerFor]="Record" *ngIf="isADMIN()"><mat-icon>leaderboard</mat-icon>Registro</button>
   <button mat-button class="custom-button"[matMenuTriggerFor]="Match" *ngIf="isADMIN()"><mat-icon>compare_arrows</mat-icon>Partido</button>
   <button mat-button class="custom-button"[matMenuTriggerFor]="TeamxMatches" *ngIf="isADMIN()"><mat-icon>sports_handball</mat-icon>Equipos por Partido</button>
+  <!--reportes-->
+  <button mat-button class="custom-button"[matMenuTriggerFor]="Reportes" ><mat-icon>assessment</mat-icon>Reportes</button>
   <button mat-button class="custom-button"[matMenuTriggerFor]="User" ><mat-icon>person</mat-icon>Usuario</button>
   <button mat-button class="custom-button"[matMenuTriggerFor]="Role" *ngIf="isADMIN()"><mat-icon>security</mat-icon>Rol</button>
   <button mat-button class="custom-button"[matMenuTriggerFor]="Favorite" *ngIf="isUSER()"><mat-icon>star</mat-icon>Favorito</button>
@@ -86,7 +88,19 @@
   <button mat-menu-item routerLink="/listarrole/insertarrole"><mat-icon>add_circle</mat-icon>Registrar</button>
 </mat-menu>
 
-<!--role-->
+<!--reportes-->
+<mat-menu #Reportes="matMenu">
+  <button mat-menu-item routerLink="/reportes" *ngIf="isADMIN()"><mat-icon>view_list</mat-icon>Partidos programados por temporada</button>
+  <button mat-menu-item routerLink="/reportes/reporte02Arias" *ngIf="isADMIN()"><mat-icon>view_list</mat-icon>Tickets realizados por Pais</button>
+  <button mat-menu-item routerLink="/reportes/reporte01Adrian" *ngIf="isADMIN()"><mat-icon>view_list</mat-icon>Promedio de probalidades de los tickets</button>
+  <button mat-menu-item routerLink="/reportes/reporte02Adrian" *ngIf="isADMIN()"><mat-icon>view_list</mat-icon>Partidos jugados por liga</button>
+  <button mat-menu-item routerLink="/reportes/reporte01Julio" *ngIf="isUSER()"><mat-icon>view_list</mat-icon>Lista de equipos que juegan en una temporada</button>
+  <button mat-menu-item routerLink="/reportes/reporte02Julio" *ngIf="isADMIN()"><mat-icon>view_list</mat-icon>Ligas dentro de una temporada y pais especifico</button>
+  <button mat-menu-item routerLink="/reportes/reporte01Maycol" *ngIf="isADMIN()"><mat-icon>view_list</mat-icon>Cantidad de equipos en una liga en la temporada actual</button>
+  <button mat-menu-item routerLink="/reportes/reporte02Maycol" *ngIf="isUSER()"><mat-icon>view_list</mat-icon>Equipos favoritos por Pais</button>
+</mat-menu>
+
+<!--favorite-->
 <mat-menu #Favorite="matMenu">
   <button mat-menu-item routerLink="/listarfavorite"><mat-icon>view_list</mat-icon>Listar</button>
   <button mat-menu-item routerLink="/listarfavorite/insertarfavorite"><mat-icon>add_circle</mat-icon>Registrar</button>

@@ -161,7 +161,7 @@ export const routes: Routes = [
             { path: 'reporte01Julio', component: Reporte01JulioComponent },
             { path: 'reporte02Julio', component: Reporte02JulioComponent },
             { path: 'reporte01Maycol', component: Reporte01MaycolComponent },
-            { path: 'reporte01Maycol', component: Reporte02MaycolComponent },
+            { path: 'reporte02Maycol', component: Reporte02MaycolComponent },
 
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
