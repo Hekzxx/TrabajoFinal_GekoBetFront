@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterOutlet } from '@angular/router';
-import { Reporte01AdrianComponent } from './reporte01-adrian/reporte01-adrian.component';
 import { Reporte01AriasComponent } from './reporte01-arias/reporte01-arias.component';
 
 @Component({

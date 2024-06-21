@@ -4,7 +4,6 @@ import { environment } from '../../environments/environements';
 import { Match } from '../models/Match';
 import { Observable, Subject } from 'rxjs';
 import { queryMatchObtenerEquipoSegunPartidoDTO } from '../models/queryMatchObtenerEquipoSegunPartidoDTO';
-import { Team } from '../models/Team';
 import { queryMatchPartidosXTemporadaDTO } from '../models/queryMatchPartidosXTemporadaDTO';
 const base_url = environment.base;
 @Injectable({
