@@ -4,6 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { Ticket } from '../models/Ticket';
 import { HttpClient } from '@angular/common/http';
 import { queryTicketTicketXTeamDTO } from '../models/queryTicketTicketXTeamDTO';
+import { queryTicketTicketsXPaisDTO } from '../models/queryTicketTicketsXPaisDTO';
 const base_url = environment.base;
 @Injectable({
   providedIn: 'root'
@@ -37,10 +38,16 @@ export class TicketService {
   eliminar(id: number) {
     return this.httpClient.delete(`${this.url}/${id}`);
   }
-
+  //adrian
   probabilidadesPais(): Observable<queryTicketTicketXTeamDTO[]>{
     return this.httpClient.get<queryTicketTicketXTeamDTO[]>(
       `${this.url}/Probabilidad_por_equipo`
+    );
+  }
+  //arias
+  CantidadTicketsPais(pais_ingresado:number) :Observable<queryTicketTicketsXPaisDTO[]>{
+    return this.httpClient.get<queryTicketTicketsXPaisDTO[]>(
+      `${this.url}/Tickets_por_pais/${pais_ingresado}`
     );
   }
 }

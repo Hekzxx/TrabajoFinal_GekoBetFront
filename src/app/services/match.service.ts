@@ -55,7 +55,7 @@ export class MatchService {
   UltimoMatchCreado() :Observable<number>{
     return this.http.get<number>(`${this.url}/last`)
   }
-
+  //arias
   CantidadPartidosTemporada(anio_ingresado:number) :Observable<queryMatchPartidosXTemporadaDTO[]>{
     return this.http.get<queryMatchPartidosXTemporadaDTO[]>(
       `${this.url}/Partidos_por_temporada/${anio_ingresado}`

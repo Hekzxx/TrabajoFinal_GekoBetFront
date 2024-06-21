@@ -1,1 +1,30 @@
-<p>reporte02-arias works!</p>
+<div class="title-container">
+    <div style="text-align: center" class="title">
+      <h1>Cantidad de tickets registrados dentro de un pais especifico</h1>
+    </div>
+    <div style="text-align: center" class="form-container">
+      <form [formGroup]="form" (ngSubmit)="getCantidad()">
+        <mat-form-field>
+          <mat-label>Pais</mat-label>
+          <input matInput formControlName="namecountry"  required />
+          <mat-error *ngIf="form.get('namecountry')?.hasError('required')">
+            La Pais es obligatorio.
+          </mat-error>
+        </mat-form-field>
+        <br>
+        <button mat-raised-button color="primary" type="submit">Aceptar</button>
+      </form>
+    </div>
+    <div style="text-align: center" class="chart-container">
+      <!-- Gráfico de barras -->
+      <canvas
+        baseChart
+        [datasets]="barChartData"
+        [labels]="barChartLabels"
+        [options]="barChartOptions"
+        [legend]="barChartLegend"
+        [type]="barChartType"
+      >
+      </canvas>
+    </div>
+  </div>
