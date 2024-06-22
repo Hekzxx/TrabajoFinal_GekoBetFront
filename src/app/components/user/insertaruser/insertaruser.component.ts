@@ -60,7 +60,7 @@ export class InsertaruserComponent implements OnInit {
       username: ['', Validators.required],
       password: ['', Validators.required],
       mail: ['', [Validators.required, Validators.email]],
-      estado: ['', Validators.required],
+      estado: ['true', Validators.required],
       address: ['', Validators.required],
       phone: [
         '',
@@ -78,7 +78,7 @@ export class InsertaruserComponent implements OnInit {
           Validators.minLength(8),
           Validators.maxLength(8)
         ]],
-      enabled: ['', Validators.required]
+      enabled: ['true', Validators.required]
     })
 
   }

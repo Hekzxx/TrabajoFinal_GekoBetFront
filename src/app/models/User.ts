@@ -3,9 +3,9 @@ export class User {
     username: string = ""
     password: string = ""
     mail: string = ""
-    estado: boolean = false
+    estado: boolean = true
     address: string = ""
     phone: number = 0
     dni: number = 0
-    enabled: boolean = false
+    enabled: boolean = true
 }

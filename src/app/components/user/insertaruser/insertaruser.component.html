@@ -57,9 +57,8 @@
         >
       </mat-form-field>
 
-      <br />
 
-      <mat-form-field>
+      <mat-form-field hidden>
         <mat-label class="textoBox">Estado</mat-label>
         <mat-select formControlName="estado" placeholder="Ingrese el estado">
           <mat-option *ngFor="let user of listaestados" [value]="user.value">
@@ -128,7 +127,7 @@
 
       <br />
 
-      <mat-form-field>
+      <mat-form-field hidden>
         <mat-label class="textoBox">Enabled</mat-label>
         <mat-select formControlName="enabled" placeholder="Ingrese el valor">
           <mat-option *ngFor="let user of listaestados" [value]="user.value">
@@ -140,7 +139,6 @@
         </mat-error>
       </mat-form-field>
 
-      <br />
       <div class="boton-container">
         <button class="boton" mat-raised-button color="primary">Registrar</button>
       <button class="boton1" mat-raised-button color="warn" routerLink="/listaruser">
