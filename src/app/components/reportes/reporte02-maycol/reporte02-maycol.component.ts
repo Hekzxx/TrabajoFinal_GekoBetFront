@@ -20,8 +20,8 @@ import { MatSelectModule } from '@angular/material/select';
   selector: 'app-reporte02-maycol',
   standalone: true,
   imports: [
-    MatTableModule, 
-    MatButtonModule, 
+    MatTableModule,
+    MatButtonModule,
     RouterLink,
     MatFormFieldModule,
     MatPaginatorModule,
@@ -35,7 +35,7 @@ import { MatSelectModule } from '@angular/material/select';
   templateUrl: './reporte02-maycol.component.html',
   styleUrl: './reporte02-maycol.component.css'
 })
-export class Reporte02MaycolComponent implements OnInit{
+export class Reporte02MaycolComponent implements OnInit {
   dataSource: MatTableDataSource<queryTeamEquiposFavXPaisDTO> = new MatTableDataSource();
   form: FormGroup = new FormGroup({});
   displayedColumns: string[] = ['nameteam'];
@@ -45,13 +45,12 @@ export class Reporte02MaycolComponent implements OnInit{
   contequipos: number = 0;
 
   constructor(
-    private tS: TeamService, 
+    private tS: TeamService,
     private formBuilder: FormBuilder,
-    private uS:UserService,
+    private uS: UserService,
     private loginService: LoginService,
-    private cS:CountryService,
-)
-     {
+    private cS: CountryService,
+  ) {
     this.form = formBuilder.group({
       namecountry: ['', [Validators.required]],
       id: [''],
@@ -63,20 +62,17 @@ export class Reporte02MaycolComponent implements OnInit{
       this.listaCountries = data;
     });
 
-    this.usuarioactual=this.loginService.showUser();
+    this.usuarioactual = this.loginService.showUser();
 
-    this.uS.list().subscribe((listausuarios)=>
-    { 
-      for (let usuario of listausuarios)
-        {
-          if (this.usuarioactual==usuario.username)
-            {
-              this.form.setValue({
-                namecountry: '',
-                id: usuario.id
-              });
-            }
+    this.uS.list().subscribe((listausuarios) => {
+      for (let usuario of listausuarios) {
+        if (this.usuarioactual == usuario.username) {
+          this.form.setValue({
+            namecountry: '',
+            id: usuario.id
+          });
         }
+      }
     })
   }
 
@@ -84,18 +80,17 @@ export class Reporte02MaycolComponent implements OnInit{
     if (this.form.valid) {
       const namecountry = this.form.value.namecountry;
       const id = this.form.value.id;
-      this.tS.equipos_favoritos_pais(namecountry,id).subscribe((data) => {
-        this.contequipos=0;
-        for (let equipos of data)
-          {
-            this.contequipos++;
-          }
+      this.tS.equipos_favoritos_pais(namecountry, id).subscribe((data) => {
+        this.contequipos = 0;
+        for (let equipos of data) {
+          this.contequipos++;
+        }
         this.mensaje = 'Se encontró ' + this.contequipos + ' equipos para el país ' + namecountry + '.';
         this.dataSource = new MatTableDataSource(data);
-        });
-      };
-    }
-  }
+      });
+    };
+  }
+}
 
 
 

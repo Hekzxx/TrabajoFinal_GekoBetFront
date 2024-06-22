@@ -1,8 +1,9 @@
 import { Injectable } from '@angular/core';
 import { environment } from '../../environments/environements';
 import { Ligue } from '../models/Ligue';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
+import { queryLigueLiguesXSeasonXTempDTO } from '../models/queryLigueLiguesXSeasonXTempDTO';
 const base_url = environment.base;
 @Injectable({
   providedIn: 'root'
@@ -33,5 +34,12 @@ export class LigueService {
 
   eliminar(id: number) {
     return this.httpClient.delete(`${this.url}/${id}`);
+  }
+
+  //Julio
+  ligas_season_country(anio_ingresado:number, pais_ingresado:string): Observable<queryLigueLiguesXSeasonXTempDTO[]>{
+    return this.httpClient.get<queryLigueLiguesXSeasonXTempDTO[]>(
+      `${this.url}/Ligas_x_Tempo_Pais/${anio_ingresado}/${pais_ingresado}`
+    );
   }
 }
