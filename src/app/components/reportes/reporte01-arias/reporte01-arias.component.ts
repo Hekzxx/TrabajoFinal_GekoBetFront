@@ -51,10 +51,7 @@ export class Reporte01AriasComponent implements OnInit{
     this.form = formBuilder.group({
       year: ['', 
         [
-         Validators.required/*, 
-         Validators.pattern('^[0-9]*$'),
-         Validators.min(2024),
-         Validators.max(2030),*/
+         Validators.required
         ]],
     })
   }

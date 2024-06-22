@@ -1,34 +1,40 @@
-<div class="title-container">
-    <div style="text-align: center" class="title">
-      <h1>Cantidad de partidos programados de una temporada especifica</h1>
+<div class="fondo" style="background-image: url('assets/patron.jpg')">
+  <body>
+    <div class="fondo">
+      <div class="title-container">
+        <div class="title">
+          <h1>Cantidad de partidos programados de una temporada específica</h1>
+        </div>
+        <div class="form-container">
+          <form [formGroup]="form" (ngSubmit)="getCantidad()">
+            <mat-form-field>
+              <mat-label class="textoBox">Temporada de los partidos</mat-label>
+              <mat-select formControlName="year">
+                <mat-option *ngFor="let s of listaSeasons" [value]="s.year">
+                  {{ s.year }}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="form.get('year')?.hasError('required')">
+                La temporada es obligatoria.
+              </mat-error>
+            </mat-form-field>
+            <button mat-raised-button color="primary" type="submit">Aceptar</button>
+          </form>
+        </div>
+        <div class="chart-container">
+          <!-- Gráfico de barras -->
+          <canvas
+            baseChart
+            [datasets]="barChartData"
+            [labels]="barChartLabels"
+            [options]="barChartOptions"
+            [legend]="barChartLegend"
+            [type]="barChartType"
+          >
+          </canvas>
+        </div>
+      </div>
     </div>
-    <div style="text-align: center" class="form-container">
-      <form [formGroup]="form" (ngSubmit)="getCantidad()">
-        <mat-form-field>
-          <mat-label class="textoBox">Temporada de los partidos</mat-label>
-        <mat-select formControlName="year">
-          <mat-option *ngFor="let s of listaSeasons" [value]="s.year">
-            {{ s.year }}
-          </mat-option>
-        </mat-select>
-        <mat-error *ngIf="form.get('year')?.hasError('required')"
-          >La temporada es obligatoria.</mat-error
-        >
-        </mat-form-field>
-        <br>
-        <button mat-raised-button color="primary" type="submit">Aceptar</button>
-      </form>
-    </div>
-    <div style="text-align: center" class="chart-container">
-      <!-- Gráfico de barras -->
-      <canvas
-        baseChart
-        [datasets]="barChartData"
-        [labels]="barChartLabels"
-        [options]="barChartOptions"
-        [legend]="barChartLegend"
-        [type]="barChartType"
-      >
-      </canvas>
-    </div>
-  </div>
+  </body>
+</div>
+

@@ -1,34 +1,38 @@
-<div class="title-container">
-    <div style="text-align: center" class="title">
-      <h1>Cantidad de tickets registrados dentro de un pais especifico</h1>
+<div class="fondo" style="background-image: url('assets/patron.jpg')">
+  <body>
+    <div class="title-container">
+      <div style="text-align: center" class="title">
+        <h1>Cantidad de tickets registrados dentro de un pais especifico</h1>
+      </div>
+      <div style="text-align: center" class="form-container">
+        <form [formGroup]="form" (ngSubmit)="getCantidad()">
+          <mat-form-field>
+            <mat-label class="textoBox">Pais</mat-label>
+            <mat-select formControlName="namecountry">
+              <mat-option *ngFor="let c of listaCountries" [value]="c.namecountry">
+                {{ c.namecountry }}
+              </mat-option>
+            </mat-select>
+            <mat-error *ngIf="form.get('namecountry')?.hasError('required')"
+              >El pais es obligatorio.</mat-error
+            >
+          </mat-form-field>
+          <button mat-raised-button color="primary" type="submit">Aceptar</button>
+        </form>
+      </div>
+      <div style="text-align: center" class="chart-container">
+        <!-- Gráfico de barras -->
+        <canvas
+          baseChart
+          [datasets]="barChartData"
+          [labels]="barChartLabels"
+          [options]="barChartOptions"
+          [legend]="barChartLegend"
+          [type]="barChartType"
+        >
+        </canvas>
+      </div>
     </div>
-    <div style="text-align: center" class="form-container">
-      <form [formGroup]="form" (ngSubmit)="getCantidad()">
-        <mat-form-field>
-          <mat-label class="textoBox">Pais</mat-label>
-          <mat-select formControlName="namecountry">
-            <mat-option *ngFor="let c of listaCountries" [value]="c.namecountry">
-              {{ c.namecountry }}
-            </mat-option>
-          </mat-select>
-          <mat-error *ngIf="form.get('namecountry')?.hasError('required')"
-            >El pais es obligatorio.</mat-error
-          >
-        </mat-form-field>
-        <br>
-        <button mat-raised-button color="primary" type="submit">Aceptar</button>
-      </form>
-    </div>
-    <div style="text-align: center" class="chart-container">
-      <!-- Gráfico de barras -->
-      <canvas
-        baseChart
-        [datasets]="barChartData"
-        [labels]="barChartLabels"
-        [options]="barChartOptions"
-        [legend]="barChartLegend"
-        [type]="barChartType"
-      >
-      </canvas>
-    </div>
-  </div>
+  </body>
+</div>
+

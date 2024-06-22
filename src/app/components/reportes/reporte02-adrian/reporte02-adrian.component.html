@@ -1,4 +1,6 @@
-<div class="title-container">
+<div class="fondo" style="background-image: url('assets/patron.jpg')">
+<body>
+  <div class="title-container">
     <div style="text-align: center" class="title">
       <h1>Cantidad de partidos jugados en una liga especifica</h1>
     </div>
@@ -6,12 +8,15 @@
       <form [formGroup]="form" (ngSubmit)="getCantidad()">
         <mat-form-field>
           <mat-label>Liga de los partidos</mat-label>
-          <input matInput formControlName="nameligue"  required />
+          <mat-select formControlName="nameligue">
+            <mat-option *ngFor="let l of listaligue" [value]="l.nameligue">
+              {{ l.nameligue }}
+            </mat-option>
+          </mat-select>
           <mat-error *ngIf="form.get('nameligue')?.hasError('required')">
             La liga es obligatoria.
           </mat-error>
         </mat-form-field>
-        <br>
         <button mat-raised-button color="primary" type="submit">Aceptar</button>
       </form>
     </div>
@@ -28,3 +33,6 @@
       </canvas>
     </div>
   </div>
+</body>
+</div>
+

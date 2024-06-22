@@ -1,20 +1,83 @@
+/* Define una paleta de colores */
+:root {
+  --primary-color: #3498db; /* Azul */
+  --secondary-color: #2ecc71; /* Verde */
+  --text-color: #333; /* Color de texto principal */
+  --background-color: #f4f4f4; /* Fondo general */
+  --accent-color: #e74c3c; /* Rojo para acentos */
+  --border-color: #ddd; /* Color para bordes */
+  --font-family: 'Roboto', sans-serif; /* Fuente general */
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+}
+
+.fondo {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%; /* Asegura que el fondo cubra toda la altura de la ventana */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  padding: 20px; /* Ajusta la cantidad de espacio para que el contenido no esté pegado al borde */
+}
+
+/* Estilo para el contenedor del título y el gráfico */
 .title-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px; /* Aumenta el padding para dar más espacio interno */
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  max-width: 90%; /* Incrementa el ancho máximo del contenedor */
+  max-height: 95%; /* Incrementa el alto máximo del contenedor */
+  min-width: 300px; /* Establece un ancho mínimo para asegurar que no sea demasiado pequeño */
+  min-height: 300px; /* Establece un alto mínimo para asegurar que no sea demasiado pequeño */
+}
+
+.title {
   text-align: center;
   margin-bottom: 20px;
 }
 
-.chart-container{
-  width: 40%;
-  margin: 0 auto;
-  padding: 9px;
-  box-sizing: border-box;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.title h1 {
+  font-size: 3em; /* Incrementa el tamaño de la fuente */
+  color: var(--primary-color);
+  margin: 0;
 }
-@media(max-width: 768px){
-  .chart-container{
-      width: 100%;
-      padding: 100%;
+
+.chart-container {
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .title h1 {
+      font-size: 2.5em; /* Ajusta el tamaño de la fuente para pantallas más pequeñas */
+  }
+
+  .chart-container {
+      max-width: 100%;
   }
 }

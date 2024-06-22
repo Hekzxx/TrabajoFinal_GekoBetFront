@@ -9,6 +9,8 @@ import { RouterLink } from '@angular/router';
 import { ChartDataset, ChartOptions, ChartType } from 'chart.js';
 import { BaseChartDirective } from 'ng2-charts';
 import { MatchService } from '../../../services/match.service';
+import { Ligue } from '../../../models/Ligue';
+import { LigueService } from '../../../services/ligue.service';
 
 @Component({
   selector: 'app-reporte02-adrian',
@@ -40,16 +42,20 @@ export class Reporte02AdrianComponent implements OnInit{
 
   barChartLegend = true;
   barChartData: ChartDataset[] = [];
+  listaligue: Ligue[] = [];
 
   form: FormGroup;
-  constructor(private mS: MatchService, private formBuilder: FormBuilder) {
+  constructor(private mS: MatchService, private formBuilder: FormBuilder, private lS:LigueService) {
     this.form = formBuilder.group({
-      nameligue: ['', [Validators.required, Validators.pattern('[a-zA-Z ]*')]],
+      nameligue: ['', Validators.required],
     })
   }
 
   ngOnInit(): void {
     // Initial data load can be added here if needed
+    this.lS.list().subscribe((data) => {
+      this.listaligue = data;
+    });
   }
 
   getCantidad(): void {

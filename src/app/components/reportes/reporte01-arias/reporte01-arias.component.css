@@ -1,20 +1,109 @@
+/* Define una paleta de colores */
+:root {
+  --primary-color: #3498db; /* Azul */
+  --secondary-color: #2ecc71; /* Verde */
+  --text-color: #333; /* Color de texto principal */
+  --background-color: #f4f4f4; /* Fondo general */
+  --accent-color: #e74c3c; /* Rojo para acentos */
+  --border-color: #ddd; /* Color para bordes */
+  --font-family: 'Roboto', sans-serif; /* Fuente general */
+}
+
+body {
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; /* Asegura que el contenedor ocupe toda la altura de la ventana */
+}
+
+.fondo {
+  background-size: cover;
+  background-position: center;
+  width: 100%;
+  height: 100%; /* Asegura que el fondo cubra toda la altura de la ventana */
+  display: flex;
+  justify-content: center; /* Centra el contenido horizontalmente */
+  align-items: center; /* Centra el contenido verticalmente */
+  padding: 20px; /* Añade un margen alrededor del contenedor */
+}
+
+/* Estilo para el contenedor principal */
 .title-container {
-    text-align: center;
-    margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 40px; /* Aumenta el padding para dar más espacio interno */
+  background-color: #fff;
+  border: 1px solid var(--border-color);
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin: 20px;
+  max-width: 80%; /* Ajusta el ancho máximo del contenedor */
+  max-height: 90%; /* Ajusta el alto máximo del contenedor */
+  min-width: 320px; /* Establece un ancho mínimo adecuado */
+  min-height: 300px; /* Establece un alto mínimo adecuado */
+  box-sizing: border-box; /* Asegura que el padding se incluya en el ancho y alto */
+}
+
+/* Estilo para el título */
+.title {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.title h1 {
+  font-size: 2.5em;
+  color: var(--primary-color);
+  margin: 0;
+}
+
+/* Estilo para el contenedor del formulario */
+.form-container {
+  width: 100%;
+  text-align: center;
+  margin-bottom: 20px; /* Añade un margen inferior para separar del gráfico */
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.mat-form-field {
+  width: 100%;
+  max-width: 400px; /* Limita el ancho máximo del campo de formulario */
+}
+
+button {
+  margin-top: 10px; /* Añade un margen superior para separar del formulario */
+}
+
+/* Estilo para el contenedor del gráfico */
+.chart-container {
+  width: 100%;
+  max-width: 800px;
+  position: relative;
+}
+
+canvas {
+  width: 100% !important;
+  height: auto !important;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+  .title h1 {
+      font-size: 2em;
   }
 
-  .chart-container{
-    width: 40%;
-    margin: 0 auto;
-    padding: 9px;
-    box-sizing: border-box;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  .chart-container {
+      max-width: 100%;
   }
-  @media(max-width: 768px){
-    .chart-container{
-        width: 100%;
-        padding: 100%;
-    }
-  }
+}
