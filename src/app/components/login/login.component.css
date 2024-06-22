@@ -50,9 +50,20 @@ body, html {
 }
 .boton{
   font-family: 'Open Sans', sans-serif;
-  display: flex;
+  display: inline-block;
   margin: 0 auto;
+  margin: 10px;
+  justify-content: center;
   background-color: #5db73b !important; /* Color base del botón */
+}
+
+.boton2{
+  font-family: 'Open Sans', sans-serif;
+  display: inline-block;
+  margin: 0 auto;
+  margin: 10px;
+  justify-content: center;
+  background-color: #efae03 !important; /* Color base del botón */
 }
 /*
 .boton:hover {

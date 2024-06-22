@@ -96,6 +96,7 @@ export const routes: Routes = [
             { path: 'ediciones/:id', component: InsertarrecordComponent},
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+    
     },
     //match
     {
@@ -123,6 +124,10 @@ export const routes: Routes = [
             { path: 'ediciones/:id', component: InsertaruserComponent },
         ],
         canActivate: [segGuard], // solo construcciones, se debe agregar a cada uno
+    },
+    //registrar
+    {
+        path: 'registrar', component: InsertaruserComponent,
     },
     //role
     {
