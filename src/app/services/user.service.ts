@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from '../models/User';
 import { environment } from '../../environments/environements';
-import { Subject } from 'rxjs';
+import { Observable, Subject } from 'rxjs';
 const base_url = environment.base;
 @Injectable({
   providedIn: 'root'
@@ -39,6 +39,13 @@ export class UserService {
 
   eliminar(id: number) {
     return this.http.delete(`${this.url}/${id}`);
+  }
+
+  //adrian
+  idUsuario(username:string): Observable<number>{
+    return this.http.get<number>(
+      `${this.url}/idUser/${username}`
+    );
   }
 
 }

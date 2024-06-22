@@ -9,6 +9,8 @@ import { UserService } from '../../../services/user.service';
 import { ActivatedRoute, Params, Router, RouterLink } from '@angular/router';
 import { MatInputModule } from '@angular/material/input';
 import * as bcrypt from 'bcryptjs';
+import { RoleService } from '../../../services/role.service';
+import { Role } from '../../../models/Role';
 
 
 @Component({
@@ -34,6 +36,8 @@ export class InsertaruserComponent implements OnInit {
   password: any;
   id: number = 0;
   mensaje: string = '';
+  tipoRol: Role = new Role();
+  userIdRol: number = 0;
   listaestados: { value: boolean; viewValue: string }[] = [
     { value: true, viewValue: 'Activo' },
     { value: false, viewValue: 'Inactivo' }
@@ -43,9 +47,12 @@ export class InsertaruserComponent implements OnInit {
   constructor(
     private formBuilder: FormBuilder,
     private uS: UserService,
+    private rS: RoleService,
     private router: Router,
     private route: ActivatedRoute
   ) { }
+
+  
 
   ngOnInit(): void {
     this.route.params.subscribe((data: Params) => {
@@ -83,6 +90,24 @@ export class InsertaruserComponent implements OnInit {
 
   }
 
+  insertarrol(iduser:number){
+
+    this.tipoRol.id = 0;
+    this.tipoRol.tipo = 'USER';
+    this.tipoRol.user.id = iduser;
+    console.log('User ID TU:', this.tipoRol.user.id);
+
+    this.rS.insert(this.tipoRol).subscribe((data) => {
+      this.rS.list().subscribe((data) => {
+        this.rS.setList(data);
+      });
+    },
+    (error) => {
+      console.log('Insersicion Fallida!!!');
+    }
+    );
+  }
+
 
   registrar(): void {
     if (this.form.valid) {
@@ -115,9 +140,17 @@ export class InsertaruserComponent implements OnInit {
               this.uS.setList(data)
             });
           });
+          this.uS.idUsuario(this.form.value.username).subscribe((id) =>{
+            this.userIdRol = id;
+            this.insertarrol(this.userIdRol)
+            console.log('User ID:', this.userIdRol); 
+          })
+
           this.router.navigate(['listaruser']);
         }
       })
+
+      
     }
   }
   init(){
