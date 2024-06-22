@@ -1,1 +1,55 @@
-<p>reporte02-julio works!</p>
+<div style="text-align: center" class="title">
+    <h1>Lista de Ligas dentro de una temporada y pais</h1>
+  </div>
+  <div style="text-align: center" class="form-container">
+    <form [formGroup]="form" (ngSubmit)="getCantidad()">
+      <mat-form-field>
+        <mat-label class="textoBox">Temporada</mat-label>
+        <mat-select formControlName="year">
+          <mat-option *ngFor="let s of listaSeason" [value]="s.year">
+            {{ s.year }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('year')?.hasError('required')"
+          >La temporada es obligatoria.</mat-error
+        >
+      </mat-form-field>
+      <br>
+      <mat-form-field>
+        <mat-label class="textoBox">Pais</mat-label>
+        <mat-select formControlName="namecountry">
+          <mat-option *ngFor="let c of listaCountries" [value]="c.namecountry">
+            {{ c.namecountry }}
+          </mat-option>
+        </mat-select>
+        <mat-error *ngIf="form.get('namecountry')?.hasError('required')"
+          >El pais es obligatorio.</mat-error
+        >
+      </mat-form-field>
+      <br />
+      <button mat-raised-button color="primary" type="submit">Aceptar</button>
+      <br>
+    </form>
+    <br>
+  </div>
+  <div class="table-container">
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <ng-container matColumnDef="nameligue">
+        <th mat-header-cell *matHeaderCellDef>Nombre de la liga</th>
+        <td mat-cell *matCellDef="let element">{{ element.nameligue }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="year">
+        <th mat-header-cell *matHeaderCellDef>Temporada</th>
+        <td mat-cell *matCellDef="let element">{{ element.year }}</td>
+      </ng-container>
+  
+      <ng-container matColumnDef="namecountry">
+        <th mat-header-cell *matHeaderCellDef>Pais</th>
+        <td mat-cell *matCellDef="let element">{{ element.namecountry }}</td>
+      </ng-container>
+  
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+    </table>
+  </div>
