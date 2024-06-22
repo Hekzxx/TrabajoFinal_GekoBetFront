@@ -138,14 +138,17 @@ export class InsertaruserComponent implements OnInit {
           this.uS.insert(this.user).subscribe((data) => {
             this.uS.list().subscribe((data) => {
               this.uS.setList(data)
+
+              this.uS.ultimousuariocreado().subscribe((lastid)=>{
+                this.tipoRol.tipo = 'USER';
+                this.tipoRol.user.id = lastid;
+                console.log('User ID TU:', this.tipoRol.user.id);
+                
+            
+                this.rS.insert(this.tipoRol).subscribe()
+              })
             });
           });
-          this.uS.idUsuario(this.form.value.username).subscribe((id) =>{
-            this.userIdRol = id;
-            this.insertarrol(this.userIdRol)
-            console.log('User ID:', this.userIdRol); 
-          })
-
           this.router.navigate(['listaruser']);
         }
       })

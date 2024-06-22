@@ -48,4 +48,10 @@ export class UserService {
     );
   }
 
+  ultimousuariocreado(): Observable<number>{
+    return this.http.get<number>(
+      `${this.url}/last`
+    );
+  }
+
 }
