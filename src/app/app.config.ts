@@ -22,8 +22,8 @@ export const appConfig: ApplicationConfig = {
       JwtModule.forRoot({
         config: {
           tokenGetter: tokenGetter,
-          allowedDomains: ['localhost:8083'],
-          disallowedRoutes: ['http://localhost:8083/login/forget'],
+          allowedDomains: ['trabajofinal-gekobet.onrender.com'],
+          disallowedRoutes: ['https://trabajofinal-gekobet.onrender.com/login/forget'],
         },
       })
     ),
